@@ -58,7 +58,7 @@ last_legislative_update: "2026-05"  # auto-added 2026-05-26
 
 ## Назначение
 
-Договоры copит дополнительные соглашения. К третьему допсогу никто не помнит, что
+Договор копит дополнительные соглашения. К третьему допсогу никто не помнит, что
 было в оригинале или какая версия пункта controls. Этот skill читает базовый договор
 и все доп.соглашения в хронологическом порядке и либо summary'ит изменения по
 договору в целом, либо trace'ит конкретный пункт через каждую версию чтобы найти
@@ -302,7 +302,7 @@ untouched — skip их полностью.
 ## Close с next-steps decision tree
 
 Закончи next-steps decision tree из PROFILE.md `## Стиль работы → Outputs`. Customize
-options под то что только что produced — 5 default branches (drафти X, эскалировать,
+options под то что только что produced — 5 default branches (черновик X, эскалировать,
 get more facts, watch and wait, что-то ещё) — starting point, не lock-in. Tree —
 output; lawyer выбирает.
 
@@ -313,7 +313,7 @@ output; lawyer выбирает.
 - Не определяет какой документ controls в случае conflict между базовым договором
   и доп.соглашением — это legal interpretation question. Флагнёт conflicts и routes
   к Legal.
-- Не drафтит новые доп.соглашения.
+- Не готовит проекты новых доп.соглашений.
 - Не сравнивает против playbook в PROFILE.md — это работа `contract-review` skill.
   Этот skill — purely historical.
 - Не infers что доп.соглашение означает, если язык ambiguous — quotes exactly и
@@ -336,7 +336,7 @@ output; lawyer выбирает.
 
 ### Проверка валидности
 
-При traceе обращай внимание на:
+При трассировке обращай внимание на:
 
 - **Форма соглашения** — ст. 452 ГК требует, чтобы изменение договора было в той же
   форме, что и сам договор (письменно если основной письменно). Изменение договора
@@ -373,7 +373,7 @@ by Anthropic (Apache 2.0).
 - Добавлена секция про **ЭДО** (Контур.Сайн, СБИС, DiDoc) — российская
   специфика digital signing
 - Privilege inheritance уточнено для РФ (см. stakeholder-summary)
-- Матter workspaces убран
+- Matter workspaces убран
 
 **Original copyright:** © 2026 Anthropic PBC, licensed under Apache License 2.0.
 **Adapted by:** ru-legal contributors, 2026-05-17.

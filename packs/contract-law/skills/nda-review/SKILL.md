@@ -3,7 +3,7 @@ name: nda-review
 description: >
   Reference: быстрый triage входящих NDA в GREEN / YELLOW / RED по российскому
   праву, чтобы команда тратила lawyer-время только на те, что требуют внимания.
-  Built для sales / BD self-serve до того как pинговать legal. Загружается из
+  Built для sales / BD self-serve до того как обращаться к legal. Загружается из
   `/contract-law:review` когда обнаружен NDA. Учитывает РФ specifics: режим
   коммерческой тайны (98-ФЗ ст.10), ограничения ТК на non-compete, ст.431.2
   заверения, ст.333 ГК снижение неустойки.
@@ -506,7 +506,7 @@ about accepting their paper.
 ## Что этот skill НЕ делает
 
 - Не negotiate'ит. Сортирует.
-- Не drафтит NDA. Если answer — "use our paper", пользователь pull'ит форму из CLM.
+- Не готовит проекты NDA. Если answer — "use our paper", пользователь pull'ит форму из CLM.
 - Не делает call на YELLOW items. Surface их человеку.
 - Не states position по любому NDA term. Positions live в PROFILE.md.
 - **Не проверяет наличие режима КТ автоматически** — только напоминает о его
