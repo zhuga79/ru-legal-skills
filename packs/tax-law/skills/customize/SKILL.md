@@ -7,7 +7,7 @@ argument-hint: "[название секции]"
 user_invocable: true
 ported_at: 2026-05-19
 adaptation_category: D
-last_legislative_update: "2026-05"  # auto-added 2026-05-26
+last_legislative_update: "2026-08"
 ---
 
 # /customize (tax-law profile)
@@ -27,7 +27,7 @@ last_legislative_update: "2026-05"  # auto-added 2026-05-26
 ## РФ-specific guardrails
 
 - **Переход с УСН на ОСНО mid-year** — обычно нельзя, переход с 1 января след.года
-- **УСН с превышением лимита 251.4 млн (2026)** — automatic переход на ОСНО + retroactive recalc
+- **УСН с превышением лимита 490.5 млн (2026)** — automatic переход на ОСНО + retroactive recalc
 - **Risk posture "агрессивный" для tax** — strongly NOT recommended; ВНП поднимет
 
 ---
