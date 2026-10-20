@@ -18,6 +18,7 @@ risk_level: medium
 references:
   - { code: "ФЗ-149", title: "Об информации, информационных технологиях и о защите информации" }
   - { code: "Указ Президента", number: "763", year: "1996", title: "О порядке опубликования НПА" }
+user_invocable: true
 ---
 
 # /reg-feed-watcher — Сканер регуляторных изменений

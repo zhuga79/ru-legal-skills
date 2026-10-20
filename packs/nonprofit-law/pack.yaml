@@ -1,0 +1,69 @@
+# Portable pack manifest — runtime-агностичный.
+# Перенесено из claude-for-legal-ru/nekommercheskie-organizacii (Apache-2.0).
+
+id: nonprofit-law
+version: 0.1.0
+name: "Некоммерческие организации (АНО и фонды)"
+description: >
+  НКО: целевой капитал, гранты, пожертвования, органы управления и решения,
+  годовая отчётность в Минюст. Покрыты АНО и фонды (ФЗ-7, ГК РФ); иные формы
+  НКО и нормы ФЗ-14/ФЗ-208 к ним не применяются.
+
+license: Apache-2.0
+authors:
+  - name: "Claude for Russian Law contributors"
+keywords:
+  - legal
+  - russian-law
+  - nonprofit
+  - nko
+  - ano
+  - endowment
+category: legal
+
+mcp:
+  required: []
+  optional:
+    - pravo
+
+skills:
+  - id: cold-start-interview-nko
+    path: skills/cold-start-interview-nko/SKILL.md
+    user_invocable: true
+    portability: B
+    from_anthropic: false
+    ported_from: nekommercheskie-organizacii/skills/cold-start-interview-nko
+  - id: celevoj-kapital
+    path: skills/celevoj-kapital/SKILL.md
+    user_invocable: true
+    portability: B
+    from_anthropic: false
+    ported_from: nekommercheskie-organizacii/skills/celevoj-kapital
+  - id: grant
+    path: skills/grant/SKILL.md
+    user_invocable: true
+    portability: B
+    from_anthropic: false
+    ported_from: nekommercheskie-organizacii/skills/grant
+  - id: pozhertvovanie
+    path: skills/pozhertvovanie/SKILL.md
+    user_invocable: true
+    portability: B
+    from_anthropic: false
+    ported_from: nekommercheskie-organizacii/skills/pozhertvovanie
+  - id: organy-i-resheniya
+    path: skills/organy-i-resheniya/SKILL.md
+    user_invocable: true
+    portability: B
+    from_anthropic: false
+    ported_from: nekommercheskie-organizacii/skills/organy-i-resheniya
+  - id: otchetnost-minyust
+    path: skills/otchetnost-minyust/SKILL.md
+    user_invocable: true
+    portability: B
+    from_anthropic: false
+    ported_from: nekommercheskie-organizacii/skills/otchetnost-minyust
+
+profile:
+  template: PROFILE.md
+  user_config_path: "~/.ru-legal/profiles/nonprofit-law/PROFILE.md"

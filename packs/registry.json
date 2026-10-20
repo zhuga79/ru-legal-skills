@@ -1,9 +1,9 @@
 {
-  "version": "0.2.0",
-  "last_updated": "2026-05-26",
+  "version": "0.3.0",
+  "last_updated": "2026-10-20",
   "description": "Single source of truth для всех packs и MCP в ru-legal. Любой runtime adapter генерирует свои манифесты из этого файла.",
   "mcp_health_reference": "MCP-STATUS.md",
-  "note": "MCP health status — см. ../MCP-STATUS.md. Не все MCP работают в текущем виде (см. audit 2026-05-26).",
+  "note": "MCP health status — см. ../MCP-STATUS.md. Не все MCP работают в текущем виде (см. audit 2026-05-26). Обновлено 2026-10-20: добавлены 4 пака, перенесённые из claude-for-legal-ru.",
   "packs": [
     {
       "id": "contract-law",
@@ -28,8 +28,17 @@
       "manifest": "litigation/pack.yaml",
       "status": "mvp",
       "health": "see MCP-STATUS.md",
-      "skill_count": 17,
+      "skill_count": 26,
       "note": "АПК/ГПК/КАС/УПК — 17 skills (matter lifecycle 8 + brief drafting + досудебка trio + claim-chart + legal-hold + subpoena + privilege)"
+    },
+    {
+      "id": "process-documents",
+      "path": "process-documents",
+      "manifest": "process-documents/pack.yaml",
+      "status": "mvp",
+      "health": "paste-source",
+      "skill_count": 2,
+      "note": "Процессуальные документы: иск в суд общей юрисдикции и др. Не был зарегистрирован до 2026-10-20."
     },
     {
       "id": "labor-law",
@@ -37,7 +46,7 @@
       "manifest": "labor-law/pack.yaml",
       "status": "mvp",
       "health": "see MCP-STATUS.md",
-      "skill_count": 17,
+      "skill_count": 20,
       "note": "ТК — 17 skills (termination killer skill + hiring + classification ТД/ГПД/НПД + wage-hour + leave/ФСС + 5 investigation suite + policy drafting + handbook + cold-start + customize + trudovaya-inspeksiya-response RU-unique)"
     },
     {
@@ -46,7 +55,7 @@
       "manifest": "corporate-law/pack.yaml",
       "status": "mvp",
       "health": "see MCP-STATUS.md",
-      "skill_count": 13,
+      "skill_count": 20,
       "note": "ФЗ-14 ООО / ФЗ-208 АО / ПАО / ГК — 13 skills (DD + tabular + entity-compliance + written-consent ст.181.2 + board-minutes + closing + material-contract-schedule + deal-team-summary + integration-management + cold-start + customize + RU-unique share-deal-review нотариус! + corporate-meeting-prep)"
     },
     {
@@ -82,7 +91,7 @@
       "manifest": "ip-law/pack.yaml",
       "status": "mvp",
       "health": "see MCP-STATUS.md",
-      "skill_count": 13,
+      "skill_count": 17,
       "note": "Часть 4 ГК + Роспатент/ФИПС/СИП — 13 skills (clearance + FTO + infringement-triage + cease-desist + ip-clause-review с ст.1295 служ.произведение + invention-intake + oss-review + portfolio + takedown с ФЗ-149 ст.15.7 + Мосгорсуд антипиратский + cold-start + customize + 2 RU-unique: rospatent-application + domain-dispute через АДРД КЦ)"
     },
     {
@@ -118,7 +127,7 @@
       "manifest": "regulatory-monitor/pack.yaml",
       "status": "mvp",
       "health": "see MCP-STATUS.md",
-      "skill_count": 6,
+      "skill_count": 7,
       "note": "Мониторинг изменений НПА — 6 skills (reg-feed-watcher killer skill + policy-diff + gap-surfacer + policy-redraft + cold-start + customize). Через pravo MCP."
     },
     {
@@ -129,103 +138,298 @@
       "health": "see MCP-STATUS.md",
       "skill_count": 5,
       "note": "ЗЗПП + 38-ФЗ реклама + 152-ФЗ для consumer products — 5 skills (launch-review killer skill + terms-review + return-policy-review RU-unique + cold-start + customize)."
+    },
+    {
+      "id": "nonprofit-law",
+      "path": "nonprofit-law",
+      "manifest": "nonprofit-law/pack.yaml",
+      "status": "mvp",
+      "health": "paste-source (без обязательного MCP)",
+      "skill_count": 6,
+      "note": "АНО и фонды: целевой капитал, гранты, пожертвования, органы, отчётность Минюста. Перенесено из claude-for-legal-ru/nekommercheskie-organizacii"
+    },
+    {
+      "id": "education-law",
+      "path": "education-law",
+      "manifest": "education-law/pack.yaml",
+      "status": "mvp",
+      "health": "paste-source (без обязательного MCP)",
+      "skill_count": 3,
+      "note": "Фаза A: договор о целевом обучении (ФЗ-273, Положение № 555). Перенесено из claude-for-legal-ru/obrazovatelnoe-pravo"
+    },
+    {
+      "id": "enforcement-law",
+      "path": "enforcement-law",
+      "manifest": "enforcement-law/pack.yaml",
+      "status": "mvp",
+      "health": "paste-source (без обязательного MCP)",
+      "skill_count": 3,
+      "note": "Исполнительное производство: оспаривание постановлений пристава (КАС/АПК), ст. 112 ФЗ-229. Перенесено из claude-for-legal-ru/ispolnitelnoe-proizvodstvo"
+    },
+    {
+      "id": "matter-management",
+      "path": "matter-management",
+      "manifest": "matter-management/pack.yaml",
+      "status": "mvp",
+      "health": "filesystem-only",
+      "skill_count": 3,
+      "note": "Единый портфель дел: дело, реестр сроков, бриф, сводка. Перенесено из claude-for-legal-ru/vedenie-del"
     }
   ],
   "roadmap_packs": [
-    {"id": "process-documents", "description": "Cross-cutting процесс.документы (иски, отзывы, апелляции, ходатайства)", "priority": "P0", "phase": 1},
-    {"id": "family-law", "description": "Семейное право (развод, алименты, раздел имущества)", "priority": "P0", "phase": 1},
-    {"id": "inheritance-law", "description": "Наследственное право", "priority": "P1", "phase": 1},
-    {"id": "personal-bankruptcy", "description": "Банкротство физлиц", "priority": "P1", "phase": 1},
-    {"id": "housing-law", "description": "Жилищное право (ЖКХ, УК, перепланировки, ДДУ)", "priority": "P1", "phase": 2},
-    {"id": "financial-disputes", "description": "ОСАГО/КАСКО, банки, МФО, АСВ", "priority": "P2", "phase": 2},
-    {"id": "social-benefits", "description": "Пенсии, маткапитал, льготы", "priority": "P2", "phase": 2}
+    {
+      "id": "process-documents",
+      "description": "Cross-cutting процесс.документы (иски, отзывы, апелляции, ходатайства)",
+      "priority": "P0",
+      "phase": 1
+    },
+    {
+      "id": "family-law",
+      "description": "Семейное право (развод, алименты, раздел имущества)",
+      "priority": "P0",
+      "phase": 1
+    },
+    {
+      "id": "inheritance-law",
+      "description": "Наследственное право",
+      "priority": "P1",
+      "phase": 1
+    },
+    {
+      "id": "personal-bankruptcy",
+      "description": "Банкротство физлиц",
+      "priority": "P1",
+      "phase": 1
+    },
+    {
+      "id": "housing-law",
+      "description": "Жилищное право (ЖКХ, УК, перепланировки, ДДУ)",
+      "priority": "P1",
+      "phase": 2
+    },
+    {
+      "id": "financial-disputes",
+      "description": "ОСАГО/КАСКО, банки, МФО, АСВ",
+      "priority": "P2",
+      "phase": 2
+    },
+    {
+      "id": "social-benefits",
+      "description": "Пенсии, маткапитал, льготы",
+      "priority": "P2",
+      "phase": 2
+    }
   ],
   "mcps": [
     {
       "id": "pravo",
       "path": "../mcps/pravo",
       "description": "Тексты НПА РФ с pravo.gov.ru. Без API ключа.",
-      "command": ["python", "-m", "pravo_mcp.server"],
+      "command": [
+        "python",
+        "-m",
+        "pravo_mcp.server"
+      ],
       "requires_auth": false,
       "status": "mvp",
       "health": "see MCP-STATUS.md",
-      "used_by_packs": ["contract-law", "litigation", "labor-law", "data-protection", "tax-law", "corporate-law", "ip-law", "ai-governance", "administrative-law", "real-estate", "public-procurement", "compliance-aml"]
+      "used_by_packs": [
+        "contract-law",
+        "litigation",
+        "labor-law",
+        "data-protection",
+        "tax-law",
+        "corporate-law",
+        "ip-law",
+        "ai-governance",
+        "administrative-law",
+        "real-estate",
+        "public-procurement",
+        "compliance-aml"
+      ]
     },
     {
       "id": "egrul",
       "path": "../mcps/egrul",
       "description": "Проверка контрагентов в ЕГРЮЛ/ЕГРИП через api-fns.ru.",
-      "command": ["python", "-m", "egrul_mcp.server"],
+      "command": [
+        "python",
+        "-m",
+        "egrul_mcp.server"
+      ],
       "requires_auth": true,
       "auth_env_var": "API_FNS_KEY",
       "auth_signup_url": "https://api-fns.ru",
       "status": "mvp",
       "health": "see MCP-STATUS.md",
-      "used_by_packs": ["contract-law", "corporate-law", "litigation", "tax-law", "ip-law", "compliance-aml", "public-procurement"]
+      "used_by_packs": [
+        "contract-law",
+        "corporate-law",
+        "litigation",
+        "tax-law",
+        "ip-law",
+        "compliance-aml",
+        "public-procurement"
+      ]
     },
     {
       "id": "kad",
       "path": "../mcps/kad",
       "description": "Картотека арбитражных дел kad.arbitr.ru. Поиск дел, карточки, документы.",
-      "command": ["python", "-m", "kad_mcp.server"],
+      "command": [
+        "python",
+        "-m",
+        "kad_mcp.server"
+      ],
       "requires_auth": false,
       "status": "mvp",
       "health": "see MCP-STATUS.md",
       "limitations": "kad.arbitr.ru имеет anti-bot защиту; для production volumes рекомендуется paid feed (СПАРК / Контур / Casebook).",
-      "used_by_packs": ["litigation", "corporate-law", "tax-law", "ip-law", "public-procurement"]
+      "used_by_packs": [
+        "litigation",
+        "corporate-law",
+        "tax-law",
+        "ip-law",
+        "public-procurement"
+      ]
     },
     {
       "id": "efrsb",
       "path": "../mcps/efrsb",
       "description": "ЕФРСБ (Единый федеральный реестр банкротства) — bankrot.fedresurs.ru.",
-      "command": ["python", "-m", "efrsb_mcp.server"],
+      "command": [
+        "python",
+        "-m",
+        "efrsb_mcp.server"
+      ],
       "requires_auth": false,
       "status": "mvp",
       "health": "see MCP-STATUS.md",
-      "used_by_packs": ["corporate-law", "contract-law", "labor-law", "tax-law", "ip-law"]
+      "used_by_packs": [
+        "corporate-law",
+        "contract-law",
+        "labor-law",
+        "tax-law",
+        "ip-law"
+      ]
     },
     {
       "id": "rospatent",
       "path": "../mcps/rospatent",
       "description": "Реестры ТЗ / патентов / ПО / БД через ФИПС (www1.fips.ru).",
-      "command": ["python", "-m", "rospatent_mcp.server"],
+      "command": [
+        "python",
+        "-m",
+        "rospatent_mcp.server"
+      ],
       "requires_auth": false,
       "status": "mvp",
       "health": "see MCP-STATUS.md",
-      "used_by_packs": ["ip-law", "corporate-law"]
+      "used_by_packs": [
+        "ip-law",
+        "corporate-law"
+      ]
     },
     {
       "id": "zakupki",
       "path": "../mcps/zakupki",
       "description": "ЕИС закупки zakupki.gov.ru — поиск тендеров 44-ФЗ/223-ФЗ, РНП, история заказчиков.",
-      "command": ["python", "-m", "zakupki_mcp.server"],
+      "command": [
+        "python",
+        "-m",
+        "zakupki_mcp.server"
+      ],
       "requires_auth": false,
       "status": "mvp",
       "health": "see MCP-STATUS.md",
-      "used_by_packs": ["public-procurement", "corporate-law"]
+      "used_by_packs": [
+        "public-procurement",
+        "corporate-law"
+      ]
     },
     {
       "id": "rosreestr",
       "path": "../mcps/rosreestr",
       "description": "Публичная кадастровая карта pkk.rosreestr.ru + ссылки на ЕГРН выписки.",
-      "command": ["python", "-m", "rosreestr_mcp.server"],
+      "command": [
+        "python",
+        "-m",
+        "rosreestr_mcp.server"
+      ],
       "requires_auth": false,
       "status": "mvp",
       "health": "see MCP-STATUS.md",
       "limitations": "PKK даёт базовую инфо; для полных ЕГРН выписок — заказ через rosreestr.gov.ru (290-460 руб).",
-      "used_by_packs": ["real-estate", "corporate-law"]
+      "used_by_packs": [
+        "real-estate",
+        "corporate-law"
+      ]
     }
   ],
   "roadmap_mcps": [
-    {"id": "cbr", "description": "ЦБ РФ SOAP API + 10 реестров (банки, лицензии, МФО, страховщики)", "priority": "P0", "status": "in-progress", "note": "Public SOAP, no auth — easy win"},
-    {"id": "sanctions", "description": "Росфинмониторинг + Минюст иноагенты — compliance bundle", "priority": "P0", "status": "planned", "note": "XML dumps, no auth"},
-    {"id": "fns-extended", "description": "ФНС opendata: дисквалификация, mass-addresses, реестр МСП", "priority": "P1", "status": "planned"},
-    {"id": "gas-pravosudie", "description": "СОЮ — sudrf.ru через scraping/paid feed (90% юр.практики)", "priority": "P1", "status": "research", "note": "Нет публичного API — нужно решение"},
-    {"id": "documents", "description": "Generator шаблонов исков, отзывов, ходатайств", "priority": "P1", "status": "planned"},
-    {"id": "constants", "description": "Constants registry (госпошлины, штрафы, МРОТ, сроки) — single source of truth", "priority": "P0", "status": "planned", "note": "См. references/constants/"},
-    {"id": "firm-knowledge", "description": "Self-hosted MCP для собственных данных юр.фирмы (Postgres+Qdrant)", "priority": "P1", "status": "planned"},
-    {"id": "rkn", "description": "Реестр операторов ПДн (152-ФЗ)", "priority": "P2", "status": "planned"},
-    {"id": "fas", "description": "ФАС решения по жалобам", "priority": "P2", "status": "planned"},
-    {"id": "fssp", "description": "Банк данных исполнительных производств — ФССП", "priority": "P2", "status": "planned"}
+    {
+      "id": "cbr",
+      "description": "ЦБ РФ SOAP API + 10 реестров (банки, лицензии, МФО, страховщики)",
+      "priority": "P0",
+      "status": "in-progress",
+      "note": "Public SOAP, no auth — easy win"
+    },
+    {
+      "id": "sanctions",
+      "description": "Росфинмониторинг + Минюст иноагенты — compliance bundle",
+      "priority": "P0",
+      "status": "planned",
+      "note": "XML dumps, no auth"
+    },
+    {
+      "id": "fns-extended",
+      "description": "ФНС opendata: дисквалификация, mass-addresses, реестр МСП",
+      "priority": "P1",
+      "status": "planned"
+    },
+    {
+      "id": "gas-pravosudie",
+      "description": "СОЮ — sudrf.ru через scraping/paid feed (90% юр.практики)",
+      "priority": "P1",
+      "status": "research",
+      "note": "Нет публичного API — нужно решение"
+    },
+    {
+      "id": "documents",
+      "description": "Generator шаблонов исков, отзывов, ходатайств",
+      "priority": "P1",
+      "status": "planned"
+    },
+    {
+      "id": "constants",
+      "description": "Constants registry (госпошлины, штрафы, МРОТ, сроки) — single source of truth",
+      "priority": "P0",
+      "status": "planned",
+      "note": "См. references/constants/"
+    },
+    {
+      "id": "firm-knowledge",
+      "description": "Self-hosted MCP для собственных данных юр.фирмы (Postgres+Qdrant)",
+      "priority": "P1",
+      "status": "planned"
+    },
+    {
+      "id": "rkn",
+      "description": "Реестр операторов ПДн (152-ФЗ)",
+      "priority": "P2",
+      "status": "planned"
+    },
+    {
+      "id": "fas",
+      "description": "ФАС решения по жалобам",
+      "priority": "P2",
+      "status": "planned"
+    },
+    {
+      "id": "fssp",
+      "description": "Банк данных исполнительных производств — ФССП",
+      "priority": "P2",
+      "status": "planned"
+    }
   ]
 }

@@ -9,7 +9,11 @@
 
 ## [Unreleased]
 
-### Added
+### Added (2026-10-20)
+- Перенесены из `claude-for-legal-ru` (Apache-2.0) 4 пака: `nonprofit-law` (6), `education-law` (3), `enforcement-law` (3), `matter-management` (3)
+- 24 skill добавлены в существующие паки: `ip-law` +4, `corporate-law` +7, `litigation` +9, `labor-law` +3, `regulatory-monitor` +1
+- `NOTICE` — атрибуция Anthropic и `claude-for-legal-ru`
+- Адаптированы пути профилей (`~/.ru-legal/profiles/<pack>/PROFILE.md`), имена паков и frontmatter (`user_invocable`)
 - `packs/registry.json` — single source of truth для всех packs и MCP
 - `packs/*/pack.yaml` — portable runtime-agnostic manifests для каждого pack
 

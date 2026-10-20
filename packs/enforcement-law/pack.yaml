@@ -1,0 +1,52 @@
+# Portable pack manifest — runtime-агностичный.
+# Перенесено из claude-for-legal-ru/ispolnitelnoe-proizvodstvo (Apache-2.0).
+
+id: enforcement-law
+version: 0.1.0
+name: "Исполнительное производство"
+description: >
+  Оспаривание постановлений, действий и бездействия судебного пристава-исполнителя
+  (ФЗ-229): выбор кодекса — КАС гл. 22 или АПК гл. 24, подсудность, 10-дневный
+  срок, меры предварительной защиты, проверка исполнительского сбора (ст. 112).
+
+license: Apache-2.0
+authors:
+  - name: "Claude for Russian Law contributors"
+keywords:
+  - legal
+  - russian-law
+  - enforcement
+  - bailiff
+  - 229-fz
+  - ispolnitelnoe-proizvodstvo
+category: legal
+
+mcp:
+  required: []
+  optional:
+    - pravo
+    - kad
+
+skills:
+  - id: cold-start-interview-ip
+    path: skills/cold-start-interview-ip/SKILL.md
+    user_invocable: true
+    portability: B
+    from_anthropic: false
+    ported_from: ispolnitelnoe-proizvodstvo/skills/cold-start-interview-ip
+  - id: osparivanie-postanovlenij-pristava
+    path: skills/osparivanie-postanovlenij-pristava/SKILL.md
+    user_invocable: true
+    portability: B
+    from_anthropic: false
+    ported_from: ispolnitelnoe-proizvodstvo/skills/osparivanie-postanovlenij-pristava
+  - id: customize-ip
+    path: skills/customize-ip/SKILL.md
+    user_invocable: true
+    portability: B
+    from_anthropic: false
+    ported_from: ispolnitelnoe-proizvodstvo/skills/customize-ip
+
+profile:
+  template: PROFILE.md
+  user_config_path: "~/.ru-legal/profiles/enforcement-law/PROFILE.md"

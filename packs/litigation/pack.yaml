@@ -165,6 +165,63 @@ skills:
     ported_from: litigation-legal/privilege-log-review
     note: "Адвокатская тайна (ФЗ-63) — другая доктрина чем ACP. In-house без privilege."
 
+
+  # Перенесено из claude-for-legal-ru/sudebnyj-process (Apache-2.0)
+  - id: vid-proizvodstva
+    path: skills/vid-proizvodstva/SKILL.md
+    user_invocable: true
+    portability: B
+    from_anthropic: false
+    ported_from: sudebnyj-process/skills/vid-proizvodstva
+  - id: isk-proverka
+    path: skills/isk-proverka/SKILL.md
+    user_invocable: true
+    portability: B
+    from_anthropic: false
+    ported_from: sudebnyj-process/skills/isk-proverka
+  - id: otzyv-na-isk
+    path: skills/otzyv-na-isk/SKILL.md
+    user_invocable: true
+    portability: B
+    from_anthropic: false
+    ported_from: sudebnyj-process/skills/otzyv-na-isk
+  - id: vozrazhenie-davnost
+    path: skills/vozrazhenie-davnost/SKILL.md
+    user_invocable: true
+    portability: B
+    from_anthropic: false
+    ported_from: sudebnyj-process/skills/vozrazhenie-davnost
+  - id: obespechitelnye-mery
+    path: skills/obespechitelnye-mery/SKILL.md
+    user_invocable: true
+    portability: B
+    from_anthropic: false
+    ported_from: sudebnyj-process/skills/obespechitelnye-mery
+  - id: istrebovanie-dokazatelstv
+    path: skills/istrebovanie-dokazatelstv/SKILL.md
+    user_invocable: true
+    portability: B
+    from_anthropic: false
+    ported_from: sudebnyj-process/skills/istrebovanie-dokazatelstv
+  - id: mirovoe-soglashenie
+    path: skills/mirovoe-soglashenie/SKILL.md
+    user_invocable: true
+    portability: B
+    from_anthropic: false
+    ported_from: sudebnyj-process/skills/mirovoe-soglashenie
+  - id: sudebnye-rashody
+    path: skills/sudebnye-rashody/SKILL.md
+    user_invocable: true
+    portability: B
+    from_anthropic: false
+    ported_from: sudebnyj-process/skills/sudebnye-rashody
+  - id: obzhalovanie
+    path: skills/obzhalovanie/SKILL.md
+    user_invocable: true
+    portability: B
+    from_anthropic: false
+    ported_from: sudebnyj-process/skills/obzhalovanie
+
 agents:
   # docket-watcher (Phase 2) — мониторинг КАД на дедлайны
 

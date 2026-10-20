@@ -1,10 +1,10 @@
 # ru-legal
 
-> **Open-source legal knowledge + data layer для российского права.** 145 skills + 7 MCP-интеграций с госреестрами (+ aggregator MCP). Apache 2.0. Подключи через MCP к любому AI-клиенту: Claude Code / Cursor / Continue / LangGraph / собственный harness.
+> **Open-source legal knowledge + data layer для российского права.** 186 skills + 7 MCP-интеграций с госреестрами (+ aggregator MCP). Apache 2.0. Подключи через MCP к любому AI-клиенту: Claude Code / Cursor / Continue / LangGraph / собственный harness.
 
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/)
-[![Skills](https://img.shields.io/badge/skills-145-success.svg)](packs/)
+[![Skills](https://img.shields.io/badge/skills-186-success.svg)](packs/)
 [![MCPs](https://img.shields.io/badge/MCPs-8-success.svg)](mcps/)
 
 > ⚠ AI-инструмент, **не замена юриста**. См. [DISCLAIMER.md](DISCLAIMER.md).
@@ -15,7 +15,7 @@
 
 `ru-legal` — **infrastructure layer**, не приложение. Две вещи:
 
-1. **145 skills** в 14 packs — кодифицированные workflow по российскому праву (Markdown с YAML frontmatter — формат от Anthropic)
+1. **186 skills** в 19 packs — кодифицированные workflow по российскому праву (Markdown с YAML frontmatter — формат от Anthropic)
 2. **7 data-MCP серверов** — интеграции с госреестрами (pravo.gov.ru, ЕГРЮЛ, kad.arbitr, ЕФРСБ, Роспатент, ЕИС закупки, Росреестр) + **1 aggregator MCP** (`ru-legal-mcp`) — unified entry-point на всё. Итого **8 MCP** в репозитории.
 
 ## Архитектура — два слоя
@@ -25,7 +25,7 @@
 │  ru-legal (этот repo)                                    │
 │  Open-source legal knowledge + data layer                │
 │                                                          │
-│  ├── packs/         — 145 skills (Markdown)              │
+│  ├── packs/         — 186 skills (Markdown)              │
 │  ├── mcps/          — 7 специализированных MCP           │
 │  └── mcps/ru-legal-aggregator/                           │
 │       └── ru-legal-mcp — unified entry-point             │
@@ -61,7 +61,7 @@ pip install ru-legal-mcp
 ```
 
 Теперь LLM-клиент видит:
-- **145 skills** как MCP prompts (slash-commands)
+- **186 skills** как MCP prompts (slash-commands)
 - **Skill management tools** (`find_skill`, `get_skill`, `list_skills`)
 - **(Phase 2)** 33 tools из 7 sub-MCPs
 
@@ -95,24 +95,29 @@ result = await agent.ainvoke({"messages": [
 
 ## Что внутри
 
-### 14 packs / 145 skills
+### 19 packs / 186 skills
 
 | Pack | Skills | Killer skill |
 |------|-------:|--------------|
 | [contract-law](packs/contract-law/) | 12 | nda-review, vendor-agreement-review, saas-msa-review |
 | [data-protection](packs/data-protection/) | 8 | **dsar-response** (РКН штрафы до 18M ₽) |
-| [litigation](packs/litigation/) | 17 | matter-intake, brief-section-drafter |
-| [labor-law](packs/labor-law/) | 17 | **termination-review** (13 grounds + защ. категории) |
-| [corporate-law](packs/corporate-law/) | 13 | share-deal-review (нотариус ст.21 ФЗ-14), DD |
+| [litigation](packs/litigation/) | 26 | matter-intake, brief-section-drafter |
+| [labor-law](packs/labor-law/) | 20 | **termination-review** (13 grounds + защ. категории) |
+| [corporate-law](packs/corporate-law/) | 20 | share-deal-review (нотариус ст.21 ФЗ-14), DD |
 | [tax-law](packs/tax-law/) | 9 | **tax-audit-response** (ВНП доначисления) |
 | [public-procurement](packs/public-procurement/) | 9 | tender-documentation-review, biased-tender-detection |
 | [compliance-aml](packs/compliance-aml/) | 9 | sanctions-screening (multi-jurisdiction) |
-| [ip-law](packs/ip-law/) | 13 | clearance, infringement-triage, takedown ФЗ-149 |
+| [ip-law](packs/ip-law/) | 17 | clearance, infringement-triage, takedown ФЗ-149 |
 | [ai-governance](packs/ai-governance/) | 10 | use-case-triage, vendor-ai-review, AIA |
 | [administrative-law](packs/administrative-law/) | 8 | koap-violation-response, 10-day appeal |
 | [real-estate](packs/real-estate/) | 9 | **ddu-review** 214-ФЗ, cadastre-check |
-| [regulatory-monitor](packs/regulatory-monitor/) | 6 | reg-feed-watcher, gap-surfacer |
+| [regulatory-monitor](packs/regulatory-monitor/) | 7 | reg-feed-watcher, gap-surfacer |
 | [consumer-product](packs/consumer-product/) | 5 | launch-review (ЗЗПП + 152-ФЗ + 38-ФЗ) |
+| [education-law](packs/education-law/) | 3 | celevoj-dogovor (ФЗ-273, Положение № 555) |
+| [enforcement-law](packs/enforcement-law/) | 3 | osparivanie-postanovlenij-pristava (ФЗ-229) |
+| [matter-management](packs/matter-management/) | 3 | delo, portfel (сроки по всем делам) |
+| [nonprofit-law](packs/nonprofit-law/) | 6 | grant, celevoj-kapital, otchetnost-minyust |
+| [process-documents](packs/process-documents/) | 2 | claim-draft-civil (ГПК) |
 
 ### 7 MCP integrations (госреестры)
 
@@ -132,7 +137,7 @@ result = await agent.ainvoke({"messages": [
 
 Один пакет, объединяющий всё:
 
-- Все 145 skills доступны через `list_skills` / `find_skill` / `get_skill`
+- Все 186 skills доступны через `list_skills` / `find_skill` / `get_skill`
 - **Strategy C router** — LLM-based подбор skill под user query (если configured), keyword fallback
 - Skills auto-зарегистрированы как MCP prompts (slash-commands)
 - *(Phase 2)*: re-export всех 33 tools из 7 sub-MCPs
@@ -171,13 +176,13 @@ Router LLM (для Strategy C skill selection) auto-detects из env vars (`OPEN
 - *Pattern «skill prescribes tool calls»* — их подход
 
 Что мы добавили:
-- 14 packs vs 12 — RU-unique (tax-law, public-procurement, compliance-aml, administrative-law, real-estate)
-- 145 skills vs 110 — РФ-уникальные процедуры
+- 19 packs vs 12 — RU-unique (tax-law, public-procurement, compliance-aml, administrative-law, real-estate)
+- 186 skills vs 110 — РФ-уникальные процедуры
 - Deep content adaptation под РФ (ст. ГК / ТК / НК / ФЗ + российская практика)
 - 7 MCP интеграций с РФ госреестрами (Anthropic ничего такого не делал)
 - LLM-агностичность (Anthropic — Claude-only)
 
-Attribution-метаданные содержатся в YAML frontmatter каждого портированного skill (`ported_from`, `ported_at`). Полный текст лицензии Anthropic — [`vendor/claude-for-legal/LICENSE`](vendor/claude-for-legal/LICENSE).
+Attribution-метаданные содержатся в YAML frontmatter каждого портированного skill (`ported_from`, `ported_at`). Полный текст лицензии Anthropic — [`LICENSE`](LICENSE); атрибуция производной работы — [`NOTICE`](NOTICE).
 
 ## Contributing
 
@@ -193,7 +198,7 @@ Attribution-метаданные содержатся в YAML frontmatter каж
 
 ## Roadmap
 
-- ✅ Phase 1: 14 packs / 145 skills / 7 MCPs / aggregator MCP
+- ✅ Phase 1: 19 packs / 186 skills / 7 MCPs / aggregator MCP
 - 🚧 Phase 2: split + `ru-legal-agent` separate repo + tool proxying в aggregator
 - ⏳ Phase 3: embedding-based router, более sophisticated memory integration
 - ⏳ Phase 4: community-contributed packs (banking law / customs / fintech)

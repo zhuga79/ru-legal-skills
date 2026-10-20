@@ -19,12 +19,13 @@
 
 ## Текущее состояние (v0.1.0, май 2026)
 
-✅ **145 skills** в 14 паках:
-- contract-law (15), labor-law (14), corporate-law (12)
-- tax-law (11), ip-law (10), real-estate (10)
-- compliance-aml (9), data-protection (12), consumer-product (8)
-- public-procurement (10), AI governance (10)
-- regulatory-monitor (8), administrative-law (8), litigation (8)
+✅ **186 skills** в 19 паках:
+- contract-law (12), litigation (26), labor-law (20), corporate-law (20)
+- ip-law (17), tax-law (9), public-procurement (9), compliance-aml (9)
+- real-estate (9), data-protection (8), administrative-law (8)
+- ai-governance (10), regulatory-monitor (7), nonprofit-law (6)
+- consumer-product (5), education-law (3), enforcement-law (3)
+- matter-management (3), process-documents (2)
 
 ✅ **8 MCP-серверов** к госреестрам:
 - pravo-mcp, egrul-mcp, kad-mcp, efrsb-mcp
@@ -36,7 +37,6 @@
 **Что отсутствует** (явные дыры):
 - Суды общей юрисдикции (СОЮ) — ~90% юр.практики (трудовые, семейные, наследственные споры)
 - Семейное / наследственное / жилищное право
-- Процессуальные документы (иски, отзывы, жалобы)
 - Банкротство физлиц
 - Compliance suite (санкции, лицензии, реестр МСП)
 
@@ -234,8 +234,8 @@
 
 | Метрика | Текущая (v0.1.0) | Phase 1 цель | Phase 2 цель | Phase 3 цель |
 |---|---|---|---|---|
-| Packs | 14 | 18 | 21 | 23 |
-| Skills | 145 | 185 | 215 | 235 |
+| Packs | 19 | 20 | 22 | 24 |
+| Skills | 186 | 200 | 220 | 240 |
 | MCPs | 8 | 11 | 14 | 16-17 |
 | GitHub ⭐ | 0 | 200 | 500 | 1000 |
 | Contributors | 1 | 5 | 15 | 30 |

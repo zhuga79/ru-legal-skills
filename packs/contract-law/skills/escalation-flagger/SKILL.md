@@ -12,6 +12,7 @@ ported_from: commercial-legal/escalation-flagger
 ported_at: 2026-05-17
 adaptation_category: A
 last_legislative_update: "2026-05"  # auto-added 2026-05-26
+user_invocable: true
 ---
 
 # /escalation-flagger

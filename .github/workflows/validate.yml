@@ -1,0 +1,128 @@
+name: validate
+
+on:
+  pull_request:
+  push:
+    branches: [master, main]
+
+permissions:
+  contents: read
+
+jobs:
+  registry:
+    name: Реестр паков
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: registry.json — корректный JSON
+        run: python3 -c "import json; json.load(open('packs/registry.json'))"
+
+      - name: Каждый pack из реестра существует, skill_count совпадает
+        run: |
+          python3 - <<'PY'
+          import json, sys
+          from pathlib import Path
+
+          data = json.load(open('packs/registry.json'))
+          problems = []
+          for p in data.get('packs', []):
+              root = Path('packs') / p['path']
+              if not root.is_dir():
+                  problems.append(f"{p['id']}: нет каталога {root}")
+                  continue
+              actual = len(list((root / 'skills').glob('*/SKILL.md')))
+              if actual != p.get('skill_count'):
+                  problems.append(f"{p['id']}: skill_count={p.get('skill_count')}, фактически {actual}")
+          if problems:
+              print('Расхождения реестра:')
+              print('\n'.join('  ' + x for x in problems))
+              sys.exit(1)
+          print(f"паков в реестре: {len(data.get('packs', []))} — все на месте")
+          PY
+
+      - name: pack.yaml парсится, skills == каталоги
+        run: |
+          python3 - <<'PY'
+          import sys, yaml
+          from pathlib import Path
+
+          problems = []
+          for manifest in sorted(Path('packs').glob('*/pack.yaml')):
+              pack = manifest.parent
+              d = yaml.safe_load(manifest.read_text(encoding='utf-8'))
+              listed = {s['id'] for s in d.get('skills', [])}
+              actual = {x.parent.name for x in (pack / 'skills').glob('*/SKILL.md')}
+              if listed != actual:
+                  problems.append(f"{pack.name}: в манифесте нет {sorted(actual - listed)}, лишние {sorted(listed - actual)}")
+          if problems:
+              print('\n'.join('  ' + x for x in problems))
+              sys.exit(1)
+          print('все pack.yaml согласованы со skills/')
+          PY
+
+  skills:
+    name: Структура skills
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: "Frontmatter: name, description, user_invocable"
+        run: |
+          python3 - <<'PY'
+          import sys, yaml
+          from pathlib import Path
+
+          bad = []
+          for f in Path('packs').rglob('skills/*/SKILL.md'):
+              text = f.read_text(encoding='utf-8', errors='replace')
+              if not text.startswith('---'):
+                  bad.append(f'{f} — нет frontmatter')
+                  continue
+              try:
+                  d = yaml.safe_load(text.split('---', 2)[1]) or {}
+              except Exception as e:
+                  bad.append(f'{f} — YAML: {e}')
+                  continue
+              for key in ('name', 'description'):
+                  if key not in d:
+                      bad.append(f'{f} — нет {key}')
+              if 'user_invocable' not in d:
+                  bad.append(f'{f} — нет user_invocable')
+          if bad:
+              print('\n'.join('  ' + b for b in bad))
+              sys.exit(1)
+          print(f"skills проверено: {len(list(Path('.').rglob('packs/*/skills/*/SKILL.md')))}")
+          PY
+
+      - name: Уникальность skill_id (pack/name)
+        run: |
+          python3 - <<'PY'
+          import collections, sys, yaml
+          from pathlib import Path
+
+          seen = collections.defaultdict(list)
+          for f in Path('packs').rglob('skills/*/SKILL.md'):
+              head = f.read_text(encoding='utf-8', errors='replace').split('---', 2)[1]
+              name = (yaml.safe_load(head) or {}).get('name')
+              seen[name].append(str(f))
+          def same_pack(paths):
+              packs = [Path(x).parent.parent.name for x in paths]
+              return len(packs) != len(set(packs))
+
+          dups = {k: v for k, v in seen.items() if len(v) > 1 and same_pack(v)}
+          if dups:
+              print('Дубли name внутри одного пака:')
+              for k, v in dups.items():
+                  print(f'  {k}: {v}')
+              sys.exit(1)
+          print('имена внутри паков уникальны')
+          PY

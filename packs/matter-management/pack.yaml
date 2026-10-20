@@ -1,0 +1,43 @@
+# Portable pack manifest — runtime-агностичный.
+# Перенесено из claude-for-legal-ru/vedenie-del (Apache-2.0).
+
+id: matter-management
+version: 0.1.0
+name: "Ведение дел"
+description: >
+  Единый портфель дел для всех packs: карточка дела, журнал событий, реестр
+  статусов и сроков, бриф по делу и сводка портфеля. Режим по умолчанию выключен.
+
+license: Apache-2.0
+authors:
+  - name: "Claude for Russian Law contributors"
+keywords:
+  - legal
+  - russian-law
+  - matter-management
+  - portfolio
+  - deadlines
+category: legal
+
+mcp:
+  required: []
+
+skills:
+  - id: delo
+    path: skills/delo/SKILL.md
+    user_invocable: true
+    portability: B
+    from_anthropic: false
+    ported_from: vedenie-del/skills/delo
+  - id: portfel
+    path: skills/portfel/SKILL.md
+    user_invocable: true
+    portability: B
+    from_anthropic: false
+    ported_from: vedenie-del/skills/portfel
+  - id: srez
+    path: skills/srez/SKILL.md
+    user_invocable: true
+    portability: B
+    from_anthropic: false
+    ported_from: vedenie-del/skills/srez

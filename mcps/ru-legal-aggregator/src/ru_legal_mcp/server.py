@@ -7,7 +7,7 @@ Exposes:
   - get_skill(skill_id) → full SKILL.md content
 
 - *Skills as MCP prompts*:
-  - Auto-register все 145 skills как prompts с argument-hint
+  - Auto-register все 186 skills как prompts с argument-hint
   - Claude Code / Cursor will see them как slash commands
 
 - *Все 33 tools из 7 sub-MCPs* (proxied / re-implemented):
@@ -200,7 +200,7 @@ async def get_skill_index() -> str:
 
 
 # ----------------------------------------------------------------------------
-# Skills as MCP prompts — auto-register all 145 skills
+# Skills as MCP prompts — auto-register all 186 skills
 # ----------------------------------------------------------------------------
 
 

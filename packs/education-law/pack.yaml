@@ -1,0 +1,50 @@
+# Portable pack manifest — runtime-агностичный.
+# Перенесено из claude-for-legal-ru/obrazovatelnoe-pravo (Apache-2.0).
+
+id: education-law
+version: 0.1.0
+name: "Образовательное право РФ"
+description: >
+  Фаза A: договор о целевом обучении — проверка проекта до подписания и
+  действующего договора (ст. 56, 71.1, 71.2 ФЗ-273; Положение № 555,
+  редакция на дату подписания, ответственность, меры поддержки, трудоустройство).
+
+license: Apache-2.0
+authors:
+  - name: "Claude for Russian Law contributors"
+keywords:
+  - legal
+  - russian-law
+  - education-law
+  - celevoe-obuchenie
+  - 273-fz
+category: legal
+
+mcp:
+  required: []
+  optional:
+    - pravo
+
+skills:
+  - id: cold-start-interview-op
+    path: skills/cold-start-interview-op/SKILL.md
+    user_invocable: true
+    portability: B
+    from_anthropic: false
+    ported_from: obrazovatelnoe-pravo/skills/cold-start-interview-op
+  - id: celevoj-dogovor
+    path: skills/celevoj-dogovor/SKILL.md
+    user_invocable: true
+    portability: B
+    from_anthropic: false
+    ported_from: obrazovatelnoe-pravo/skills/celevoj-dogovor
+  - id: customize-op
+    path: skills/customize-op/SKILL.md
+    user_invocable: true
+    portability: B
+    from_anthropic: false
+    ported_from: obrazovatelnoe-pravo/skills/customize-op
+
+profile:
+  template: PROFILE.md
+  user_config_path: "~/.ru-legal/profiles/education-law/PROFILE.md"

@@ -135,6 +135,51 @@ skills:
     from_anthropic: false
     note: "RU-unique — подготовка ОСУ / ОСА / СД (повестка, уведомления, кворум, голосование)"
 
+
+  # Перенесено из claude-for-legal-ru/korporativnoe-pravo (Apache-2.0)
+  - id: due-diligence
+    path: skills/due-diligence/SKILL.md
+    user_invocable: true
+    portability: B
+    from_anthropic: false
+    ported_from: korporativnoe-pravo/skills/due-diligence
+  - id: vhod-investora
+    path: skills/vhod-investora/SKILL.md
+    user_invocable: true
+    portability: B
+    from_anthropic: false
+    ported_from: korporativnoe-pravo/skills/vhod-investora
+  - id: konvertiruemyj-zaem
+    path: skills/konvertiruemyj-zaem/SKILL.md
+    user_invocable: true
+    portability: B
+    from_anthropic: false
+    ported_from: korporativnoe-pravo/skills/konvertiruemyj-zaem
+  - id: korporativnyj-dogovor
+    path: skills/korporativnyj-dogovor/SKILL.md
+    user_invocable: true
+    portability: B
+    from_anthropic: false
+    ported_from: korporativnoe-pravo/skills/korporativnyj-dogovor
+  - id: odobrenie-sdelki
+    path: skills/odobrenie-sdelki/SKILL.md
+    user_invocable: true
+    portability: B
+    from_anthropic: false
+    ported_from: korporativnoe-pravo/skills/odobrenie-sdelki
+  - id: zaochnoe-golosovanie
+    path: skills/zaochnoe-golosovanie/SKILL.md
+    user_invocable: true
+    portability: B
+    from_anthropic: false
+    ported_from: korporativnoe-pravo/skills/zaochnoe-golosovanie
+  - id: korporativnyj-komplaens
+    path: skills/korporativnyj-komplaens/SKILL.md
+    user_invocable: true
+    portability: B
+    from_anthropic: false
+    ported_from: korporativnoe-pravo/skills/korporativnyj-komplaens
+
 agents:
   # entity-compliance-watcher (Phase 2) — мониторинг сроков ежегодной отчётности
 

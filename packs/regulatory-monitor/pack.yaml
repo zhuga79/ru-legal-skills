@@ -58,6 +58,14 @@ skills:
     from_anthropic: true
     ported_from: regulatory-legal/policy-redraft
 
+
+  - id: sroki-obsuzhdeniya
+    path: skills/sroki-obsuzhdeniya/SKILL.md
+    user_invocable: true
+    portability: B
+    from_anthropic: false
+    ported_from: regulyatornyj-monitoring/skills/sroki-obsuzhdeniya
+
 profile:
   template: PROFILE.md
   user_config_path: "~/.ru-legal/profiles/regulatory-monitor/PROFILE.md"

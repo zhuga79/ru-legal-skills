@@ -1,4 +1,4 @@
-"""Skill registry — loads + indexes all 145 skills from packs/.
+"""Skill registry — loads + indexes all 186 skills from packs/.
 
 Provides:
 - list_skills() — все skills с метаданными
@@ -201,7 +201,7 @@ class SkillRegistry:
         Format:
             <skill_id> | <description (first 120 chars)>
 
-        ~145 skills × ~150 chars = ~22KB — fits comfortably в context.
+        ~186 skills × ~150 chars = ~22KB — fits comfortably в context.
         """
         lines = ["Available skills (skill_id | description):"]
         for skill in sorted(self._skills.values(), key=lambda s: s.skill_id):

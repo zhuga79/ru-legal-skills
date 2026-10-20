@@ -133,6 +133,33 @@ skills:
     from_anthropic: false
     note: "RU-unique — споры по доменам .RU/.РФ через АДР KЦ + СИП"
 
+
+  # Перенесено из claude-for-legal-ru/intellektualnaya-sobstvennost (Apache-2.0)
+  - id: sluzhebnye-rid
+    path: skills/sluzhebnye-rid/SKILL.md
+    user_invocable: true
+    portability: B
+    from_anthropic: false
+    ported_from: intellektualnaya-sobstvennost/skills/sluzhebnye-rid
+  - id: rasporyazhenie-pravami
+    path: skills/rasporyazhenie-pravami/SKILL.md
+    user_invocable: true
+    portability: B
+    from_anthropic: false
+    ported_from: intellektualnaya-sobstvennost/skills/rasporyazhenie-pravami
+  - id: tovarnyj-znak
+    path: skills/tovarnyj-znak/SKILL.md
+    user_invocable: true
+    portability: B
+    from_anthropic: false
+    ported_from: intellektualnaya-sobstvennost/skills/tovarnyj-znak
+  - id: priem-razrabotki
+    path: skills/priem-razrabotki/SKILL.md
+    user_invocable: true
+    portability: B
+    from_anthropic: false
+    ported_from: intellektualnaya-sobstvennost/skills/priem-razrabotki
+
 profile:
   template: PROFILE.md
   user_config_path: "~/.ru-legal/profiles/ip-law/PROFILE.md"

@@ -8,6 +8,7 @@ description: >
   "сделай NDA", "draft соглашение о конфиденциальности", "нужно соглашение о неразглашении".
 argument-hint: "[--side=disclosing|receiving|mutual] [--counterparty=<name>] [--purpose=<short>] [--duration-years=N]"
 last_legislative_update: "2026-05"  # auto-added 2026-05-26
+user_invocable: true
 ---
 
 # /nda-draft

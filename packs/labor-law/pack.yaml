@@ -157,6 +157,27 @@ skills:
     from_anthropic: false
     note: "RU-unique — ответ на проверку Государственной инспекции труда / Роструда"
 
+
+  # Перенесено из claude-for-legal-ru/trudovoe-pravo (Apache-2.0)
+  - id: distancionnaya-rabota
+    path: skills/distancionnaya-rabota/SKILL.md
+    user_invocable: true
+    portability: B
+    from_anthropic: false
+    ported_from: trudovoe-pravo/skills/distancionnaya-rabota
+  - id: inostrannye-rabotniki
+    path: skills/inostrannye-rabotniki/SKILL.md
+    user_invocable: true
+    portability: B
+    from_anthropic: false
+    ported_from: trudovoe-pravo/skills/inostrannye-rabotniki
+  - id: sluzhebnaya-proverka
+    path: skills/sluzhebnaya-proverka/SKILL.md
+    user_invocable: true
+    portability: B
+    from_anthropic: false
+    ported_from: trudovoe-pravo/skills/sluzhebnaya-proverka
+
 agents:
   # tk-changes-monitor (Phase 2)
 

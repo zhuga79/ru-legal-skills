@@ -30,7 +30,7 @@
 | `rospatent` | ⚫ BLACK | 6 | ❌ HTTP 404 ВСЕ 4 endpoints | **Endpoints не существуют — спекулятивная реализация. Нужен полный rewrite на HTML scraping или paid API.** |
 | `rosreestr` | 🟡 YELLOW | 5 | DDoS-Guard timeout | `get_encumbrances` misleading (всегда redirect на платную EGRN) |
 | `zakupki` | 🟡 YELLOW | 5 | endpoint suspect (возможно не существует) | Нужна верификация `/epz/api/orders/search` |
-| `ru-legal-aggregator` | 🟡 YELLOW | 4 + 145 skills | local FS only | `RU_LEGAL_PACKS_ROOT` env var required (НЕ документирован) |
+| `ru-legal-aggregator` | 🟡 YELLOW | 4 + 186 skills | local FS only | `RU_LEGAL_PACKS_ROOT` env var required (НЕ документирован) |
 | `sanctions` (planned) | ⚫ BLACKED | — | ❌ fedsfm/minjust не имеют публичных machine-readable endpoints | **JS-rendered tables, no XML/JSON dump. Нужен playwright или paid feed.** |
 
 ---
@@ -190,7 +190,7 @@ GET https://zakupki.gov.ru/epz/api/orders/search?searchString=test → timeout (
 
 ### ru-legal-aggregator 🟡
 
-**Что обещано:** Агрегатор всех 145 skills + 33 tools из 7 sub-MCPs.
+**Что обещано:** Агрегатор всех 186 skills + 33 tools из 7 sub-MCPs.
 **Что работает:** Skill management (list/find/get/index).
 **Что НЕ работает:**
 - **Tool proxying для 33 tools НЕ реализовано** (TODO в коде "Phase 2")
