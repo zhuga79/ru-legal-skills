@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "ru-legal-skills-mcp"
-version = "0.3.0"
+version = "0.3.1"
 description = "Unified MCP server для ru-legal-skills — все 33 tools + 186 skills РФ legal AI в одном пакете. Подключи в Claude Code / Cursor / любой MCP-клиент."
 readme = "README.md"
 license = { text = "Apache-2.0" }

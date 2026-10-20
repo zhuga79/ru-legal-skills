@@ -19,8 +19,14 @@ Run as: `ru-legal-skills-mcp` (stdio MCP server)
 from __future__ import annotations
 
 import logging
+import os
 import sys
 from typing import Annotated, Any
+
+# fastmcp при старте проверяет новую версию на PyPI через httpx. Если в окружении
+# ALL_PROXY=socks://..., httpx падает с ValueError и сервер не доходит до stdio.
+# Проверка нам не нужна — отключаем до импорта fastmcp.
+os.environ.setdefault("FASTMCP_CHECK_FOR_UPDATES", "off")
 
 from fastmcp import FastMCP
 from fastmcp.exceptions import ToolError
@@ -37,7 +43,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger("ru-legal-skills-mcp")
 
-__version__ = "0.3.0"
+__version__ = "0.3.1"
 
 
 # ----------------------------------------------------------------------------

@@ -9,6 +9,13 @@
 
 ## [Unreleased]
 
+### Fixed (2026-10-20) — 0.3.1
+- Агрегатор падал на старте, если в окружении `ALL_PROXY=socks://...`: fastmcp
+  проверял новую версию на PyPI через httpx, и `httpx.AsyncClient` бросал
+  `ValueError: Unknown scheme for proxy URL`. Проверка версии отключена
+  (`FASTMCP_CHECK_FOR_UPDATES=off` до импорта fastmcp), неподдерживаемые
+  proxy-схемы вычищаются перед созданием клиента в router.
+
 ### Added (2026-10-20)
 - Перенесены из `claude-for-legal-ru` (Apache-2.0) 4 пака: `nonprofit-law` (6), `education-law` (3), `enforcement-law` (3), `matter-management` (3)
 - 24 skill добавлены в существующие паки: `ip-law` +4, `corporate-law` +7, `litigation` +9, `labor-law` +3, `regulatory-monitor` +1

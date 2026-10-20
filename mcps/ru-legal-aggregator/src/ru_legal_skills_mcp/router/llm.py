@@ -17,10 +17,28 @@ from __future__ import annotations
 
 import logging
 import os
+from urllib.parse import urlsplit
 
 import httpx
 
 logger = logging.getLogger(__name__)
+
+_PROXY_VARS = ("ALL_PROXY", "all_proxy", "HTTP_PROXY", "http_proxy", "HTTPS_PROXY", "https_proxy")
+
+
+def _drop_unsupported_proxies() -> None:
+    """Убрать *_PROXY со схемами, которые httpx не понимает (socks:// и т.п.).
+
+    Иначе httpx.AsyncClient(...) падает с ValueError ещё до первого запроса.
+    """
+    for var in _PROXY_VARS:
+        value = os.getenv(var)
+        if not value:
+            continue
+        url = value if "://" in value else f"http://{value}"
+        if urlsplit(url).scheme not in ("http", "https"):
+            logger.warning("%s=%s не поддерживается httpx — игнорирую", var, value)
+            os.environ.pop(var, None)
 
 
 class RouterLLMClient:
@@ -101,6 +119,7 @@ class RouterLLMClient:
 
     def _get_http(self) -> httpx.AsyncClient:
         if self._http is None:
+            _drop_unsupported_proxies()
             self._http = httpx.AsyncClient(timeout=self.timeout)
         return self._http
 
