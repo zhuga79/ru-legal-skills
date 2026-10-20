@@ -20,7 +20,7 @@ last_legislative_update: "2026-05"  # auto-added 2026-05-26
 
 Remove пиратский контент в РФ через legal procedures. Cross-reference:
 - `/infringement-triage` — initial analysis
-- `/cease-desist` — directly к нарушителю
+- `/pretenziya-o-narushenii` — directly к нарушителю
 - Здесь — escalation к платформе / РКН / Мосгорсуду
 
 ## Available mechanisms

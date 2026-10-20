@@ -58,13 +58,13 @@ skills:
     ported_from: ip-legal/clearance
     note: "Trademark / patent clearance — поиск через Роспатент реестры"
 
-  - id: fto-triage
-    path: skills/fto-triage/SKILL.md
+  - id: svoboda-ispolzovaniya
+    path: skills/svoboda-ispolzovaniya/SKILL.md
     user_invocable: true
-    portability: C
-    from_anthropic: true
-    ported_from: ip-legal/fto-triage
-    note: "Freedom to Operate — поиск патентов в Роспатент / ФИПС + EPO / WIPO"
+    portability: B
+    from_anthropic: false
+    ported_from: intellektualnaya-sobstvennost/skills/svoboda-ispolzovaniya
+    note: "Замена fto-triage: FTO по патентам и товарным знакам (ст. 1358, 1359, 1361, 1363, 1487 ГК) + обход патента"
 
   - id: infringement-triage
     path: skills/infringement-triage/SKILL.md
@@ -74,13 +74,13 @@ skills:
     ported_from: ip-legal/infringement-triage
     note: "ст.1252 ГК пресечение + компенсация (10k-5М или 2× стоимость)"
 
-  - id: cease-desist
-    path: skills/cease-desist/SKILL.md
+  - id: pretenziya-o-narushenii
+    path: skills/pretenziya-o-narushenii/SKILL.md
     user_invocable: true
     portability: B
-    from_anthropic: true
-    ported_from: ip-legal/cease-desist
-    note: "Претензия по IP. Обязательная досудебка ст.1252 ГК + АПК ст.4 ч.5 для CIP"
+    from_anthropic: false
+    ported_from: intellektualnaya-sobstvennost/skills/pretenziya-o-narushenii
+    note: "Замена cease-desist: претензия о нарушении исключительного права (п. 5.1 ст. 1252, ст. 1484, 1515 ГК), включая входящую претензию"
 
   - id: ip-clause-review
     path: skills/ip-clause-review/SKILL.md

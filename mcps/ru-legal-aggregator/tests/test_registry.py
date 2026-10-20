@@ -7,8 +7,7 @@ import pytest
 
 from ru_legal_mcp.registry.skills import SkillRegistry
 
-
-REPO_ROOT = Path(__file__).resolve().parents[3].parent
+REPO_ROOT = Path(__file__).resolve().parents[3]
 PACKS_ROOT = REPO_ROOT / "packs"
 
 
@@ -74,5 +73,5 @@ def test_index_format(registry: SkillRegistry):
     # 1 header + ≥100 skill lines
     assert len(lines) > 100
     # Each skill line должен иметь skill_id | description format
-    skill_lines = [l for l in lines if " | " in l]
+    skill_lines = [line for line in lines if " | " in line]
     assert len(skill_lines) > 50

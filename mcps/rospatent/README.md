@@ -17,7 +17,7 @@ MCP server для реестров [Роспатент / ФИПС](https://www1.
 ## Use cases в ru-legal packs
 
 - **ip-law/clearance** — pre-filing collision check ТЗ
-- **ip-law/fto-triage** — patent landscape для FTO
+- **ip-law/svoboda-ispolzovaniya** — patent landscape для FTO
 - **ip-law/infringement-triage** — verify our IP + check infringer
 - **ip-law/portfolio** — наш IP inventory
 - **ip-law/invention-intake** — prior art preliminary search

@@ -188,24 +188,31 @@ GET https://zakupki.gov.ru/epz/api/orders/search?searchString=test → timeout (
 
 ---
 
-### ru-legal-aggregator 🟡
+### ru-legal-aggregator 🟢 (skill management)
 
 **Что обещано:** Агрегатор всех 186 skills + 33 tools из 7 sub-MCPs.
-**Что работает:** Skill management (list/find/get/index).
+**Что работает:** Skill management (list/find/get/index), 186 skills как MCP prompts,
+`ru-legal` CLI для инспекции реестра.
 **Что НЕ работает:**
 - **Tool proxying для 33 tools НЕ реализовано** (TODO в коде "Phase 2")
-- `RU_LEGAL_PACKS_ROOT` env var **обязательный но НЕ документирован** в README
-- Без packs/ — `FileNotFoundError`
 
-**Test result (2026-05-26):** code review only.
+**Исправлено 2026-10-20:**
+- `packs/` попадает в wheel через `hatch_build.py` — после `pip install ru-legal-mcp`
+  сервер больше не падает с `FileNotFoundError`
+- `ru-legal` entrypoint работал вхолостую (`ru_legal_mcp.cli` отсутствовал) — добавлен CLI
+- `RU_LEGAL_PACKS_ROOT` больше не обязателен: сначала ищется bundled `packs/`, затем env,
+  затем каталог вверх по дереву (editable install)
 
-**Workaround:**
+**Test result (2026-10-20):** wheel собран, установлен в чистый venv, загружено 186 skills
+из `site-packages/ru_legal_mcp/packs`.
+
+**Workaround (если нужен свой набор skills):**
 ```bash
 export RU_LEGAL_PACKS_ROOT=/path/to/ru-legal/packs
 uvx ru-legal-mcp
 ```
 
-**Priority fix:** P2 — переименовать "aggregator" → "skills-router" пока tool-proxying не сделан. Документировать env var.
+**Priority fix:** P2 — переименовать "aggregator" → "skills-router" пока tool-proxying не сделан.
 
 ---
 
@@ -237,6 +244,6 @@ steps:
 
 ## Подписаться на изменения
 
-- Watch [github.com/AlsKozlov/ru-legal](https://github.com/AlsKozlov/ru-legal) → "Custom" → "Releases"
+- Watch [github.com/zhuga79/ru-legal-skills](https://github.com/zhuga79/ru-legal-skills) → "Custom" → "Releases"
 - RSS issues с лейблом `mcp-status-change`
 - TG канал [@alskozlov](https://t.me/alskozlov)

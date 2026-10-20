@@ -86,7 +86,7 @@ materiality, какая стратегия (cease & desist, litigation, ignore).
 - Продажа, иное введение в гражданский оборот
 - Импорт в РФ
 
-Test: **claim-chart** анализ (см. `/fto-triage`).
+Test: **claim-chart** анализ (см. `/svoboda-ispolzovaniya`).
 
 #### Для авторских (ст.1255+ ГК)
 
@@ -171,7 +171,7 @@ Alleged infringer может иметь защиту:
 
 #### Option A: Cease & desist letter (досудебная претензия)
 
-→ Use `/cease-desist`
+→ Use `/pretenziya-o-narushenii`
 
 - Обязательна по ст.1252 ГК + АПК ст.4 ч.5 для подсудности СИП — 30 дней досудебка
 - Most common starting point
@@ -266,7 +266,7 @@ Alleged infringer может иметь защиту:
 
 ## Что НЕ делает
 
-- Не sends cease & desist (это `/cease-desist`)
+- Не sends cease & desist (это `/pretenziya-o-narushenii`)
 - Не filing суд иск (это outside-адв ФПА + СИП)
 - Не negotiates settlement (это outside-адв)
 

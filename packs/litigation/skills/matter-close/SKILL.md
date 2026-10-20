@@ -103,7 +103,7 @@ closing_approved_by: <имя>
 ### Шаг 6. Archive / preservation
 
 После close:
-- **Matter folder перемещается в** `~/.ru-legal/profiles/litigation/matters/_archived/<slug>/`
+- **Matter folder перемещается в** `~/.ru-legal/matters/_archived/<slug>/`
 - **Документы preserved** — НЕ удаляем сразу (возможны related matters, regulatory
   inquiries, тax audit вопросы)
 - **Retention rule:** держать **минимум 5 лет** после close (общая практика

@@ -19,16 +19,14 @@ Run as: `ru-legal-mcp` (stdio MCP server)
 from __future__ import annotations
 
 import logging
-import os
 import sys
-from pathlib import Path
 from typing import Annotated, Any
 
 from fastmcp import FastMCP
 from fastmcp.exceptions import ToolError
 from pydantic import Field
 
-from ru_legal_mcp.registry.skills import SkillRegistry
+from ru_legal_mcp.registry.skills import SkillRegistry, find_packs_root
 from ru_legal_mcp.router.llm import RouterLLMClient
 from ru_legal_mcp.router.router import SkillRouter
 
@@ -39,34 +37,18 @@ logging.basicConfig(
 )
 logger = logging.getLogger("ru-legal-mcp")
 
+__version__ = "0.2.0"
+
 
 # ----------------------------------------------------------------------------
 # Initialization
 # ----------------------------------------------------------------------------
 
 
-def _find_packs_root() -> Path:
-    """Locate packs/ directory — try env var, then package path, then walk up."""
-    if env := os.getenv("RU_LEGAL_PACKS_ROOT"):
-        path = Path(env).resolve()
-        if path.exists():
-            return path
-
-    # Walk up from this file looking for packs/
-    here = Path(__file__).resolve()
-    for parent in here.parents[:8]:
-        candidate = parent / "packs"
-        if candidate.exists() and any(candidate.glob("*/skills/*/SKILL.md")):
-            return candidate
-
-    raise FileNotFoundError(
-        "Cannot find packs/ directory. Set RU_LEGAL_PACKS_ROOT environment variable."
-    )
-
-
-_packs_root = _find_packs_root()
+_packs_root = find_packs_root()
 _registry = SkillRegistry()
 _skills_loaded = _registry.load_from_packs(_packs_root)
+_packs_count = len({s.pack for s in _registry.list_all()})
 
 _router_llm = RouterLLMClient()
 _router = SkillRouter(_registry, llm=_router_llm if _router_llm.is_configured else None)
@@ -96,7 +78,7 @@ async def list_skills(
         Field(
             description=(
                 "Filter by pack ID (например 'labor-law' / 'tax-law'). "
-                "None = все 14 packs."
+                "None = все паки (19)."
             ),
             max_length=50,
         ),
@@ -239,7 +221,7 @@ def _register_one_prompt(
     prompt_name = skill_id.replace("/", "_").replace("-", "_")
 
     @mcp.prompt(name=prompt_name, description=description.strip()[:500])
-    async def _prompt_handler(input: str = "") -> str:
+    async def _prompt_handler(input: str = "") -> str:  # noqa: A002 — имя аргумента MCP prompt
         """Dynamic prompt handler — returns full skill body."""
         skill = _registry.get(skill_id)
         if skill is None:
@@ -268,7 +250,7 @@ Open-source AI юрист для российского права.
 
 ## Loaded
 
-- {_skills_loaded} skills из 14 packs
+- {_skills_loaded} skills из {_packs_count} паков
 - {_prompts_registered} зарегистрированы как MCP prompts
 - Router LLM: {'configured (' + _router_llm.provider + ')' if _router_llm.is_configured else 'NOT configured (keyword-only routing)'}
 
@@ -303,7 +285,8 @@ Open-source AI юрист для российского права.
 
 def main() -> None:
     logger.info(
-        "Starting ru-legal-mcp v0.1.0 — %d skills loaded, %d prompts registered, router=%s",
+        "Starting ru-legal-mcp v%s — %d skills loaded, %d prompts registered, router=%s",
+        __version__,
         _skills_loaded,
         _prompts_registered,
         _router_llm.provider or "keyword-only",

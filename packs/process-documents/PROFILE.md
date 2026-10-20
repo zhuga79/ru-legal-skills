@@ -34,7 +34,7 @@ Pack не привязан к domain — используется в **соче�
 
 | Skill | Status | Priority | Description |
 |---|---|---|---|
-| claim-draft-civil | 🟢 in-progress | P0 | Иск в суд общей юрисдикции (ГПК) |
+| isk-sostavlenie | 🟢 in-progress | P0 | Иск в АПК/ГПК, пара к litigation/isk-proverka |
 | claim-draft-arbitration | 🔴 alpha | P0 | Иск в арбитражный суд (АПК) |
 | response-draft | 🔴 alpha | P0 | Отзыв на иск (возражения) |
 | appeal-draft | 🔴 alpha | P1 | Апелляционная жалоба |
@@ -55,7 +55,7 @@ Pack не привязан к domain — используется в **соче�
 **Всегда когда юристу нужно подготовить процессуальный документ.**
 
 Типичные сценарии:
-- "Подготовь иск о восстановлении на работе" → labor-law/termination-review + process-documents/claim-draft-civil
+- "Подготовь иск о восстановлении на работе" → labor-law/termination-review + process-documents/isk-sostavlenie
 - "Прислали иск, нужно ответить" → response-draft + relevant domain pack
 - "Хочу обжаловать решение суда" → appeal-draft
 

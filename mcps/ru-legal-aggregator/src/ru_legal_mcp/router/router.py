@@ -16,7 +16,7 @@ from __future__ import annotations
 import json
 import logging
 from dataclasses import dataclass
-from typing import Any, Awaitable, Callable, Protocol, runtime_checkable
+from typing import Any, Protocol, runtime_checkable
 
 from ru_legal_mcp.registry.skills import SkillMetadata, SkillRegistry
 

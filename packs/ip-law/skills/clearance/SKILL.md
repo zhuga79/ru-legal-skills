@@ -157,7 +157,7 @@ Output: probability отказа в регистрации + risk infringement +
 - **Изобретательский уровень** (ст.1350) — не очевидно ли для специалиста?
 - **Промышленная применимость** — может ли быть реализовано?
 
-Patentовая clearance ≠ FTO (Freedom to Operate — см. `/fto-triage`).
+Patentовая clearance ≠ FTO (Freedom to Operate — см. `/svoboda-ispolzovaniya`).
 
 Clearance проверяет **могут ли запатентовать** — а FTO проверяет **не нарушим ли существующих**.
 
@@ -195,7 +195,7 @@ Clearance проверяет **могут ли запатентовать** — 
 ## Что НЕ делает
 
 - Не подаёт заявку в Роспатент (это `/rospatent-application` + патентный поверенный)
-- Не делает полную FTO analysis (это `/fto-triage`)
+- Не делает полную FTO analysis (это `/svoboda-ispolzovaniya`)
 - Не handles opposition / cancellation proceedings — это outside-адв ФПА + СИП
 
 ## Attribution

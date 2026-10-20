@@ -1,0 +1,47 @@
+# Portable pack manifest — runtime-агностичный.
+
+id: process-documents
+version: 0.1.0
+name: "Процессуальные документы"
+description: >
+  Подготовка процессуальных документов: исковое заявление (АПК/ГПК) и ходатайство
+  об истребовании доказательств. Pack не привязан к отрасли — используется в
+  сочетании с domain-паками (labor-law + process-documents = иск о восстановлении
+  на работе).
+
+license: Apache-2.0
+authors:
+  - name: "Claude for Russian Law contributors"
+keywords:
+  - legal
+  - russian-law
+  - litigation
+  - court-documents
+  - apk
+  - gpk
+category: legal
+
+mcp:
+  required:
+    - pravo
+  optional:
+    - kad
+
+skills:
+  - id: isk-sostavlenie
+    path: skills/isk-sostavlenie/SKILL.md
+    user_invocable: true
+    portability: B
+    from_anthropic: false
+    ported_from: sudebnyj-process/skills/isk-sostavlenie
+    note: "Замена claim-draft-civil: иск по АПК ст. 125 и ГПК ст. 131, пара к litigation/isk-proverka"
+  - id: motion-evidence-collection
+    path: skills/motion-evidence-collection/SKILL.md
+    user_invocable: true
+    portability: B
+    from_anthropic: true
+    ported_from: litigation-legal/motion-evidence-collection
+
+profile:
+  template: PROFILE.md
+  user_config_path: "~/.ru-legal/profiles/process-documents/PROFILE.md"

@@ -69,7 +69,7 @@ Update matter после событий — это event ledger дела. На �
 
 ### Шаг 5. Write to history.md
 
-Append к `~/.ru-legal/profiles/litigation/matters/[slug]/history.md`:
+Append к `~/.ru-legal/matters/[slug]/history.md`:
 
 ```markdown
 ## [DD.MM.YYYY] [тип события]
@@ -126,7 +126,7 @@ by Anthropic (Apache 2.0).
 - Discovery → АПК ст.66 (истребование доказательств)
 - Settlement gate под РФ legal advice context
 
-**Path:** → `~/.ru-legal/profiles/litigation/matters/[slug]/`
+**Path:** → `~/.ru-legal/matters/[slug]/`
 
 **Original copyright:** © 2026 Anthropic PBC, Apache 2.0.
 **Adapted by:** ru-legal contributors, 2026-05-18.

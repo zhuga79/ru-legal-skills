@@ -1,9 +1,9 @@
 {
-  "version": "0.3.0",
+  "version": "0.4.0",
   "last_updated": "2026-10-20",
   "description": "Single source of truth для всех packs и MCP в ru-legal. Любой runtime adapter генерирует свои манифесты из этого файла.",
   "mcp_health_reference": "MCP-STATUS.md",
-  "note": "MCP health status — см. ../MCP-STATUS.md. Не все MCP работают в текущем виде (см. audit 2026-05-26). Обновлено 2026-10-20: добавлены 4 пака, перенесённые из claude-for-legal-ru.",
+  "note": "MCP health status — см. ../MCP-STATUS.md. Не все MCP работают в текущем виде (см. audit 2026-05-26). Обновлено 2026-10-20: добавлены 4 пака из claude-for-legal-ru; дубли ip-law/fto-triage, ip-law/cease-desist, process-documents/claim-draft-civil заменены на svoboda-ispolzovaniya, pretenziya-o-narushenii, isk-sostavlenie.",
   "packs": [
     {
       "id": "contract-law",
@@ -92,7 +92,7 @@
       "status": "mvp",
       "health": "see MCP-STATUS.md",
       "skill_count": 17,
-      "note": "Часть 4 ГК + Роспатент/ФИПС/СИП — 13 skills (clearance + FTO + infringement-triage + cease-desist + ip-clause-review с ст.1295 служ.произведение + invention-intake + oss-review + portfolio + takedown с ФЗ-149 ст.15.7 + Мосгорсуд антипиратский + cold-start + customize + 2 RU-unique: rospatent-application + domain-dispute через АДРД КЦ)"
+      "note": "Часть 4 ГК + Роспатент/ФИПС/СИП — 17 skills (clearance + FTO-эквивалент svoboda-ispolzovaniya + infringement-triage + pretenziya-o-narushenii + sluzhebnye-rid + rasporyazhenie-pravami + tovarnyj-znak + priem-razrabotki + ip-clause-review + invention-intake + oss-review + portfolio + takedown + cold-start + customize + 2 RU-unique: rospatent-application + domain-dispute)"
     },
     {
       "id": "ai-governance",

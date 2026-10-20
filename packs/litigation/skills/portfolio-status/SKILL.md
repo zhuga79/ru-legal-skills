@@ -24,7 +24,7 @@ Bird's-eye view всего портфолио — что у нас, что кр�
 
 ### Шаг 1. Load all matters
 
-Read `~/.ru-legal/profiles/litigation/matters/_log.yaml` — все active rows.
+Read `~/.ru-legal/matters/_log.yaml` — все active rows.
 
 ### Шаг 2. Aggregate
 
@@ -158,7 +158,7 @@ by Anthropic (Apache 2.0).
 **Изменения:** Russian terminology для типов дел, РФ-specific aggregations (налоговые,
 банкротство), discovery → АПК ст.66.
 
-**Path:** → `~/.ru-legal/profiles/litigation/matters/_log.yaml`
+**Path:** → `~/.ru-legal/matters/_log.yaml`
 
 **Original copyright:** © 2026 Anthropic PBC, Apache 2.0.
 

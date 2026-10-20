@@ -53,7 +53,7 @@
 ## Documents и доступы
 
 - **Где хранятся matter docs:** [SharePoint / Drive / DMS название]
-- **Структура папок:** [/matters/<id>/...]
+- **Структура папок:** `~/.ru-legal/matters/<slug>/...` (единый корень для всех паков; старый `~/.ru-legal/profiles/litigation/matters/` не используется)
 - **Доступ к КАД API:** [есть / нет]
 
 ## Эскалация

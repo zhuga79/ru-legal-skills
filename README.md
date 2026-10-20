@@ -107,7 +107,7 @@ result = await agent.ainvoke({"messages": [
 | [tax-law](packs/tax-law/) | 9 | **tax-audit-response** (ВНП доначисления) |
 | [public-procurement](packs/public-procurement/) | 9 | tender-documentation-review, biased-tender-detection |
 | [compliance-aml](packs/compliance-aml/) | 9 | sanctions-screening (multi-jurisdiction) |
-| [ip-law](packs/ip-law/) | 17 | clearance, infringement-triage, takedown ФЗ-149 |
+| [ip-law](packs/ip-law/) | 17 | clearance, svoboda-ispolzovaniya (FTO), pretenziya-o-narushenii, takedown ФЗ-149 |
 | [ai-governance](packs/ai-governance/) | 10 | use-case-triage, vendor-ai-review, AIA |
 | [administrative-law](packs/administrative-law/) | 8 | koap-violation-response, 10-day appeal |
 | [real-estate](packs/real-estate/) | 9 | **ddu-review** 214-ФЗ, cadastre-check |
@@ -117,7 +117,7 @@ result = await agent.ainvoke({"messages": [
 | [enforcement-law](packs/enforcement-law/) | 3 | osparivanie-postanovlenij-pristava (ФЗ-229) |
 | [matter-management](packs/matter-management/) | 3 | delo, portfel (сроки по всем делам) |
 | [nonprofit-law](packs/nonprofit-law/) | 6 | grant, celevoj-kapital, otchetnost-minyust |
-| [process-documents](packs/process-documents/) | 2 | claim-draft-civil (ГПК) |
+| [process-documents](packs/process-documents/) | 2 | isk-sostavlenie (АПК/ГПК) |
 
 ### 7 MCP integrations (госреестры)
 

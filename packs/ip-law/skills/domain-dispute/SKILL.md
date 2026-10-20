@@ -35,7 +35,7 @@ Resolve спор по доменному имени, нарушающему на
 ### A. Direct outreach + C&D
 
 - Email / phone к registrant
-- Формальная претензия (см. `/cease-desist`)
+- Формальная претензия (см. `/pretenziya-o-narushenii`)
 - Cheapest path
 - Limited если registrant ignores / unknown
 

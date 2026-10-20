@@ -17,7 +17,7 @@
 
 ---
 
-## Текущее состояние (v0.1.0, май 2026)
+## Текущее состояние (2026-10-20)
 
 ✅ **186 skills** в 19 паках:
 - contract-law (12), litigation (26), labor-law (20), corporate-law (20)
@@ -33,6 +33,14 @@
 - ru-legal-mcp (агрегатор)
 
 ✅ Совместимость: Claude Code, Cursor, Continue, LangGraph
+
+✅ **Единый корень дел:** `~/.ru-legal/matters/` для всех паков (`litigation`, `matter-management`)
+
+✅ **ru-legal-aggregator 0.2.0:** skills входят в wheel, `ru-legal` CLI (`list-packs`,
+`list-skills`, `show-skill`), `RU_LEGAL_PACKS_ROOT` опционален
+
+✅ **Дубли заменены** версиями из `claude-for-legal-ru`: `svoboda-ispolzovaniya` (FTO),
+`pretenziya-o-narushenii`, `isk-sostavlenie` (АПК/ГПК)
 
 **Что отсутствует** (явные дыры):
 - Суды общей юрисдикции (СОЮ) — ~90% юр.практики (трудовые, семейные, наследственные споры)
@@ -82,7 +90,7 @@
 - intestate-succession, foreign-elements-inheritance
 
 #### `process-documents` (12-15 skills) — cross-cutting
-- claim-draft-civil, claim-draft-arbitration
+- isk-sostavlenie (АПК/ГПК), claim-draft-arbitration
 - response-draft, appeal-draft, cassation-draft
 - supervisory-complaint
 - motion-judge-recusal, motion-evidence-collection, motion-expertise
@@ -245,10 +253,10 @@
 
 ## Подписка на updates
 
-- [⭐ Star repo](https://github.com/AlsKozlov/ru-legal)
-- [Watch releases](https://github.com/AlsKozlov/ru-legal/releases) — только когда новый release
+- [⭐ Star repo](https://github.com/zhuga79/ru-legal-skills)
+- [Watch releases](https://github.com/zhuga79/ru-legal-skills/releases) — только когда новый release
 - [Telegram канал](https://t.me/alskozlov) — статьи о развитии проекта
-- [Discussions](https://github.com/AlsKozlov/ru-legal/discussions) — Q&A, feature requests
+- [Discussions](https://github.com/zhuga79/ru-legal-skills/discussions) — Q&A, feature requests
 
 ---
 

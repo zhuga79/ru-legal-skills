@@ -27,7 +27,7 @@ captures что row не может. History file — event record.
 Прочитай:
 - `~/.ru-legal/profiles/litigation/PROFILE.md` → risk calibration (триаж thresholds,
   материальность), landscape (stakeholders, outside counsel bench)
-- `~/.ru-legal/profiles/litigation/matters/_log.yaml` — для confirm slug uniqueness
+- `~/.ru-legal/matters/_log.yaml` — для confirm slug uniqueness
 
 ---
 
@@ -202,11 +202,11 @@ Critical для litigation:
 
 Создать:
 
-1. `~/.ru-legal/profiles/litigation/matters/[slug]/matter.md` — full narrative
+1. `~/.ru-legal/matters/[slug]/matter.md` — full narrative
    intake
-2. `~/.ru-legal/profiles/litigation/matters/[slug]/history.md` — seeded с intake
+2. `~/.ru-legal/matters/[slug]/history.md` — seeded с intake
    как первая запись
-3. Append structured row в `~/.ru-legal/profiles/litigation/matters/_log.yaml`:
+3. Append structured row в `~/.ru-legal/matters/_log.yaml`:
 
 ```yaml
 - slug: acme-vs-us-2026

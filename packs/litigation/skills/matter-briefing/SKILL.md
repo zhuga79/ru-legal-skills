@@ -26,8 +26,8 @@ last_legislative_update: "2026-05"  # auto-added 2026-05-26
 ### Шаг 1. Load matter
 
 Read:
-- `~/.ru-legal/profiles/litigation/matters/[slug]/matter.md`
-- `~/.ru-legal/profiles/litigation/matters/[slug]/history.md`
+- `~/.ru-legal/matters/[slug]/matter.md`
+- `~/.ru-legal/matters/[slug]/history.md`
 - Row в `_log.yaml`
 
 ### Шаг 2. Check staleness

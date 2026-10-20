@@ -277,7 +277,7 @@ Skill готовит **structured draft** ходатайства с правил
 
 - `process-documents/motion-expertise` — назначение экспертизы
 - `process-documents/motion-postponement` — отложение разбирательства
-- `process-documents/claim-draft-civil` — основной иск (если ходатайство
+- `process-documents/isk-sostavlenie` — основной иск (если ходатайство
   подаётся вместе с иском)
 - `process-documents/attorney-request-draft` (planned) — адвокатский запрос
 

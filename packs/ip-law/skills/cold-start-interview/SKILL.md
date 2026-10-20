@@ -52,9 +52,9 @@ last_legislative_update: "2026-05"  # auto-added 2026-05-26
 
 Загружены skills:
 - /clearance (ТЗ + патенты pre-launch search)
-- /fto-triage (Freedom to Operate)
+- /svoboda-ispolzovaniya (Freedom to Operate)
 - /infringement-triage (analysis нарушения)
-- /cease-desist (досудебная претензия по IP)
+- /pretenziya-o-narushenii (досудебная претензия по IP)
 - /ip-clause-review (review IP clauses в договорах)
 - /invention-intake (intake изобретений + ст.1295 служ.произведение)
 - /oss-review (OSS license compliance)

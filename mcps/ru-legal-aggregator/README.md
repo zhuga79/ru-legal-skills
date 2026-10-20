@@ -29,7 +29,18 @@ uvx ru-legal-mcp
 }
 ```
 
-### 3. Готово
+### 3. Проверить, что skills на месте
+
+```bash
+ru-legal list-packs        # 19 паков и число skills
+ru-legal list-skills       # все 186
+ru-legal show-skill labor-law/termination-review
+```
+
+`packs/` входит в wheel, поэтому `RU_LEGAL_PACKS_ROOT` не нужен. Переменная остаётся для
+случая, когда нужен свой набор skills: `RU_LEGAL_PACKS_ROOT=/path/to/packs ru-legal-mcp`.
+
+### 4. Готово
 
 Теперь твой LLM-клиент видит:
 
@@ -110,7 +121,7 @@ export RU_LEGAL_ROUTER_LLM=yandexgpt
                  ▼
 ┌───────────────────────────────────────────┐
 │  packs/                                   │
-│  └── 14 packs × N skills × SKILL.md       │
+│  └── 19 packs × N skills × SKILL.md       │
 └───────────────────────────────────────────┘
 ```
 

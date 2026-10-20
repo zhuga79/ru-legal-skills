@@ -9,39 +9,51 @@
 
 metadata:
   year: 2026
-  last_updated: "2026-05-26"
+  last_updated: "2026-10-20"
   maintainer: "@AlsKozlov"
-  next_review: "2026-06-26"
+  next_review: "2026-11-20"
+  verification: >
+    Значения сверены с первоисточниками 2026-10-20 (kremlin.ru, consultant.ru,
+    nalog.gov.ru). При расхождении приоритет — действующая редакция НК РФ / ФЗ.
 
 # ============================================================================
 # ТРУДОВОЕ ПРАВО
 # ============================================================================
 labor:
   min_wage:
-    value: 19242
+    value: 27093
     unit: "RUB/month"
-    source: "ФЗ-589 от 27.11.2025"
-    source_date: "2025-11-27"
-    note: "МРОТ январь 2026. Применяется для расчёта зарплаты, больничных, страх.взносов"
+    source: "ФЗ от 28.11.2025 № 429-ФЗ (ред. ст. 1 ФЗ от 19.06.2000 № 82-ФЗ)"
+    source_date: "2025-11-28"
+    note: >
+      МРОТ с 01.01.2026. Применяется для зарплаты, больничных, взносов.
+      МРОТ-2025 = 22 440 ₽. Региональная минимальная зарплата (ст. 133.1 ТК)
+      может быть выше — проверять региональное соглашение.
 
   max_unemployment_benefit:
-    value: 49123
+    first_3_months: 15886
+    next_3_months: 6209
+    minimum: 1863
     unit: "RUB/month"
-    source: "Постановление Правительства РФ 'О размерах пособия по безработице'"
-    source_date: "2025-12-15"
+    source: "ПП РФ от 23.01.2026 № 30 (индексация с 01.02.2026)"
+    source_date: "2026-01-23"
+    note: "В районах Крайнего Севера и приравненных местностях — с районным коэффициентом"
 
   ndfl_base_rate:
     value: 13
     unit: "percent"
     source: "НК РФ ст.224 п.1"
 
-  ndfl_progressive_rate:
-    value: 15
+  ndfl_progressive_scale:  # пятиступенчатая шкала с 2025 года
+    brackets:
+      - { up_to: 2400000, rate: 13 }
+      - { up_to: 5000000, rate: 15 }
+      - { up_to: 20000000, rate: 18 }
+      - { up_to: 50000000, rate: 20 }
+      - { over: 50000000, rate: 22 }
     unit: "percent"
-    threshold:
-      value: 5000000
-      unit: "RUB/year"
-    source: "НК РФ ст.224 п.1.1"
+    source: "НК РФ ст. 224 п. 1 (ред. ФЗ от 12.07.2024 № 176-ФЗ)"
+    note: "Прогрессия применяется к совокупности налоговых баз; проверять актуальные пороги"
 
   ndfl_non_resident:
     value: 30
@@ -52,34 +64,30 @@ labor:
 # СТРАХОВЫЕ ВЗНОСЫ
 # ============================================================================
 insurance_contributions:
-  ops_rate_base:  # пенсионное страхование
-    value: 22
-    unit: "percent"
-    threshold:
-      value: 2225000
-      unit: "RUB/year"
-    note: "до предела — 22%, свыше — 10%"
-    source: "НК РФ ст.425"
+  unified_limit:  # единая предельная база (с 2023 года — одна на ОПС/ОМС/ОСС)
+    value: 2979000
+    unit: "RUB/year"
+    source: "ПП РФ от 31.10.2025 № 1705 (ст. 421 НК РФ)"
+    source_date: "2025-10-31"
+    note: "Единая предельная база 2026. 2025 = 2 759 000 ₽"
 
-  oms_rate:  # медицинское страхование
-    value: 5.1
+  base_rate_within_limit:
+    value: 30
     unit: "percent"
-    source: "НК РФ ст.425"
+    source: "НК РФ ст. 425"
+    note: "ОПС 22% + ОМС 5,1% + ОСС 2,9% в пределах единой базы"
 
-  oss_rate:  # социальное страхование
-    value: 2.9
+  base_rate_over_limit:
+    value: 15.1
     unit: "percent"
-    threshold:
-      value: 1632000
-      unit: "RUB/year"
-    note: "до предела"
-    source: "НК РФ ст.425"
+    source: "НК РФ ст. 425"
+    note: "Свыше единой предельной базы (ОПС 10% + ОМС 5,1%)"
 
   msp_reduced_total_rate:  # МСП — пониженные тарифы свыше МРОТ
     value: 15
     unit: "percent"
     note: "Применяется для МСП на часть зарплаты свыше МРОТ"
-    source: "НК РФ ст.427"
+    source: "НК РФ ст. 427"
 
 # ============================================================================
 # 152-ФЗ (защита персональных данных)
@@ -182,30 +190,56 @@ koap_limitations:
 # ГОСПОШЛИНЫ за судебные действия
 # ============================================================================
 court_fees:
+  note: >
+    Ставки в ред. ФЗ от 08.08.2024 № 259-ФЗ, применяются к искам и жалобам,
+    направленным после 08.09.2024. Значения проверять на дату подачи.
+
   gpk_property_claim:
     formula: "tiered"
     tiers:
-      - { up_to: 20000, percent: 4, min: 400 }
-      - { up_to: 100000, base: 800, percent_over: 3 }
-      - { up_to: 200000, base: 3200, percent_over: 2 }
-      - { up_to: 1000000, base: 5200, percent_over: 1 }
-      - { over: 1000000, base: 13200, percent_over: 0.5, max: 60000 }
-    source: "НК РФ ст.333.19 п.1.1"
+      - { up_to: 100000, base: 4000 }
+      - { up_to: 300000, base: 4000, percent_over: 3, threshold: 100000 }
+      - { up_to: 500000, base: 10000, percent_over: 2.5, threshold: 300000 }
+      - { up_to: 1000000, base: 15000, percent_over: 2, threshold: 500000 }
+      - { up_to: 3000000, base: 25000, percent_over: 1, threshold: 1000000 }
+      - { up_to: 8000000, base: 45000, percent_over: 0.7, threshold: 3000000 }
+      - { up_to: 24000000, base: 80000, percent_over: 0.35, threshold: 8000000 }
+      - { up_to: 50000000, base: 136000, percent_over: 0.3, threshold: 24000000 }
+      - { up_to: 100000000, base: 214000, percent_over: 0.2, threshold: 50000000 }
+      - { over: 100000000, base: 314000, percent_over: 0.15, max: 900000 }
+    source: "НК РФ ст. 333.19 п. 1 пп. 1"
 
   gpk_non_property_claim:
-    individual: 300
-    legal: 6000
+    individual: 3000
+    legal: 20000
     unit: "RUB"
-    source: "НК РФ ст.333.19 п.3"
+    source: "НК РФ ст. 333.19 п. 1 пп. 3"
+
+  gpk_court_order:
+    formula: "50% от пошлины по имущественному иску"
+    source: "НК РФ ст. 333.19 п. 1 пп. 2"
 
   apk_property_claim:
     formula: "tiered"
-    note: "Аналогично ГПК но другие тиры — см. НК РФ ст.333.21"
+    tiers:
+      - { up_to: 100000, base: 10000 }
+      - { up_to: 1000000, base: 10000, percent_over: 5, threshold: 100000 }
+      - { up_to: 10000000, base: 55000, percent_over: 3, threshold: 1000000 }
+      - { up_to: 50000000, base: 325000, percent_over: 1, threshold: 10000000 }
+      - { over: 50000000, base: 725000, percent_over: 0.5, max: 10000000 }
+    source: "НК РФ ст. 333.21 п. 1 пп. 1"
 
   apk_non_property_claim:
-    legal_minimum: 6000
+    individual: 15000
+    legal: 50000
     unit: "RUB"
-    source: "НК РФ ст.333.21"
+    source: "НК РФ ст. 333.21 п. 1 пп. 4"
+
+  apk_court_order:
+    formula: "50% от пошлины по имущественному иску, но не менее 8000"
+    minimum: 8000
+    unit: "RUB"
+    source: "НК РФ ст. 333.21 п. 1 пп. 3"
 
 # ============================================================================
 # ЦБ РФ ставки

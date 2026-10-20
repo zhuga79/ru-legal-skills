@@ -12,13 +12,40 @@ from __future__ import annotations
 
 import logging
 import re
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
 import yaml
 
 logger = logging.getLogger(__name__)
+
+
+def find_packs_root() -> Path:
+    """Найти каталог packs/.
+
+    Порядок: packs, упакованные в пакет (wheel), затем RU_LEGAL_PACKS_ROOT,
+    затем поиск вверх по дереву каталогов (репозиторий/editable install).
+    """
+    import os
+
+    bundled = Path(__file__).resolve().parents[1] / "packs"
+    if bundled.is_dir() and any(bundled.glob("*/skills/*/SKILL.md")):
+        return bundled
+
+    if env := os.getenv("RU_LEGAL_PACKS_ROOT"):
+        path = Path(env).resolve()
+        if path.exists():
+            return path
+
+    for parent in Path(__file__).resolve().parents[:8]:
+        candidate = parent / "packs"
+        if candidate.is_dir() and any(candidate.glob("*/skills/*/SKILL.md")):
+            return candidate
+
+    raise FileNotFoundError(
+        "Cannot find packs/ directory. Set RU_LEGAL_PACKS_ROOT environment variable."
+    )
 
 
 @dataclass
