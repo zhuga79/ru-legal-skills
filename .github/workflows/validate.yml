@@ -121,7 +121,7 @@ jobs:
               name = (yaml.safe_load(head) or {}).get('name')
               seen[name].append(str(f))
           def same_pack(paths):
-              packs = [Path(x).parent.parent.name for x in paths]
+              packs = [Path(x).parents[2].name for x in paths]  # packs/<pack>/skills/<skill>/SKILL.md
               return len(packs) != len(set(packs))
 
           dups = {k: v for k, v in seen.items() if len(v) > 1 and same_pack(v)}
