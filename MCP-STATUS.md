@@ -30,7 +30,7 @@
 | `rospatent` | ⚫ BLACK | 6 | ❌ HTTP 404 ВСЕ 4 endpoints | **Endpoints не существуют — спекулятивная реализация. Нужен полный rewrite на HTML scraping или paid API.** |
 | `rosreestr` | 🟡 YELLOW | 5 | DDoS-Guard timeout | `get_encumbrances` misleading (всегда redirect на платную EGRN) |
 | `zakupki` | 🟡 YELLOW | 5 | endpoint suspect (возможно не существует) | Нужна верификация `/epz/api/orders/search` |
-| `ru-legal-aggregator` | 🟡 YELLOW | 4 + 186 skills | local FS only | `RU_LEGAL_PACKS_ROOT` env var required (НЕ документирован) |
+| `ru-legal-aggregator` | 🟢 GREEN | 4 + 186 skills | local FS only | `packs/` входит в wheel; env var опционален |
 | `sanctions` (planned) | ⚫ BLACKED | — | ❌ fedsfm/minjust не имеют публичных machine-readable endpoints | **JS-rendered tables, no XML/JSON dump. Нужен playwright или paid feed.** |
 
 ---
@@ -197,19 +197,19 @@ GET https://zakupki.gov.ru/epz/api/orders/search?searchString=test → timeout (
 - **Tool proxying для 33 tools НЕ реализовано** (TODO в коде "Phase 2")
 
 **Исправлено 2026-10-20:**
-- `packs/` попадает в wheel через `hatch_build.py` — после `pip install ru-legal-mcp`
+- `packs/` попадает в wheel через `hatch_build.py` — после `pip install ru-legal-skills-mcp`
   сервер больше не падает с `FileNotFoundError`
-- `ru-legal` entrypoint работал вхолостую (`ru_legal_mcp.cli` отсутствовал) — добавлен CLI
-- `RU_LEGAL_PACKS_ROOT` больше не обязателен: сначала ищется bundled `packs/`, затем env,
+- `ru-legal` entrypoint работал вхолостую (`ru_legal_skills_mcp.cli` отсутствовал) — добавлен CLI
+- `RU_LEGAL_SKILLS_PACKS_ROOT` больше не обязателен: сначала ищется bundled `packs/`, затем env,
   затем каталог вверх по дереву (editable install)
 
 **Test result (2026-10-20):** wheel собран, установлен в чистый venv, загружено 186 skills
-из `site-packages/ru_legal_mcp/packs`.
+из `site-packages/ru_legal_skills_mcp/packs`.
 
 **Workaround (если нужен свой набор skills):**
 ```bash
-export RU_LEGAL_PACKS_ROOT=/path/to/ru-legal-skills/packs
-uvx ru-legal-mcp
+export RU_LEGAL_SKILLS_PACKS_ROOT=/path/to/ru-legal-skills/packs
+uvx ru-legal-skills-mcp
 ```
 
 **Priority fix:** P2 — переименовать "aggregator" → "skills-router" пока tool-proxying не сделан.
@@ -223,8 +223,8 @@ uvx ru-legal-mcp
 | 1 | Brutal honest update MCP-STATUS.md | @AlsKozlov | **DONE 2026-05-26** ✅ |
 | 2 | Remove rospatent из агрегатора | @AlsKozlov | 2026-05-27 |
 | 3 | Browser UA для kad/efrsb | @AlsKozlov | 2026-05-29 |
-| 4 | Document RU_LEGAL_PACKS_ROOT в README | @AlsKozlov | 2026-05-27 |
-| 5 | Shared library `ru_legal_mcp.common/` | @AlsKozlov | 2026-06-03 |
+| 4 | Document RU_LEGAL_SKILLS_PACKS_ROOT в README | @AlsKozlov | 2026-05-27 |
+| 5 | Shared library `ru_legal_skills_mcp.common/` | @AlsKozlov | 2026-06-03 |
 | 6 | New: cbr-mcp (SOAP, no auth) | @AlsKozlov | 2026-06-02 |
 | 7 | New: sanctions-mcp (XML dumps) | @AlsKozlov | 2026-06-04 |
 

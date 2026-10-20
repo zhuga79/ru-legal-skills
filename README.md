@@ -16,7 +16,7 @@
 `ru-legal` — **infrastructure layer**, не приложение. Две вещи:
 
 1. **186 skills** в 19 packs — кодифицированные workflow по российскому праву (Markdown с YAML frontmatter — формат от Anthropic)
-2. **7 data-MCP серверов** — интеграции с госреестрами (pravo.gov.ru, ЕГРЮЛ, kad.arbitr, ЕФРСБ, Роспатент, ЕИС закупки, Росреестр) + **1 aggregator MCP** (`ru-legal-mcp`) — unified entry-point на всё. Итого **8 MCP** в репозитории.
+2. **7 data-MCP серверов** — интеграции с госреестрами (pravo.gov.ru, ЕГРЮЛ, kad.arbitr, ЕФРСБ, Роспатент, ЕИС закупки, Росреестр) + **1 aggregator MCP** (`ru-legal-skills-mcp`) — unified entry-point на всё. Итого **8 MCP** в репозитории.
 
 ## Архитектура — два слоя
 
@@ -28,7 +28,7 @@
 │  ├── packs/         — 186 skills (Markdown)              │
 │  ├── mcps/          — 7 специализированных MCP           │
 │  └── mcps/ru-legal-aggregator/                           │
-│       └── ru-legal-mcp — unified entry-point             │
+│       └── ru-legal-skills-mcp — unified entry-point             │
 └─────────────────────┬───────────────────────────────────┘
                       │ MCP protocol
                       ▼
@@ -42,19 +42,19 @@ Claude Code Cursor    Continue   LangGraph   ru-legal-agent
 
 ## Quick start — 3 пути
 
-### Путь 1: ru-legal-mcp в Claude Code / Cursor / Cline
+### Путь 1: ru-legal-skills-mcp в Claude Code / Cursor / Cline
 
 ```bash
-pip install ru-legal-mcp
+pip install ru-legal-skills-mcp
 ```
 
 ```jsonc
 // .mcp.json (или .claude/mcp.json — depends on client)
 {
   "mcpServers": {
-    "ru-legal": {
+    "ru-legal-skills": {
       "command": "uvx",
-      "args": ["ru-legal-mcp"]
+      "args": ["ru-legal-skills-mcp"]
     }
   }
 }
@@ -80,9 +80,9 @@ from langchain_mcp_adapters.client import MultiServerMCPClient
 from langgraph.prebuilt import create_react_agent
 
 client = MultiServerMCPClient({
-    "ru-legal": {
+    "ru-legal-skills": {
         "command": "uvx",
-        "args": ["ru-legal-mcp"],
+        "args": ["ru-legal-skills-mcp"],
         "transport": "stdio",
     }
 })
@@ -133,7 +133,7 @@ result = await agent.ainvoke({"messages": [
 
 **6 из 7 работают полностью бесплатно**, без API-ключей.
 
-### Aggregator MCP (`ru-legal-mcp`)
+### Aggregator MCP (`ru-legal-skills-mcp`)
 
 Один пакет, объединяющий всё:
 
@@ -156,7 +156,7 @@ result = await agent.ainvoke({"messages": [
 
 ## LLM-агностично
 
-Сам по себе `ru-legal-mcp` — pure data + skills. Какую LLM использовать — выбирает harness:
+Сам по себе `ru-legal-skills-mcp` — pure data + skills. Какую LLM использовать — выбирает harness:
 
 - **Claude** — если есть доступ
 - **OpenAI GPT-4** — то же

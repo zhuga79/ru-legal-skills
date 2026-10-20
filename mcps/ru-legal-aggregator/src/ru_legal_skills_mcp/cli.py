@@ -1,4 +1,4 @@
-"""CLI для ru-legal-mcp.
+"""CLI для ru-legal-skills-mcp.
 
 По умолчанию запускает MCP-сервер (stdio). Дополнительные команды — для
 инспекции реестра skills без запуска MCP-клиента (fastmcp не требуется).
@@ -10,7 +10,7 @@ import sys
 
 from .registry.skills import SkillRegistry, find_packs_root
 
-__version__ = "0.2.0"
+__version__ = "0.3.0"
 
 
 def _load_registry() -> SkillRegistry:
@@ -48,10 +48,10 @@ def _cmd_list_packs(_: argparse.Namespace) -> int:
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        prog="ru-legal",
-        description="ru-legal-mcp: MCP-сервер + инспекция реестра skills.",
+        prog="ru-legal-skills",
+        description="ru-legal-skills-mcp: MCP-сервер + инспекция реестра skills.",
     )
-    parser.add_argument("--version", action="version", version=f"ru-legal-mcp {__version__}")
+    parser.add_argument("--version", action="version", version=f"ru-legal-skills-mcp {__version__}")
     sub = parser.add_subparsers(dest="command")
     p_list = sub.add_parser("list-skills", help="список skills (опционально по паку)")
     p_list.add_argument("--pack", default="")

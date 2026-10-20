@@ -5,7 +5,7 @@ from pathlib import Path
 
 import pytest
 
-from ru_legal_mcp.registry.skills import SkillRegistry
+from ru_legal_skills_mcp.registry.skills import SkillRegistry
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
 PACKS_ROOT = REPO_ROOT / "packs"

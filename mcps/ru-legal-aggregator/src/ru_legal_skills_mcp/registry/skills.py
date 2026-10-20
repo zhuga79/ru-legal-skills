@@ -24,7 +24,7 @@ logger = logging.getLogger(__name__)
 def find_packs_root() -> Path:
     """Найти каталог packs/.
 
-    Порядок: packs, упакованные в пакет (wheel), затем RU_LEGAL_PACKS_ROOT,
+    Порядок: packs, упакованные в пакет (wheel), затем RU_LEGAL_SKILLS_PACKS_ROOT,
     затем поиск вверх по дереву каталогов (репозиторий/editable install).
     """
     import os
@@ -33,10 +33,11 @@ def find_packs_root() -> Path:
     if bundled.is_dir() and any(bundled.glob("*/skills/*/SKILL.md")):
         return bundled
 
-    if env := os.getenv("RU_LEGAL_PACKS_ROOT"):
-        path = Path(env).resolve()
-        if path.exists():
-            return path
+    for var in ("RU_LEGAL_SKILLS_PACKS_ROOT", "RU_LEGAL_PACKS_ROOT"):
+        if env := os.getenv(var):
+            path = Path(env).resolve()
+            if path.exists():
+                return path
 
     for parent in Path(__file__).resolve().parents[:8]:
         candidate = parent / "packs"
@@ -44,7 +45,7 @@ def find_packs_root() -> Path:
             return candidate
 
     raise FileNotFoundError(
-        "Cannot find packs/ directory. Set RU_LEGAL_PACKS_ROOT environment variable."
+        "Cannot find packs/ directory. Set RU_LEGAL_SKILLS_PACKS_ROOT environment variable."
     )
 
 

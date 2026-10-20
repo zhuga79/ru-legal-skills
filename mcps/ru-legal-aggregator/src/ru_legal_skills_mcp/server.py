@@ -1,4 +1,4 @@
-"""ru-legal-mcp — unified MCP server.
+"""ru-legal-skills-mcp — unified MCP server.
 
 Exposes:
 - *Skill management tools*:
@@ -14,7 +14,7 @@ Exposes:
   - Namespaced: pravo_search_npa, kad_search_cases, etc.
   - TODO: на текущем шаге добавляем только skill management; tool proxying в Phase 2
 
-Run as: `ru-legal-mcp` (stdio MCP server)
+Run as: `ru-legal-skills-mcp` (stdio MCP server)
 """
 from __future__ import annotations
 
@@ -26,18 +26,18 @@ from fastmcp import FastMCP
 from fastmcp.exceptions import ToolError
 from pydantic import Field
 
-from ru_legal_mcp.registry.skills import SkillRegistry, find_packs_root
-from ru_legal_mcp.router.llm import RouterLLMClient
-from ru_legal_mcp.router.router import SkillRouter
+from ru_legal_skills_mcp.registry.skills import SkillRegistry, find_packs_root
+from ru_legal_skills_mcp.router.llm import RouterLLMClient
+from ru_legal_skills_mcp.router.router import SkillRouter
 
 logging.basicConfig(
     stream=sys.stderr,
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
 )
-logger = logging.getLogger("ru-legal-mcp")
+logger = logging.getLogger("ru-legal-skills-mcp")
 
-__version__ = "0.2.0"
+__version__ = "0.3.0"
 
 
 # ----------------------------------------------------------------------------
@@ -55,7 +55,7 @@ _router = SkillRouter(_registry, llm=_router_llm if _router_llm.is_configured el
 
 
 mcp = FastMCP(
-    name="ru-legal",
+    name="ru-legal-skills",
     instructions=(
         f"ru-legal — open-source AI юрист для российского права. "
         f"{_skills_loaded} skills + интеграции с госреестрами РФ. "
@@ -240,7 +240,7 @@ logger.info("Registered %d skills as MCP prompts", _prompts_registered)
 # ----------------------------------------------------------------------------
 
 
-@mcp.resource("ru-legal://about")
+@mcp.resource("ru-legal-skills://about")
 def about_resource() -> str:
     """About ru-legal — что это, как использовать."""
     return f"""
@@ -268,7 +268,7 @@ Open-source AI юрист для российского права.
 
 ## Configuration
 
-- `RU_LEGAL_PACKS_ROOT` — путь к packs/ (auto-detected if не задан)
+- `RU_LEGAL_SKILLS_PACKS_ROOT` — путь к packs/ (auto-detected if не задан)
 - `RU_LEGAL_ROUTER_LLM` — provider для router LLM (openai/yandexgpt/gigachat/...)
 - `OPENAI_API_KEY` / `YC_IAM_TOKEN` / `GIGACHAT_API_KEY` — credentials
 
@@ -285,7 +285,7 @@ Open-source AI юрист для российского права.
 
 def main() -> None:
     logger.info(
-        "Starting ru-legal-mcp v%s — %d skills loaded, %d prompts registered, router=%s",
+        "Starting ru-legal-skills-mcp v%s — %d skills loaded, %d prompts registered, router=%s",
         __version__,
         _skills_loaded,
         _prompts_registered,

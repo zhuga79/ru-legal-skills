@@ -30,14 +30,14 @@
 ✅ **8 MCP-серверов** к госреестрам:
 - pravo-mcp, egrul-mcp, kad-mcp, efrsb-mcp
 - rospatent-mcp, zakupki-mcp, rosreestr-mcp
-- ru-legal-mcp (агрегатор)
+- ru-legal-skills-mcp (агрегатор)
 
 ✅ Совместимость: Claude Code, Cursor, Continue, LangGraph
 
 ✅ **Единый корень дел:** `~/.ru-legal/matters/` для всех паков (`litigation`, `matter-management`)
 
 ✅ **ru-legal-aggregator 0.2.0:** skills входят в wheel, `ru-legal` CLI (`list-packs`,
-`list-skills`, `show-skill`), `RU_LEGAL_PACKS_ROOT` опционален
+`list-skills`, `show-skill`), `RU_LEGAL_SKILLS_PACKS_ROOT` опционален
 
 ✅ **Дубли заменены** версиями из `claude-for-legal-ru`: `svoboda-ispolzovaniya` (FTO),
 `pretenziya-o-narushenii`, `isk-sostavlenie` (АПК/ГПК)

@@ -1,8 +1,8 @@
-# ru-legal-mcp
+# ru-legal-skills-mcp
 
 > Unified MCP server для `ru-legal`. Подключи **один пакет** — получи 186 skills + 33 tools РФ legal AI.
 
-[![PyPI](https://img.shields.io/pypi/v/ru-legal-mcp.svg)](https://pypi.org/project/ru-legal-mcp/)
+[![PyPI](https://img.shields.io/pypi/v/ru-legal-skills-mcp.svg)](https://pypi.org/project/ru-legal-skills-mcp/)
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](../../LICENSE)
 
 ## Quick start
@@ -10,9 +10,9 @@
 ### 1. Install
 
 ```bash
-pip install ru-legal-mcp
+pip install ru-legal-skills-mcp
 # или
-uvx ru-legal-mcp
+uvx ru-legal-skills-mcp
 ```
 
 ### 2. Configure в Claude Code / Cursor / Cline / любом MCP-клиенте
@@ -21,9 +21,9 @@ uvx ru-legal-mcp
 // .mcp.json (или ~/.claude/mcp.json — depending на клиент)
 {
   "mcpServers": {
-    "ru-legal": {
+    "ru-legal-skills": {
       "command": "uvx",
-      "args": ["ru-legal-mcp"]
+      "args": ["ru-legal-skills-mcp"]
     }
   }
 }
@@ -32,13 +32,13 @@ uvx ru-legal-mcp
 ### 3. Проверить, что skills на месте
 
 ```bash
-ru-legal list-packs        # 19 паков и число skills
-ru-legal list-skills       # все 186
-ru-legal show-skill labor-law/termination-review
+ru-legal-skills list-packs        # 19 паков и число skills
+ru-legal-skills list-skills       # все 186
+ru-legal-skills show-skill labor-law/termination-review
 ```
 
-`packs/` входит в wheel, поэтому `RU_LEGAL_PACKS_ROOT` не нужен. Переменная остаётся для
-случая, когда нужен свой набор skills: `RU_LEGAL_PACKS_ROOT=/path/to/packs ru-legal-mcp`.
+`packs/` входит в wheel, поэтому `RU_LEGAL_SKILLS_PACKS_ROOT` не нужен. Переменная остаётся для
+случая, когда нужен свой набор skills: `RU_LEGAL_SKILLS_PACKS_ROOT=/path/to/packs ru-legal-skills-mcp`.
 
 ### 4. Готово
 
@@ -82,7 +82,7 @@ Fallback на keyword-only если LLM не configured.
 
 ```bash
 # Path к packs/ — обычно auto-detected
-export RU_LEGAL_PACKS_ROOT=/path/to/ru-legal-skills/packs
+export RU_LEGAL_SKILLS_PACKS_ROOT=/path/to/ru-legal-skills/packs
 
 # Provider для router LLM (auto-detected from env):
 export OPENAI_API_KEY=sk-...           # → uses gpt-4o-mini
@@ -108,7 +108,7 @@ export RU_LEGAL_ROUTER_LLM=yandexgpt
                  │ MCP protocol (stdio)
                  ▼
 ┌───────────────────────────────────────────┐
-│  ru-legal-mcp (this package)              │
+│  ru-legal-skills-mcp (this package)              │
 │                                           │
 │  ├── server.py — entrypoint               │
 │  ├── registry/skills.py — load packs/     │
@@ -132,9 +132,9 @@ from langchain_mcp_adapters.client import MultiServerMCPClient
 from langgraph.prebuilt import create_react_agent
 
 mcp_client = MultiServerMCPClient({
-    "ru-legal": {
+    "ru-legal-skills": {
         "command": "uvx",
-        "args": ["ru-legal-mcp"],
+        "args": ["ru-legal-skills-mcp"],
         "transport": "stdio",
     }
 })

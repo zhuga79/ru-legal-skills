@@ -28,14 +28,20 @@
 - Единый корень дел для всех паков: `~/.ru-legal/matters/` (ранее `litigation` использовал
   `~/.ru-legal/profiles/litigation/matters/`)
 - `ru-legal-aggregator` 0.2.0: пакеты skills попадают в wheel, `ru-legal` CLI (`list-packs`,
-  `list-skills`, `show-skill`), `RU_LEGAL_PACKS_ROOT` теперь опционален
+  `list-skills`, `show-skill`), `RU_LEGAL_SKILLS_PACKS_ROOT` теперь опционален
+
+### Renamed (2026-10-20)
+- PyPI-пакет `ru-legal-mcp` → `ru-legal-skills-mcp`, модуль `ru_legal_mcp` → `ru_legal_skills_mcp`,
+  CLI `ru-legal` → `ru-legal-skills`, MCP server name `ru-legal` → `ru-legal-skills`,
+  env var `RU_LEGAL_PACKS_ROOT` → `RU_LEGAL_SKILLS_PACKS_ROOT` (старое имя работает как alias)
+- версия агрегатора 0.3.0
 
 ### Fixed (2026-10-20)
 - `references/constants/2026.yaml`: МРОТ-2026 = 27 093 ₽ (было 19 242 ₽ — значение 2024 года),
   предельная база взносов 2 979 000 ₽, госпошлины АПК/ГПК по ред. ФЗ-259/2024, шкала НДФЛ,
   пособие по безработице; `next_review` продлён
 - `ru-legal-aggregator`: wheel без `packs/` (падение на старте после `pip install`), битый
-  entrypoint `ru_legal_mcp.cli:main`, неверный `REPO_ROOT` в тестах реестра
+  entrypoint `ru_legal_skills_mcp.cli:main`, неверный `REPO_ROOT` в тестах реестра
 
 ---
 
@@ -73,7 +79,7 @@
 | `rospatent-mcp` | fips.ru | ТЗ / патенты / ПО |
 | `zakupki-mcp` | zakupki.gov.ru | Гос.закупки + РНП |
 | `rosreestr-mcp` | pkk.rosreestr.ru | Кадастр недвижимости |
-| `ru-legal-mcp` (aggregator) | — | Unified entry-point: skills как MCP prompts + Strategy C router |
+| `ru-legal-skills-mcp` (aggregator) | — | Unified entry-point: skills как MCP prompts + Strategy C router |
 
 ### Aggregator features
 - 186 skills auto-зарегистрированы как MCP prompts (slash-commands)

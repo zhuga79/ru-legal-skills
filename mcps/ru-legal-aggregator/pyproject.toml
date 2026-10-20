@@ -3,9 +3,9 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "ru-legal-mcp"
-version = "0.2.0"
-description = "Unified MCP server для ru-legal — все 33 tools + 186 skills РФ legal AI в одном пакете. Подключи в Claude Code / Cursor / любой MCP-клиент."
+name = "ru-legal-skills-mcp"
+version = "0.3.0"
+description = "Unified MCP server для ru-legal-skills — все 33 tools + 186 skills РФ legal AI в одном пакете. Подключи в Claude Code / Cursor / любой MCP-клиент."
 readme = "README.md"
 license = { text = "Apache-2.0" }
 requires-python = ">=3.11"
@@ -44,11 +44,11 @@ Repository = "https://github.com/zhuga79/ru-legal-skills"
 Issues = "https://github.com/zhuga79/ru-legal-skills/issues"
 
 [project.scripts]
-ru-legal-mcp = "ru_legal_mcp.server:main"
-ru-legal = "ru_legal_mcp.cli:main"
+ru-legal-skills-mcp = "ru_legal_skills_mcp.server:main"
+ru-legal-skills = "ru_legal_skills_mcp.cli:main"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/ru_legal_mcp"]
+packages = ["src/ru_legal_skills_mcp"]
 
 [tool.hatch.build.hooks.custom]
 path = "hatch_build.py"

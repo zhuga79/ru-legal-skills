@@ -18,7 +18,7 @@ import logging
 from dataclasses import dataclass
 from typing import Any, Protocol, runtime_checkable
 
-from ru_legal_mcp.registry.skills import SkillMetadata, SkillRegistry
+from ru_legal_skills_mcp.registry.skills import SkillMetadata, SkillRegistry
 
 logger = logging.getLogger(__name__)
 

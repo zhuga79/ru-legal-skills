@@ -4,7 +4,7 @@
 
 > **Статус 2026-10-20:** передача завершена. Репозиторий — `zhuga79/ru-legal-skills`.
 > Локальный remote `fork` переключён, ссылки и clone-инструкции обновлены, CI зелёный.
-> Осталось только п. 6 (PyPI): передать maintainer-права на пакет `ru-legal-mcp`.
+> Осталось только п. 6 (PyPI): передать maintainer-права на пакет `ru-legal-skills-mcp`.
 
 ## 1. Предполётная проверка
 
@@ -53,7 +53,7 @@ git remote -v
 
 ## 6. PyPI
 
-Пакет `ru-legal-mcp` **ещё не опубликован** (404 на pypi.org), поэтому «передачи прав»
+Пакет `ru-legal-skills-mcp` **ещё не опубликован** (404 на pypi.org), поэтому «передачи прав»
 не требуется — нужна первая публикация.
 
 Публикация настроена через trusted publishing (OIDC, без токенов):
@@ -63,13 +63,13 @@ git remote -v
 Что сделать вручную (нужен аккаунт PyPI `zhuga79`):
 
 1. pypi.org → Account settings → Publishing → **Add a pending publisher**
-   - PyPI Project Name: `ru-legal-mcp`
+   - PyPI Project Name: `ru-legal-skills-mcp`
    - Owner: `zhuga79`
    - Repository name: `ru-legal-skills`
    - Workflow name: `publish.yml`
    - Environment name: `pypi`
 2. Создать GitHub Release `v0.2.0` — workflow опубликует пакет.
-3. Проверить: `pip index versions ru-legal-mcp` и `uvx ru-legal-mcp`.
+3. Проверить: `pip index versions ru-legal-skills-mcp` и `uvx ru-legal-skills-mcp`.
 
 Пока пакет не опубликован, установка — из исходников:
 `pip install -e mcps/ru-legal-aggregator`.
