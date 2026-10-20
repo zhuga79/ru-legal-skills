@@ -92,8 +92,8 @@ Resources:
 ## Разработка
 
 ```bash
-git clone <repo-url>
-cd ru-legal/mcps/pravo
+git clone https://github.com/zhuga79/ru-legal-skills.git
+cd ru-legal-skills/mcps/pravo
 pip install -e ".[dev]"
 pytest
 ```

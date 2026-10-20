@@ -133,8 +133,8 @@ classify_identifier("1027700132195") # "ogrn"      (ОГРН Сбербанка)
 ## Разработка
 
 ```bash
-git clone <repo-url>
-cd ru-legal/mcps/egrul
+git clone https://github.com/zhuga79/ru-legal-skills.git
+cd ru-legal-skills/mcps/egrul
 pip install -e ".[dev]"
 
 # Для тестов API ключ не нужен — все HTTP замокированы через respx

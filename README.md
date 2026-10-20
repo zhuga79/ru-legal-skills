@@ -1,4 +1,4 @@
-# ru-legal
+# ru-legal-skills
 
 > **Open-source legal knowledge + data layer для российского права.** 186 skills + 7 MCP-интеграций с госреестрами (+ aggregator MCP). Apache 2.0. Подключи через MCP к любому AI-клиенту: Claude Code / Cursor / Continue / LangGraph / собственный harness.
 

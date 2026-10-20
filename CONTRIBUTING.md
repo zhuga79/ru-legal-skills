@@ -1,4 +1,4 @@
-# Contributing to ru-legal
+# Contributing to ru-legal-skills
 
 Спасибо что хочешь contribute! Этот проект — community driven, и любая помощь ценна.
 
@@ -25,8 +25,8 @@
 ### Шаг 2. Fork + branch
 
 ```bash
-git clone <repo-url>
-cd ru-legal
+git clone https://github.com/zhuga79/ru-legal-skills.git
+cd ru-legal-skills
 git checkout -b feat/my-contribution
 ```
 

@@ -38,6 +38,11 @@ dev = [
     "ruff>=0.5",
 ]
 
+[project.urls]
+Homepage = "https://github.com/zhuga79/ru-legal-skills"
+Repository = "https://github.com/zhuga79/ru-legal-skills"
+Issues = "https://github.com/zhuga79/ru-legal-skills/issues"
+
 [project.scripts]
 ru-legal-mcp = "ru_legal_mcp.server:main"
 ru-legal = "ru_legal_mcp.cli:main"

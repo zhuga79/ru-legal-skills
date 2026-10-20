@@ -82,7 +82,7 @@ Fallback на keyword-only если LLM не configured.
 
 ```bash
 # Path к packs/ — обычно auto-detected
-export RU_LEGAL_PACKS_ROOT=/path/to/ru-legal/packs
+export RU_LEGAL_PACKS_ROOT=/path/to/ru-legal-skills/packs
 
 # Provider для router LLM (auto-detected from env):
 export OPENAI_API_KEY=sk-...           # → uses gpt-4o-mini
