@@ -153,7 +153,7 @@ truncation drops условие и misrepresents что пункт делает.
 
 ### Verify tracker entries
 
-Перед тем как summary говорит "Я добавил в tracker" (или любой equivalent — "trackнут",
+Перед тем как summary говорит "Я добавил в tracker" (или любой equivalent — "отслежен",
 "в трекере", "поставил напоминание") — verify что `renewal-tracker` skill реально был
 запущен для этого договора.
 
@@ -164,8 +164,8 @@ truncation drops условие и misrepresents что пункт делает.
 - Либо пиши summary без assertion про tracker и добавь action item: "Добавить в renewal
   tracker — пока не сделано".
 
-Утверждение "trackнуто" когда это не так — **хуже** чем omission. Stakeholder тогда
-trust'ит reminder, который никогда не сработает. Если truthful statement — "trackнуто",
+Утверждение "отслежено" когда это не так — **хуже** чем omission. Stakeholder тогда
+trust'ит reminder, который никогда не сработает. Если truthful statement — "зафиксировано",
 skill запускает tracker. Если "тебе нужно поставить в календарь — я не залогировал", скажи это.
 
 ---

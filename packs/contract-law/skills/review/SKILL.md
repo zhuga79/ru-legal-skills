@@ -201,7 +201,7 @@ Deviation-by-deviation, конкретные redlines, названный approv
    recurring обслуживание).
 
 3. **Договоры с госкорпорациями (по ФЗ-44/223)** — имеют **обязательные** template
-   formы. Reviewer's authority ограничена — нельзя менять fundamental terms.
+   формы. Reviewer's authority ограничена — нельзя менять fundamental terms.
    Если в routing определён госконтракт — пометь и route к специальному
    `public-procurement/tender-contract-review` (если pack установлен).
 
