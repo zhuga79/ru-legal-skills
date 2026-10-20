@@ -53,13 +53,26 @@ git remote -v
 
 ## 6. PyPI
 
-Пакет `ru-legal-mcp` на PyPI **не переезжает** вместе с GitHub. Варианты:
+Пакет `ru-legal-mcp` **ещё не опубликован** (404 на pypi.org), поэтому «передачи прав»
+не требуется — нужна первая публикация.
 
-1. `zhuga79` становится maintainer проекта на PyPI (приглашение через PyPI UI).
-2. Публикация через trusted publishing: привязать новый репозиторий к проекту
-   (`pypi.org/manage/project/ru-legal-mcp/settings/publishing/`).
+Публикация настроена через trusted publishing (OIDC, без токенов):
+`.github/workflows/publish.yml` собирает wheel + sdist, проверяет, что `packs/` внутри,
+и публикует по GitHub Release (или вручную через `workflow_dispatch`).
 
-Без этого `pip install ru-legal-mcp` продолжит отдавать старую версию.
+Что сделать вручную (нужен аккаунт PyPI `zhuga79`):
+
+1. pypi.org → Account settings → Publishing → **Add a pending publisher**
+   - PyPI Project Name: `ru-legal-mcp`
+   - Owner: `zhuga79`
+   - Repository name: `ru-legal-skills`
+   - Workflow name: `publish.yml`
+   - Environment name: `pypi`
+2. Создать GitHub Release `v0.2.0` — workflow опубликует пакет.
+3. Проверить: `pip index versions ru-legal-mcp` и `uvx ru-legal-mcp`.
+
+Пока пакет не опубликован, установка — из исходников:
+`pip install -e mcps/ru-legal-aggregator`.
 
 ## 7. Коммуникация
 

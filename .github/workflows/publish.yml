@@ -1,0 +1,64 @@
+name: publish
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Собрать wheel + sdist
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Собрать артефакты
+        working-directory: mcps/ru-legal-aggregator
+        run: |
+          python3 -m pip install --quiet build twine
+          python3 -m build
+          python3 -m twine check dist/*
+
+      - name: Проверить, что skills попали в артефакты
+        working-directory: mcps/ru-legal-aggregator
+        run: |
+          python3 - <<'PY'
+          import glob, tarfile, zipfile, sys
+          wheel = glob.glob('dist/*.whl')[0]
+          sdist = glob.glob('dist/*.tar.gz')[0]
+          n_wheel = sum(1 for n in zipfile.ZipFile(wheel).namelist() if n.endswith('SKILL.md'))
+          n_sdist = sum(1 for n in tarfile.open(sdist).getnames() if n.endswith('SKILL.md'))
+          print(f'skills: wheel={n_wheel}, sdist={n_sdist}')
+          if n_wheel < 180 or n_sdist < 180:
+              sys.exit('packs/ не попали в артефакты')
+          PY
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: mcps/ru-legal-aggregator/dist/
+
+  publish:
+    name: Опубликовать на PyPI
+    needs: build
+    if: github.event_name == 'release' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/p/ru-legal-mcp
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+
+      - uses: pypa/gh-action-pypi-publish@release/v1
