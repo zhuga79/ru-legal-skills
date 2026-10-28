@@ -4,18 +4,6 @@
 
 ## Quick start
 
-### 1. Самые ценные contributions сейчас
-
-| Что | Сложность | Impact |
-|-----|:---------:|--------|
-| 🐛 **Feedback от практикующего юриста** на конкретный skill | ⭐ | 🔥🔥🔥 |
-| 📝 **Новый skill** в существующий pack | ⭐⭐ | 🔥🔥 |
-| 🔌 **Новый MCP** (ФАС / ФССП / РКН реестры) | ⭐⭐⭐ | 🔥🔥🔥 |
-| 📦 **Новый pack** (банкротство / страхование / ВЭД) | ⭐⭐⭐⭐ | 🔥🔥🔥 |
-| 📖 **README / docs** улучшения | ⭐ | 🔥 |
-| 🔧 **Bug fixes** | ⭐⭐ | 🔥🔥 |
-| 🌐 **Adapter** (LangChain / OpenAI / etc.) | ⭐⭐⭐ | 🔥 |
-
 ## Как сделать contribution
 
 ### Шаг 1. Discuss before code
@@ -194,13 +182,6 @@ if __name__ == "__main__":
 - Цитаты норм в backticks: `ст.81 ТК`, `ст.452 ГК`
 - Bilingual mix OK (русский + английские технические термины)
 
-## Что **не нужно** делать
-
-- ❌ Не открывай PR с 50+ файлами без discussion
-- ❌ Не переписывай существующий skill полностью без согласования
-- ❌ Не добавляй dependencies без обоснования
-- ❌ Не делай breaking changes к public API без deprecation
-- ❌ Не убирай attribution к Anthropic в ported skills
 
 ## Code of Conduct
 
@@ -212,6 +193,6 @@ if __name__ == "__main__":
 
 ## Вопросы
 
-Открой issue в репозитории `zhuga79/ru-legal-skills`. Процесс передачи репозитория — в [TRANSFER.md](TRANSFER.md).
+Открой issue в репозитории `zhuga79/ru-legal-skills`.
 
 Спасибо!
