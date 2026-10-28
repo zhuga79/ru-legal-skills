@@ -1,8 +1,8 @@
 # MCP Status — Brutal Honesty Edition
 
 > **Этот файл говорит правду о том, что работает, а что нет.** Обновляется еженедельно по результатам live endpoint tests.
-> Последний audit: 2026-05-26
-> Next audit: 2026-06-02
+> Последний audit: 2026-10-26 (перепроверка тестов + rospatent v0.2.0)
+> Next audit: 2026-11-02
 
 ## Manifesto
 
@@ -27,7 +27,7 @@
 | `egrul` | 🟡 YELLOW | 4 | ✅ работает с API ключом | Free tier 800 req total (не в день) |
 | `kad` | 🟡 YELLOW ↑ | 4 | Browser UA добавлен 2026-05-26 — нужен ре-тест | Anti-bot может продолжать резать |
 | `efrsb` | 🟡 YELLOW ↑ | 4 | Browser UA добавлен 2026-05-26 — нужен ре-тест | Anti-bot may still block |
-| `rospatent` | ⚫ BLACK | 6 | ❌ HTTP 404 ВСЕ 4 endpoints | **Endpoints не существуют — спекулятивная реализация. Нужен полный rewrite на HTML scraping или paid API.** |
+| `rospatent` | 🟢 **GREEN** (URL-builder) | 6 | ✅ Билдеры ссылок ФИПС, тесты 13/13 | API у ФИПС нет — поиск выполняет юрист в браузере |
 | `rosreestr` | 🟡 YELLOW | 5 | DDoS-Guard timeout | `get_encumbrances` misleading (всегда redirect на платную EGRN) |
 | `zakupki` | 🟡 YELLOW | 5 | endpoint suspect (возможно не существует) | Нужна верификация `/epz/api/orders/search` |
 | `ru-legal-aggregator` | 🟢 GREEN | 4 + 186 skills | local FS only | `packs/` входит в wheel; env var опционален |
@@ -119,33 +119,24 @@ EFRSB_USER_AGENT="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/53
 
 ---
 
-### rospatent ⚫ NEVER WORKED
+### rospatent 🟢 URL-BUILDER MODE (v0.2.0)
 
-**Это самый честный пункт во всём файле.**
+**Что было:** 4 tools ходили в несуществующие JSON endpoints ФИПС → HTTP 404, MCP был отключён.
 
-**Что обещано:** Поиск патентов, ТЗ, ПО через ФИПС.
-**Что работает:** Ничего. Endpoints в коде **не существуют у ФИПС.**
+**Что стало:** MCP переписан в **URL-builder mode**. Tools не делают сетевых запросов — они строят проверяемые ссылки на реестры ФИПС, которые юрист открывает в браузере:
 
-**Test result (2026-05-26):**
-```
-GET https://www1.fips.ru/registers-web/api/trademarks/search?query=Sber → 404
-GET https://www1.fips.ru/registers-web/api/patents/search?query=quantum → 404
-GET https://www1.fips.ru/registers-web/api/software/search?query=test → 404
-GET https://www1.fips.ru/registers-web/api/patentAttorneys/search → 404
-```
+| Tool | Что возвращает |
+|---|---|
+| `build_trademark_search_url` | ссылка на поиск ТЗ (+ класс МКТУ) |
+| `build_patent_search_url` | ссылка на поиск патентов (invention / utility / design) |
+| `get_trademark_card_url` | карточка ТЗ по номеру (реестр RUTM) |
+| `get_patent_card_url` | карточка патента по номеру (реестр RUPAT) |
+| `build_software_search_url` | поиск в реестре программ для ЭВМ (EVM) |
+| `check_attorney_register_url` | реестр патентных поверенных |
 
-**Реальность:** У ФИПС нет публичного REST/JSON API. Только HTML-форма поиска (`new.fips.ru/registers-doc-view/fips_servlet`).
+**Ограничение (честно):** у ФИПС нет публичного REST API. Автоматического парсинга результатов нет — это осознанный компромисс, а не баг. Тесты: 13/13 (офлайн, без сети).
 
-**Code в этом MCP — спекулятивная реализация по предполагаемой schema, никогда не валидированная.**
-
-**Workaround:** Никакого. MCP **временно отключён из агрегатора** (см. registry).
-
-**Priority fix:** P0 — три варианта:
-1. **Удалить MCP полностью**, добавить notice
-2. **Переписать на HTML scraping** `new.fips.ru` (1-2 недели работы)
-3. **Платный API** `searchplatform.rospatent.gov.ru` (требует регистрации)
-
-**Решение в работе.** До тех пор — **не используйте этот MCP.**
+**Если нужен автоматический поиск:** платный API `searchplatform.rospatent.gov.ru` (требует регистрации) — отдельная задача.
 
 ---
 
@@ -221,11 +212,11 @@ uvx ru-legal-skills-mcp
 | # | Action | Owner | Target |
 |---|---|---|---|
 | 1 | Brutal honest update MCP-STATUS.md | @AlsKozlov | **DONE 2026-05-26** ✅ |
-| 2 | Remove rospatent из агрегатора | @AlsKozlov | 2026-05-27 |
+| 2 | Переписать rospatent в URL-builder mode | @AlsKozlov | **DONE 2026-10-26** ✅ |
 | 3 | Browser UA для kad/efrsb | @AlsKozlov | 2026-05-29 |
 | 4 | Document RU_LEGAL_SKILLS_PACKS_ROOT в README | @AlsKozlov | 2026-05-27 |
 | 5 | Shared library `ru_legal_skills_mcp.common/` | @AlsKozlov | 2026-06-03 |
-| 6 | New: cbr-mcp (SOAP, no auth) | @AlsKozlov | 2026-06-02 |
+| 6 | New: cbr-mcp (SOAP, no auth) | @AlsKozlov | **DONE** ✅ (5 tools, 9 тестов) |
 | 7 | New: sanctions-mcp (XML dumps) | @AlsKozlov | 2026-06-04 |
 
 ## Health check automation (planned)

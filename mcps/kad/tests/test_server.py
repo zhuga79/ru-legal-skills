@@ -18,7 +18,7 @@ from kad_mcp.server import (
 @pytest.mark.asyncio
 async def test_list_courts_returns_static_reference():
     """list_courts возвращает зашитый справочник без external call."""
-    result = await list_courts.fn()
+    result = await list_courts()
     assert isinstance(result, list)
     assert len(result) > 20
     # СИП обязательно в списке (для IP-споров)
@@ -32,7 +32,7 @@ async def test_search_cases_requires_criteria():
     """search_cases без критериев — должен raise ToolError."""
     from fastmcp.exceptions import ToolError
     with pytest.raises(ToolError, match="хотя бы один из критериев"):
-        await search_cases.fn()
+        await search_cases()
 
 
 @pytest.mark.asyncio
@@ -56,7 +56,7 @@ async def test_search_cases_by_case_number():
     }
     respx.post(f"{KAD_API_BASE}/SearchInstances").mock(return_value=Response(200, json=fake_response))
 
-    result = await search_cases.fn(case_number="A40-12345/2025")
+    result = await search_cases(case_number="A40-12345/2025")
 
     assert len(result) == 1
     case = result[0]
@@ -89,7 +89,7 @@ async def test_get_case_card_returns_full_card():
     }
     respx.post(f"{KAD_API_BASE}/Card").mock(return_value=Response(200, json=fake_response))
 
-    result = await get_case_card.fn(case_number="A40-12345/2025")
+    result = await get_case_card(case_number="A40-12345/2025")
 
     assert result["case_number"] == "A40-12345/2025"
     assert result["category"] == "О взыскании задолженности"

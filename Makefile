@@ -6,6 +6,8 @@
 
 .PHONY: help install-mcps test lint format vendor clean audit audit-staleness mcp-status
 
+PYTEST ?= pytest
+
 help:  ## Показать это меню
 	@awk 'BEGIN {FS = ":.*##"} /^[a-zA-Z_-]+:.*##/ {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
@@ -33,10 +35,14 @@ audit:  ## Полный аудит проекта (staleness + другие пр
 mcp-status:  ## Показать текущий MCP-STATUS
 	@cat MCP-STATUS.md | head -50
 
-test:  ## Прогнать тесты всех MCP
-	pytest mcps/pravo/tests/ mcps/egrul/tests/ mcps/kad/tests/ \
-	       mcps/efrsb/tests/ mcps/rospatent/tests/ mcps/zakupki/tests/ \
-	       mcps/rosreestr/tests/ mcps/ru-legal-aggregator/tests/ -v
+test:  ## Прогнать тесты всех MCP (каждый пакет отдельно — изолированные test-модули)
+	@status=0; \
+	for d in mcps/*/; do \
+		[ -d "$$d/tests" ] || continue; \
+		echo "=== $$(basename $$d) ==="; \
+		$(PYTEST) "$$d/tests" -q || status=1; \
+	done; \
+	exit $$status
 
 lint:  ## Линтер по всем MCP + скриптам
 	ruff check mcps/ scripts/

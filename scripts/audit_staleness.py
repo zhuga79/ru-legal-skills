@@ -23,10 +23,9 @@ import argparse
 import json
 import re
 import sys
-from datetime import datetime
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
-
 
 # ============================================================================
 # Frontmatter parser (без зависимостей — простой regex)
@@ -48,7 +47,7 @@ def parse_frontmatter(text: str) -> dict[str, Any]:
 
     for line in raw.split("\n"):
         if in_block:
-            if line.startswith("  ") or line.startswith("\t") or not line.strip():
+            if line.startswith(("  ", "\t")) or not line.strip():
                 current_block.append(line.lstrip())
                 continue
             else:
@@ -67,11 +66,11 @@ def parse_frontmatter(text: str) -> dict[str, Any]:
                 in_block = True
                 current_key = key
                 current_block = []
-            elif val.startswith("[") or val.startswith("{"):
+            elif val.startswith(("[", "{")):
                 # Try simple JSON-like
                 try:
                     result[key] = json.loads(val.replace("'", '"'))
-                except Exception:
+                except (ValueError, TypeError):
                     result[key] = val
             elif val.startswith('"') and val.endswith('"'):
                 result[key] = val[1:-1]
@@ -119,7 +118,7 @@ def parse_legislative_date(value: str) -> datetime | None:
 
 def months_since(date: datetime) -> int:
     """Сколько целых месяцев прошло от date до сегодня."""
-    today = datetime.utcnow()
+    today = datetime.now(UTC)
     return (today.year - date.year) * 12 + (today.month - date.month)
 
 
@@ -217,19 +216,31 @@ def format_console(results: list[dict[str, Any]], max_age_months: int) -> str:
 
     lines = [
         f"{BOLD}=== ru-legal skill staleness audit ==={RESET}",
-        f"Date: {datetime.utcnow().isoformat()}",
+        f"Date: {datetime.now(UTC).isoformat()}",
         f"Max age: {max_age_months} months",
-        f"",
+        "",
         f"Total skills: {total}",
         f"  {GREEN}✅ Clean: {len(clean)}{RESET}",
         f"  {YELLOW}⚠ Warnings: {len(has_warnings)}{RESET}",
         f"  {RED}❌ Issues: {len(has_issues)}{RESET}",
-        f"",
-        f"By category:",
+        "",
+        "By category:",
         f"  {RED}STALE (>{max_age_months}mo): {len(stale)}{RESET}",
         f"  {YELLOW}Missing last_legislative_update: {len(missing_legislative)}{RESET}",
-        f"",
+        "",
     ]
+
+    # Разбивка warnings по типам — иначе «Warnings: N» ни о чём не говорит
+    warning_counts: dict[str, int] = {}
+    for r in results:
+        for warning in r["warnings"]:
+            kind = warning.split(":")[0] if ":" in warning else warning
+            warning_counts[kind] = warning_counts.get(kind, 0) + 1
+    if warning_counts:
+        lines.append(f"{BOLD}By warning type:{RESET}")
+        for kind, count in sorted(warning_counts.items(), key=lambda kv: -kv[1]):
+            lines.append(f"  {YELLOW}⚠ {kind}: {count}{RESET}")
+        lines.append("")
 
     if has_issues:
         lines.append(f"{RED}{BOLD}=== Critical Issues ==={RESET}")
@@ -292,7 +303,7 @@ def main():
     if args.json:
         with open(args.json, "w", encoding="utf-8") as f:
             json.dump({
-                "audit_date": datetime.utcnow().isoformat(),
+                "audit_date": datetime.now(UTC).isoformat(),
                 "max_age_months": args.max_age_months,
                 "total_skills": len(results),
                 "results": results,

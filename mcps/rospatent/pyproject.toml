@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "rospatent-mcp"
-version = "0.1.0"
+version = "0.2.0"
 description = "MCP server для Роспатент / ФИПС — Реестры товарных знаков, изобретений, полезных моделей, промобразцов, программ для ЭВМ и БД."
 readme = "README.md"
 license = { text = "Apache-2.0" }

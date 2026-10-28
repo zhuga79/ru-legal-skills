@@ -14,7 +14,6 @@ from fastmcp import Client
 import egrul_mcp.server as srv
 from egrul_mcp.server import (
     API_BASE,
-    MIN_REQUEST_INTERVAL_S,
     _cache,
     mcp,
 )

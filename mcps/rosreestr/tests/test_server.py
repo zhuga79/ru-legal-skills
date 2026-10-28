@@ -36,7 +36,7 @@ async def test_search_object_by_cadastre():
     }
     respx.get(f"{PKK_BASE}/features/1").mock(return_value=Response(200, json=fake))
 
-    result = await search_object_by_cadastre.fn(cadastre_number="77:01:0001017:1234")
+    result = await search_object_by_cadastre(cadastre_number="77:01:0001017:1234")
     assert result["cadastre_number"] == "77:01:0001017:1234"
     assert result["type"] == "Земельный участок"
     assert result["area_sq_m"] == 100.5
@@ -53,7 +53,7 @@ async def test_search_object_not_found_raises():
 
     from fastmcp.exceptions import ToolError
     with pytest.raises(ToolError, match="не найден"):
-        await search_object_by_cadastre.fn(cadastre_number="99:99:9999999:9999")
+        await search_object_by_cadastre(cadastre_number="99:99:9999999:9999")
 
 
 @pytest.mark.asyncio
@@ -76,7 +76,7 @@ async def test_get_cadastre_value_with_value():
     }
     respx.get(f"{PKK_BASE}/features/1").mock(return_value=Response(200, json=fake))
 
-    result = await get_cadastre_value.fn(cadastre_number="77:01:0001017:5678")
+    result = await get_cadastre_value(cadastre_number="77:01:0001017:5678")
     assert result["current_value_rub"] == 20000000
     # Жилое — должно применить 0.1% rate
     assert result["tax_rate_used"] == 0.001

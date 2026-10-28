@@ -1,6 +1,8 @@
 """Basic unit tests для zakupki-mcp."""
 from __future__ import annotations
 
+from datetime import date, timedelta
+
 import pytest
 import respx
 from httpx import Response
@@ -18,7 +20,7 @@ from zakupki_mcp.server import (
 async def test_search_tenders_requires_criteria():
     from fastmcp.exceptions import ToolError
     with pytest.raises(ToolError, match="хотя бы один"):
-        await search_tenders.fn()
+        await search_tenders()
 
 
 @pytest.mark.asyncio
@@ -40,7 +42,7 @@ async def test_search_tenders_basic():
     }
     respx.get(f"{ZAKUPKI_API_BASE}/orders/search").mock(return_value=Response(200, json=fake))
 
-    result = await search_tenders.fn(query="мебель")
+    result = await search_tenders(query="мебель")
     assert len(result) == 1
     t = result[0]
     assert t["purchase_number"] == "0173100007722000123"
@@ -52,14 +54,14 @@ async def test_search_tenders_basic():
 async def test_check_rnp_requires_input():
     from fastmcp.exceptions import ToolError
     with pytest.raises(ToolError):
-        await check_rnp.fn()
+        await check_rnp()
 
 
 @pytest.mark.asyncio
 @respx.mock
 async def test_check_rnp_clean():
     respx.get(f"{RNP_API_BASE}/search").mock(return_value=Response(200, json={"items": []}))
-    result = await check_rnp.fn(inn="7707000050")
+    result = await check_rnp(inn="7707000050")
     assert result["status"] == "clean"
 
 
@@ -77,13 +79,14 @@ async def test_check_rnp_active_record():
                 "decisionAuthority": "ФАС России",
                 "decisionDate": "2024-06-15",
                 "includeDate": "2024-06-20",
-                "endDate": "2026-06-20",  # future = active
+                # future relative to "now" — считается активной записью
+                "endDate": (date.today() + timedelta(days=365)).isoformat(),
             }
         ]
     }
     respx.get(f"{RNP_API_BASE}/search").mock(return_value=Response(200, json=fake))
 
-    result = await check_rnp.fn(inn="7707000100")
+    result = await check_rnp(inn="7707000100")
     assert result["status"] == "in_rnp"
     assert len(result["active_records"]) == 1
     assert result["active_records"][0]["reason"] == "Уклонение от заключения контракта"

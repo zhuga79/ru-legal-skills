@@ -17,7 +17,7 @@ from __future__ import annotations
 import argparse
 import re
 import sys
-from datetime import datetime
+from datetime import UTC, datetime
 from pathlib import Path
 
 FRONTMATTER_RE = re.compile(r"^(---\s*\n)(.*?)(\n---\s*\n)", re.DOTALL)
@@ -81,7 +81,7 @@ def main():
     parser.add_argument("--packs-root", default="packs")
     parser.add_argument(
         "--default-date",
-        default=datetime.utcnow().strftime("%Y-%m"),
+        default=datetime.now(UTC).strftime("%Y-%m"),
         help="Default date if no ported_at found (YYYY-MM)",
     )
     parser.add_argument("--dry-run", action="store_true", help="Show what would change")
@@ -112,7 +112,7 @@ def main():
         else:
             already_count += 1
 
-    print(f"\nSummary:")
+    print("\nSummary:")
     print(f"  Modified: {modified_count}")
     print(f"  Already had field: {already_count}")
     print(f"  Mode: {'APPLIED' if args.apply else 'DRY-RUN (use --apply to write)'}")

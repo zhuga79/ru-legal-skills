@@ -238,7 +238,7 @@ async def get_object_details(
     Returns full details + reminder что для полной информации о правах + обременениях
     нужна выписка из ЕГРН (платная через rosreestr.gov.ru / Госуслуги).
     """
-    result = await search_object_by_cadastre.fn(cadastre_number=cadastre_number)
+    result = await search_object_by_cadastre(cadastre_number=cadastre_number)
 
     result["_note"] = (
         "Текущая информация — из Публичной кадастровой карты. "
@@ -273,7 +273,7 @@ async def get_cadastre_value(
     - Pre-purchase: kadastr value vs market value (для НДФЛ при продаже через 5 лет)
     - Challenge worthy?: если cadastre значительно > рыночной — оспаривание выгодно
     """
-    object_data = await search_object_by_cadastre.fn(cadastre_number=cadastre_number)
+    object_data = await search_object_by_cadastre(cadastre_number=cadastre_number)
     value = object_data.get("cadastre_value")
     if value is None:
         return {
@@ -331,7 +331,7 @@ async def get_encumbrances(
         - egrn_extract_recommended: bool — recommendation
         - egrn_request_url
     """
-    object_data = await search_object_by_cadastre.fn(cadastre_number=cadastre_number)
+    object_data = await search_object_by_cadastre(cadastre_number=cadastre_number)
 
     encumbrances_basic = object_data.get("encumbrances_basic")
 

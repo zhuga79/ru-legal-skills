@@ -12,9 +12,12 @@ from __future__ import annotations
 import asyncio
 import sys
 from dataclasses import dataclass
-from typing import Any
 
 import httpx
+
+# Сетевые сбои, которые smoke-test должен фиксировать, а не падать:
+# транспорт, таймауты, битый JSON в ответе.
+NETWORK_ERRORS = (httpx.HTTPError, asyncio.TimeoutError, ValueError)
 
 
 @dataclass
@@ -42,7 +45,7 @@ async def check_pravo(client: httpx.AsyncClient) -> SmokeResult:
             items_count = len(data.get("items", []) if isinstance(data, dict) else [])
             return SmokeResult("pravo", url, "ok", f"returned {items_count} items", latency)
         return SmokeResult("pravo", url, "fail", f"HTTP {resp.status_code}", latency)
-    except Exception as e:
+    except NETWORK_ERRORS as e:
         return SmokeResult("pravo", url, "fail", str(e)[:120], 0)
 
 
@@ -62,7 +65,7 @@ async def check_egrul(client: httpx.AsyncClient) -> SmokeResult:
                 "requires API_FNS_KEY (expected — paid service)", latency,
             )
         return SmokeResult("egrul", url, "fail", f"HTTP {resp.status_code}", latency)
-    except Exception as e:
+    except NETWORK_ERRORS as e:
         return SmokeResult("egrul", url, "fail", str(e)[:120], 0)
 
 
@@ -87,7 +90,7 @@ async def check_kad(client: httpx.AsyncClient) -> SmokeResult:
                 f"HTTP {resp.status_code} — anti-bot защита (known limitation)", latency,
             )
         return SmokeResult("kad", url, "fail", f"HTTP {resp.status_code}", latency)
-    except Exception as e:
+    except NETWORK_ERRORS as e:
         return SmokeResult("kad", url, "fail", str(e)[:120], 0)
 
 
@@ -107,7 +110,7 @@ async def check_efrsb(client: httpx.AsyncClient) -> SmokeResult:
                 f"HTTP {resp.status_code} — likely rate-limited", latency,
             )
         return SmokeResult("efrsb", url, "fail", f"HTTP {resp.status_code}", latency)
-    except Exception as e:
+    except NETWORK_ERRORS as e:
         return SmokeResult("efrsb", url, "fail", str(e)[:120], 0)
 
 
@@ -132,7 +135,7 @@ async def check_rospatent(client: httpx.AsyncClient) -> SmokeResult:
                 "404 — endpoint changed (ФИПС API нестабилен; update needed)", latency,
             )
         return SmokeResult("rospatent", url, "fail", f"HTTP {resp.status_code}", latency)
-    except Exception as e:
+    except NETWORK_ERRORS as e:
         return SmokeResult("rospatent", url, "fail", str(e)[:120], 0)
 
 
@@ -154,7 +157,7 @@ async def check_zakupki(client: httpx.AsyncClient) -> SmokeResult:
         if resp.status_code in (403, 429):
             return SmokeResult("zakupki", url, "blocked", f"HTTP {resp.status_code}", latency)
         return SmokeResult("zakupki", url, "fail", f"HTTP {resp.status_code}", latency)
-    except Exception as e:
+    except NETWORK_ERRORS as e:
         return SmokeResult("zakupki", url, "fail", str(e)[:120], 0)
 
 
@@ -173,7 +176,7 @@ async def check_rosreestr(client: httpx.AsyncClient) -> SmokeResult:
                 "rosreestr", url, "blocked", f"HTTP {resp.status_code}", latency,
             )
         return SmokeResult("rosreestr", url, "fail", f"HTTP {resp.status_code}", latency)
-    except Exception as e:
+    except NETWORK_ERRORS as e:
         return SmokeResult("rosreestr", url, "fail", str(e)[:120], 0)
 
 

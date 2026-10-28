@@ -17,7 +17,7 @@ from efrsb_mcp.server import (
 async def test_check_company_requires_criteria():
     from fastmcp.exceptions import ToolError
     with pytest.raises(ToolError, match="хотя бы один"):
-        await check_company_bankruptcy.fn()
+        await check_company_bankruptcy()
 
 
 @pytest.mark.asyncio
@@ -26,7 +26,7 @@ async def test_check_company_not_found():
     respx.get(f"{EFRSB_API_BASE}/companies").mock(
         return_value=Response(200, json={"pageData": []})
     )
-    result = await check_company_bankruptcy.fn(inn="7707000999")
+    result = await check_company_bankruptcy(inn="7707000999")
     assert result["status"] == "not_found"
 
 
@@ -58,7 +58,7 @@ async def test_check_company_in_bankruptcy():
     }
     respx.get(f"{EFRSB_API_BASE}/companies").mock(return_value=Response(200, json=fake_response))
 
-    result = await check_company_bankruptcy.fn(inn="7707000001")
+    result = await check_company_bankruptcy(inn="7707000001")
     assert result["status"] == "in_bankruptcy"
     assert result["stage"] == "liquidation"
     assert result["stage_ru"] == "Конкурсное производство"
@@ -82,7 +82,7 @@ async def test_check_company_no_bankruptcy():
     }
     respx.get(f"{EFRSB_API_BASE}/companies").mock(return_value=Response(200, json=fake_response))
 
-    result = await check_company_bankruptcy.fn(inn="7707000050")
+    result = await check_company_bankruptcy(inn="7707000050")
     assert result["status"] == "no_bankruptcy"
 
 
@@ -95,4 +95,4 @@ def test_normalize_handles_invalid_shape():
 async def test_check_person_requires_criteria():
     from fastmcp.exceptions import ToolError
     with pytest.raises(ToolError):
-        await check_person_bankruptcy.fn()
+        await check_person_bankruptcy()

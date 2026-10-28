@@ -33,7 +33,7 @@ from __future__ import annotations
 
 import logging
 import sys
-from typing import Annotated, Optional
+from typing import Annotated
 from urllib.parse import quote_plus
 
 from fastmcp import FastMCP
@@ -107,7 +107,7 @@ mcp = FastMCP(
 def build_trademark_search_url(
     query: Annotated[str, Field(description="Поисковый запрос (название бренда, описание)")],
     nice_class: Annotated[
-        Optional[int],
+        int | None,
         Field(description="Класс МКТУ (1-45). Если None — поиск по всем классам.")
     ] = None,
 ) -> SearchURL:
@@ -251,7 +251,7 @@ def build_software_search_url(
 @mcp.tool()
 def check_attorney_register_url(
     attorney_name: Annotated[
-        Optional[str],
+        str | None,
         Field(description="ФИО патентного поверенного (опц.)")
     ] = None,
 ) -> SearchURL:

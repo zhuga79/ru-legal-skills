@@ -13,8 +13,8 @@ Status: 🟢 GREEN — endpoints протестированы 2026-05-26, раб
 from __future__ import annotations
 
 import logging
-from datetime import date, datetime, timedelta
-from typing import Annotated, Optional
+from datetime import UTC, date, datetime
+from typing import Annotated
 
 import httpx
 from fastmcp import FastMCP
@@ -41,20 +41,20 @@ def _get_cached(key: str):
     if item is None:
         return None
     ts, value = item
-    if (datetime.utcnow() - ts).total_seconds() > CACHE_TTL_SECONDS:
+    if (datetime.now(UTC) - ts).total_seconds() > CACHE_TTL_SECONDS:
         return None
     return value
 
 
 def _set_cached(key: str, value):
-    _cache[key] = (datetime.utcnow(), value)
+    _cache[key] = (datetime.now(UTC), value)
 
 
 # ----------------------------------------------------------------------------
 # HTTP client
 # ----------------------------------------------------------------------------
 
-_http_client: Optional[httpx.AsyncClient] = None
+_http_client: httpx.AsyncClient | None = None
 
 
 async def _client() -> httpx.AsyncClient:
@@ -92,8 +92,8 @@ class BICEntry(BaseModel):
     """Запись из справочника БИК."""
     bic: str
     name: str
-    correspondent_account: Optional[str] = None
-    address: Optional[str] = None
+    correspondent_account: str | None = None
+    address: str | None = None
 
 
 # ----------------------------------------------------------------------------
@@ -113,7 +113,7 @@ mcp = FastMCP(
 @mcp.tool()
 async def get_exchange_rates(
     date_iso: Annotated[
-        Optional[str],
+        str | None,
         Field(description="Дата YYYY-MM-DD. Если None — последняя доступная.")
     ] = None,
 ) -> list[ExchangeRate]:
@@ -176,7 +176,7 @@ async def get_exchange_rates(
 async def get_exchange_rate(
     currency: Annotated[str, Field(description="Код валюты (USD, EUR, CNY, ...)")],
     date_iso: Annotated[
-        Optional[str],
+        str | None,
         Field(description="Дата YYYY-MM-DD. Если None — последняя.")
     ] = None,
 ) -> ExchangeRate:
@@ -247,7 +247,7 @@ async def get_key_rate() -> KeyRateRecord:
 @mcp.tool()
 async def lookup_bank_by_bic(
     bic: Annotated[str, Field(description="БИК банка (9 цифр)")],
-) -> Optional[BICEntry]:
+) -> BICEntry | None:
     """Поиск банка по БИК.
 
     Возвращает name, корреспондентский счёт, адрес.

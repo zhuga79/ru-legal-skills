@@ -75,3 +75,40 @@ def test_index_format(registry: SkillRegistry):
     # Each skill line должен иметь skill_id | description format
     skill_lines = [line for line in lines if " | " in line]
     assert len(skill_lines) > 50
+
+
+# ---------------------------------------------------------------------------
+# Качество keyword-поиска (tier-1 shortlist для LLM)
+# ---------------------------------------------------------------------------
+
+
+def test_keyword_search_top1_sensitive_data_leak(registry: SkillRegistry):
+    results = registry.keyword_search("утечка персональных данных")
+    assert results, "запрос про утечку ПДн не должен давать пустой результат"
+    assert results[0][0].skill_id == "data-protection/dpa-review"
+
+
+def test_keyword_search_top1_tax_audit(registry: SkillRegistry):
+    results = registry.keyword_search("выездная налоговая проверка")
+    assert results[0][0].skill_id == "tax-law/tax-audit-response"
+
+
+def test_keyword_search_top1_ddu_uppercase(registry: SkillRegistry):
+    """Запрос в верхнем регистре (ДДУ) должен матчиться с description."""
+    results = registry.keyword_search("review ДДУ перед подписанием")
+    assert results[0][0].skill_id == "real-estate/ddu-review"
+
+
+def test_keyword_search_shortlist_contains_termination(registry: SkillRegistry):
+    """Tier-1 обязан включить termination-review в shortlist из 10.
+
+    «разработчиков» тянет выдумку в IP-пак (приёмка разработки), поэтому
+    требовать top-1 от keyword-поиска нельзя — решает LLM-tier или юрист.
+    """
+    results = registry.keyword_search("сокращение 5 разработчиков", limit=10)
+    ids = [skill.skill_id for skill, _ in results]
+    assert "labor-law/termination-review" in ids, ids
+
+
+def test_keyword_search_ignores_stopwords(registry: SkillRegistry):
+    assert registry.keyword_search("и в на по для") == []
