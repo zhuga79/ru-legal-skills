@@ -1,0 +1,58 @@
+# Portable pack manifest — runtime-агностичный.
+# RU-unique pack: личное (потребительское) банкротство граждан.
+# Аналога в anthropics/claude-for-legal нет. Убран из roadmap_packs в реестре
+# (registry.json) в рабочий контур.
+
+id: personal-bankruptcy
+version: 0.1.0
+name: "Личное банкротство граждан (гл. X ФЗ-127)"
+description: >
+  Банкротство должника-физлица по главе X ФЗ от 26.10.2002 № 127-ФЗ: триаж
+  маршрута освобождения от долгов — внесудебное банкротство через МФЦ
+  (ст. 223.2-223.7, бесплатно, 6 месяцев) против судебного через арбитражный
+  суд (реструктуризация долгов / реализация имущества, ст. 213.1-213.32).
+  Обязанность и право на подачу заявления (ст. 213.4), списываемые и
+  несписываемые долги (ст. 213.28), жилищный иммунитет единственного жилья
+  (ст. 446 ГПК, п. 15-П КС РФ от 26.04.2021, Обзор ВС РФ от 18.06.2025),
+  красные флаги сделок за 3 года (ст. 213.32), последствия признания банкротом
+  (ст. 213.30).
+
+license: Apache-2.0
+
+authors:
+  - name: "Claude for Russian Law contributors"
+
+keywords:
+  - legal
+  - russian-law
+  - personal-bankruptcy
+  - bankrotstvo
+  - 127-fz
+  - mfc
+  - внесудебное-банкротство
+  - ефрсб
+category: legal
+
+mcp:
+  required: []
+  optional:
+    - pravo       # гл. X ФЗ-127, ст. 446 ГПК — актуальные редакции
+    - efrsb       # ЕФРСБ: публикации о банкротстве гражданина
+    - kad         # Ев. дела о банкротстве граждан (АПК ст. 33 ч. 2.2)
+    - cbr         # ключевая ставка (проценты по реструктуризации — ст. 213.23)
+
+skills:
+  - id: bankrotstvo-fizlica
+    path: skills/bankrotstvo-fizlica/SKILL.md
+    user_invocable: true
+    portability: D
+    from_anthropic: false
+    note: "Killer skill — триаж внесудебное (МФЦ) vs судебное, для должника-гражданина. Закрывает roadmap_packs п. personal-bankruptcy (P1, phase 1)"
+
+# Roadmap (см. registry.json → roadmap_packs):
+#  - проверка условий и подача внесудебного заявления через МФЦ (документ-чеклист)
+#  - кредитор триаж (взыскатель: контроль банкротства должника)
+#  - ФУ/нотариусы?
+profile:
+  template: PROFILE.md
+  user_config_path: "~/.ru-legal/profiles/personal-bankruptcy/PROFILE.md"

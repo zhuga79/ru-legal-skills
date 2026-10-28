@@ -9,6 +9,15 @@
 
 ## [Unreleased]
 
+### Added (2026-10-29)
+- `packs/personal-bankruptcy/` — новый pack «Личное банкротство граждан (гл. X ФЗ-127)»
+  (P1 из roadmap_packs): killer-skill `bankrotstvo-fizlica` (триаж внесудебное МФЦ vs
+  судебное по гл. X ФЗ-127, перспектива должника), PROFILE.md, references/currency-watch.md
+- `packs/registry.json` — pack `personal-bankruptcy` убран из roadmap в рабочий реестр
+- Сверка норм 2026-10-29: ст. 223.2-223.7 (окно МФЦ 25 т.р.–1 млн, бесплатно, 6 мес),
+  ст. 333.37 НК (госпошлина должника 0 ₽ с 09.09.2024), ст. 213.30 ФЗ-127
+  (ред. 04.08.2026), КС 15-П от 26.04.2021, Обзор ВС РФ от 18.06.2025 пп. 17/18/30/34
+
 ### Fixed (2026-10-20) — 0.3.1
 - Агрегатор падал на старте, если в окружении `ALL_PROXY=socks://...`: fastmcp
   проверял новую версию на PyPI через httpx, и `httpx.AsyncClient` бросал
