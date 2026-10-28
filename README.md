@@ -144,16 +144,6 @@ result = await agent.ainvoke({"messages": [
 
 См. [`mcps/ru-legal-aggregator/README.md`](mcps/ru-legal-aggregator/README.md).
 
-## Не входит в этот repo
-
-- ❌ Harness / agent loop / tool-call orchestration → отдельный repo (planned: `ru-legal-agent`, LangGraph-based)
-- ❌ Telegram bot → туда же
-- ❌ Web UI / REST API → туда же
-- ❌ Memory / audit / approval / citation verification modules → туда же
-- ❌ CLI app → туда же
-
-Этот repo — pure **content + data**. Никаких opinions про harness.
-
 ## LLM-агностично
 
 Сам по себе `ru-legal-skills-mcp` — pure data + skills. Какую LLM использовать — выбирает harness:
@@ -187,21 +177,6 @@ Attribution-метаданные содержатся в YAML frontmatter каж
 ## Contributing
 
 См. [CONTRIBUTING.md](CONTRIBUTING.md).
-
-Самые полезные contributions:
-
-- 🐛 **Feedback от практикующего юриста** на конкретный skill
-- 📝 **Новый skill** в существующий pack (пример: `packs/*/skills/*/SKILL.md`)
-- 🔌 **Новый MCP** (ФАС / ФССП / РКН реестры в roadmap)
-- 📦 **Новый pack** (банкротство / страхование / ВЭД)
-- 📖 **Документация**
-
-## Roadmap
-
-- ✅ Phase 1: 19 packs / 186 skills / 7 MCPs / aggregator MCP
-- 🚧 Phase 2: split + `ru-legal-agent` separate repo + tool proxying в aggregator
-- ⏳ Phase 3: embedding-based router, более sophisticated memory integration
-- ⏳ Phase 4: community-contributed packs (banking law / customs / fintech)
 
 ## License
 
