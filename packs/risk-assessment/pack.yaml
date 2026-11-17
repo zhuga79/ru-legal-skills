@@ -1,0 +1,73 @@
+# Portable pack manifest — runtime-агностичный.
+# RU-unique pack: оценка правовых рисков.
+# Переписано из установленных legal skills AutoClaw (Apache 2.0)
+# под право РФ. Не является портом Anthropic claude-for-legal.
+
+id: risk-assessment
+version: 0.1.0
+name: "Оценка правовых рисков"
+description: >
+  Экспресс-триаж вопроса (делаем/на review/стоп), внешний регуляторный риск
+  организации, риск по сделке/спору/решению, риск продукта или фичи.
+  Без выдуманных штрафов и «шансов 70%».
+
+license: Apache-2.0
+
+authors:
+  - name: "ru-legal-skills contributors"
+  - name: "AutoClaw legal skills (upstream, Apache-2.0)"
+
+keywords:
+  - legal
+  - russian-law
+  - risk
+  - риски
+  - комплаенс
+  - триаж
+
+category: legal
+
+mcp:
+  required: []
+  optional:
+    - pravo       # нормы, штрафы — только проверенные
+    - egrul       # статус организации
+    - efrsb       # банкротство
+    - zakupki     # если тема закупок
+
+skills:
+  - id: quick-triage
+    path: skills/quick-triage/SKILL.md
+    user_invocable: true
+    portability: B
+    from_anthropic: false
+    ported_from: autoclaw-legal/is-this-a-problem
+    note: "Экспресс: ✅ готовимся / ⚠️ на review / 🛑 стоп"
+
+  - id: legal-risk
+    path: skills/legal-risk/SKILL.md
+    user_invocable: true
+    portability: C
+    from_anthropic: false
+    ported_from: autoclaw-legal/legal-risk-assessment
+    note: "Внешние риски: лицензии, РКН/ФАС/ФНС/ЦБ, проверки. Полная переработка"
+
+  - id: general-risk
+    path: skills/general-risk/SKILL.md
+    user_invocable: true
+    portability: B
+    from_anthropic: false
+    ported_from: autoclaw-legal/general-legal-risk-assessment
+    note: "Сделка / спор / решение — реестр рисков"
+
+  - id: feature-risk
+    path: skills/feature-risk/SKILL.md
+    user_invocable: true
+    portability: B
+    from_anthropic: false
+    ported_from: autoclaw-legal/feature-risk-assessment
+    note: "Продукт/фича до запуска"
+
+profile:
+  template: PROFILE.md
+  user_config_path: "~/.ru-legal/profiles/risk-assessment/PROFILE.md"

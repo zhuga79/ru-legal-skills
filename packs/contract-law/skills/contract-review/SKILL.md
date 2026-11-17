@@ -32,7 +32,7 @@ user_invocable: true
 
 Прежде чем начать — обязательно проверь:
 
-1. **Profile существует** → читаем `~/.claude/plugins/config/contract-law/CLAUDE.md`.
+1. **Profile существует** → читаем `~/.ru-legal/profiles/contract-law/PROFILE.md`.
    Если profile отсутствует или содержит placeholder'ы `[заполнить]` → остановись и попроси: "Запусти сначала `/contract-law:cold-start-interview` чтобы я знал ваш контекст. Без этого review будет generic."
 
 2. **MCP `pravo` доступен?** Пробуем `pravo.search_npa(query="ГК РФ", limit=1)`. Если 404/timeout → продолжаем в degraded mode, но **во всех цитатах ставим флаг `[ред. требует проверки]`** и в финальном отчёте предупреждаем.
@@ -45,7 +45,7 @@ user_invocable: true
 
 ### Шаг 1. Подготовка контекста
 
-1.1. Прочитай practice profile из `~/.claude/plugins/config/contract-law/CLAUDE.md`. Извлеки:
+1.1. Прочитай practice profile из `~/.ru-legal/profiles/contract-law/PROFILE.md`. Извлеки:
 - Sell-side / buy-side позицию
 - Целевой LoL
 - Indemnity готовность

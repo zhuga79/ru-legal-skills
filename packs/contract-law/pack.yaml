@@ -125,6 +125,14 @@ skills:
     note: "Sub-skill, SaaS-specific overlay. РФ specifics: квалификация SaaS (ст.782 ГК risk), НДС агентирование, 152-ФЗ локализация, cross-border ПДн уведомление РКН, post-2022 sanctions landscape"
     research_basis: vendor/research/saas-msa-review-ru-practice.md
 
+  - id: contract-desensitize
+    path: skills/contract-desensitize/SKILL.md
+    user_invocable: true
+    portability: C
+    from_anthropic: false
+    ported_from: autoclaw-legal/contract-desensitize
+    note: "Обезличивание DOCX/MD/TXT: 152-ФЗ, 98-ФЗ, ФЗ-63. Локальный sanitizer, без DXE"
+
 # Managed agents (headless, для cron / managed agents API).
 agents:
   - id: contract-renewal-watcher

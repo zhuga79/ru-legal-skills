@@ -1,0 +1,141 @@
+# Portable pack manifest — runtime-агностичный.
+# RU-unique pack: универсальная методология юридического анализа.
+# Переписано из установленных legal skills AutoClaw (Apache 2.0)
+# под право и процесс РФ. Не является портом Anthropic claude-for-legal.
+
+id: methodology
+version: 0.1.0
+name: "Методология юридического анализа (РФ)"
+description: >
+  Универсальный каркас работы юриста по российскому праву: проверка
+  действительности НПА, план исследования, разбор фактов и состава
+  требования/возражения, идентификация вопросов спора, заключение,
+  построение и оценка аргументации, толкование, суммаризация документов,
+  черновик документа. Работает поверх профильных packs (litigation,
+  contract-law, tax-law и др.), не заменяет их.
+
+license: Apache-2.0
+
+authors:
+  - name: "ru-legal-skills contributors"
+  - name: "AutoClaw legal skills (upstream, Apache-2.0)"
+
+keywords:
+  - legal
+  - russian-law
+  - methodology
+  - анализ
+  - аргументация
+  - толкование
+  - исследование
+  - нпа
+
+category: legal
+
+mcp:
+  required: []
+  optional:
+    - pravo       # НПА, редакции, поиск
+    - kad         # практика по элементам состава
+    - egrul       # статусы сторон
+
+skills:
+  - id: norm-validity-check
+    path: skills/norm-validity-check/SKILL.md
+    user_invocable: true
+    portability: B
+    from_anthropic: false
+    ported_from: autoclaw-legal/legal-norm-validity-check
+    note: "Проверка НПА: действует ли, какая редакция, применим ли. Категория B"
+
+  - id: research-start
+    path: skills/research-start/SKILL.md
+    user_invocable: true
+    portability: A
+    from_anthropic: false
+    ported_from: autoclaw-legal/research-start
+    note: "План поиска до запросов. Leads, not authorities"
+
+  - id: element-extraction
+    path: skills/element-extraction/SKILL.md
+    user_invocable: true
+    portability: B
+    from_anthropic: false
+    ported_from: autoclaw-legal/legal-element-extraction
+    note: "Факты из материалов: документ vs утверждение vs вывод юриста"
+
+  - id: element-analysis
+    path: skills/element-analysis/SKILL.md
+    user_invocable: true
+    portability: C
+    from_anthropic: false
+    ported_from: autoclaw-legal/element-analysis
+    note: "Состав требования/возражения по элементам, gap-list. Полная переработка"
+
+  - id: issue-identification
+    path: skills/issue-identification/SKILL.md
+    user_invocable: true
+    portability: B
+    from_anthropic: false
+    ported_from: autoclaw-legal/dispute-issue-identification
+    note: "Вопросы спора: пороговые, исходные, второстепенные"
+
+  - id: analysis-memo
+    path: skills/analysis-memo/SKILL.md
+    user_invocable: true
+    portability: C
+    from_anthropic: false
+    ported_from: autoclaw-legal/legal-analysis-memo
+    note: "Заключение: вопрос/краткий ответ/факты/нормы/анализ/вывод. Без IRAC"
+
+  - id: argument-chain
+    path: skills/argument-chain/SKILL.md
+    user_invocable: true
+    portability: B
+    from_anthropic: false
+    ported_from: autoclaw-legal/argument-chain-construction
+    note: "Цепочка: норма → элемент → факт → вывод. Обязательный контраргумент"
+
+  - id: argument-strength
+    path: skills/argument-strength/SKILL.md
+    user_invocable: true
+    portability: B
+    from_anthropic: false
+    ported_from: autoclaw-legal/argument-strength-evaluation
+    note: "Оценка силы аргументации, что усилит"
+
+  - id: interpretation-argument
+    path: skills/interpretation-argument/SKILL.md
+    user_invocable: true
+    portability: C
+    from_anthropic: false
+    ported_from: autoclaw-legal/legal-interpretation-argument
+    note: "Толкование: ГК 431/431.1, Пленум 25, Пленум 49. Не common law"
+
+  - id: doc-summary
+    path: skills/doc-summary/SKILL.md
+    user_invocable: true
+    portability: A
+    from_anthropic: false
+    ported_from: autoclaw-legal/legal-document-summarization
+    note: "Выжимка одного документа без потери сроков и оговорок"
+
+  - id: multi-doc-summary
+    path: skills/multi-doc-summary/SKILL.md
+    user_invocable: true
+    portability: A
+    from_anthropic: false
+    ported_from: autoclaw-legal/multi-document-summarization
+    note: "Пакет документов дела/сделки, реестр противоречий"
+
+  - id: research-drafting
+    path: skills/research-drafting/SKILL.md
+    user_invocable: true
+    portability: B
+    from_anthropic: false
+    ported_from: autoclaw-legal/legal-research-drafting
+    note: "Каркас черновика документа. Иск — через isk-sostavlenie"
+
+profile:
+  template: PROFILE.md
+  user_config_path: "~/.ru-legal/profiles/methodology/PROFILE.md"

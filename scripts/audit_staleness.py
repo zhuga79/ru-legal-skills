@@ -23,7 +23,7 @@ import argparse
 import json
 import re
 import sys
-from datetime import UTC, datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -118,7 +118,7 @@ def parse_legislative_date(value: str) -> datetime | None:
 
 def months_since(date: datetime) -> int:
     """Сколько целых месяцев прошло от date до сегодня."""
-    today = datetime.now(UTC)
+    today = datetime.now(timezone.utc)
     return (today.year - date.year) * 12 + (today.month - date.month)
 
 
@@ -216,7 +216,7 @@ def format_console(results: list[dict[str, Any]], max_age_months: int) -> str:
 
     lines = [
         f"{BOLD}=== ru-legal skill staleness audit ==={RESET}",
-        f"Date: {datetime.now(UTC).isoformat()}",
+        f"Date: {datetime.now(timezone.utc).isoformat()}",
         f"Max age: {max_age_months} months",
         "",
         f"Total skills: {total}",
@@ -303,7 +303,7 @@ def main():
     if args.json:
         with open(args.json, "w", encoding="utf-8") as f:
             json.dump({
-                "audit_date": datetime.now(UTC).isoformat(),
+                "audit_date": datetime.now(timezone.utc).isoformat(),
                 "max_age_months": args.max_age_months,
                 "total_skills": len(results),
                 "results": results,

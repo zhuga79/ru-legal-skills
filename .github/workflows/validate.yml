@@ -132,3 +132,6 @@ jobs:
               sys.exit(1)
           print('имена внутри паков уникальны')
           PY
+
+      - name: validate_skills.py (структура, дубликаты, registry)
+        run: python3 scripts/validate_skills.py

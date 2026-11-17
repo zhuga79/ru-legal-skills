@@ -260,7 +260,7 @@ Adapted from [`commercial-legal/escalation-flagger`](https://github.com/anthropi
 by Anthropic (Apache 2.0).
 
 **Изменения от оригинала:**
-- Practice profile path: `~/.claude/plugins/config/claude-for-legal/commercial-legal/CLAUDE.md`
+- Practice profile path: `~/.ru-legal/profiles/contract-law/PROFILE.md`
   → `~/.ru-legal/profiles/contract-law/PROFILE.md` (для multi-runtime совместимости)
 - Все примеры на русском, с российской корпоративной hierarchy (GC → "Главный
   юрисконсульт", добавлено "Совет директоров", "Общее собрание")

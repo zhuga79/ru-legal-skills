@@ -70,3 +70,14 @@ node_modules/
 
 # Caches от MCP серверов
 .cache/
+
+# Локальные сертификаты Минцифры (скачивает setup-local.sh)
+certs/
+*.pem
+
+# Локальные MCP-конфиги с абсолютными путями
+mcp-aggregator.json
+
+# Локальные дампы и временные файлы
+*.txt.bak
+2026-*.txt

@@ -9,6 +9,26 @@
 
 ## [Unreleased]
 
+### Added (2026-11-17)
+- **Перенос установленных legal skills (AutoClaw, Apache 2.0) с переписыванием под право РФ.**
+  Не технический перенос: IRAC, holding/dicta, discovery, DXE, Zwork-специфика не переносились.
+- Новый pack `packs/methodology/` — 12 skills: norm-validity-check, research-start,
+  element-extraction, element-analysis, issue-identification, analysis-memo,
+  argument-chain, argument-strength, interpretation-argument, doc-summary,
+  multi-doc-summary, research-drafting
+- Новый pack `packs/risk-assessment/` — 4 skills: quick-triage, legal-risk,
+  general-risk, feature-risk
+- `contract-law/contract-desensitize` — обезличивание DOCX/MD/TXT, локальный
+  `sanitize_docx.py` вместо DXE; рамка 152-ФЗ / 98-ФЗ / ФЗ-63
+- `litigation/case-brief` — разбор акта: фабула/вопрос/вывод/мотивы/позиция (не holding)
+- `litigation/evidence-evaluation` — АПК 64–71 / ГПК 55–67, электронные доказательства
+- `scripts/validate_skills.py` — фронтматтер, дубликаты в pack, registry, pack.yaml
+- `scripts/audit_staleness.py` — совместимость с Python 3.10 (`datetime.UTC` → `timezone.utc`)
+- `.github/workflows/validate.yml` — шаг `validate_skills.py`
+- Пути профилей contract-law переведены с `~/.claude/plugins/...` на `~/.ru-legal/profiles/...`
+- `.gitignore`: certs/, *.pem, mcp-aggregator.json
+- `packs/registry.json` 0.5.0 (2026-11-17): 22 pack, 206 skills
+
 ### Added (2026-10-29)
 - `packs/personal-bankruptcy/` — новый pack «Личное банкротство граждан (гл. X ФЗ-127)»
   (P1 из roadmap_packs): killer-skill `bankrotstvo-fizlica` (триаж внесудебное МФЦ vs

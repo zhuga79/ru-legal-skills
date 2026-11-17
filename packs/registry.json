@@ -1,9 +1,9 @@
 {
-  "version": "0.4.0",
-  "last_updated": "2026-10-20",
+  "version": "0.5.0",
+  "last_updated": "2026-11-17",
   "description": "Single source of truth для всех packs и MCP в ru-legal. Любой runtime adapter генерирует свои манифесты из этого файла.",
   "mcp_health_reference": "MCP-STATUS.md",
-  "note": "MCP health status — см. ../MCP-STATUS.md. Не все MCP работают в текущем виде (см. audit 2026-05-26). Обновлено 2026-10-20: добавлены 4 пака из claude-for-legal-ru; дубли ip-law/fto-triage, ip-law/cease-desist, process-documents/claim-draft-civil заменены на svoboda-ispolzovaniya, pretenziya-o-narushenii, isk-sostavlenie.",
+  "note": "MCP health status — см. ../MCP-STATUS.md. Обновлено 2026-11-17: добавлены packs methodology (12) и risk-assessment (4); в contract-law добавлен contract-desensitize, в litigation — case-brief и evidence-evaluation (перенос из установленных legal skills AutoClaw с переписыванием под право РФ).",
   "packs": [
     {
       "id": "contract-law",
@@ -11,7 +11,8 @@
       "manifest": "contract-law/pack.yaml",
       "status": "mvp",
       "health": "see MCP-STATUS.md",
-      "skill_count": 12
+      "skill_count": 13,
+      "note": " + contract-desensitize (перенос из AutoClaw, категория C, 2026-11)"
     },
     {
       "id": "data-protection",
@@ -28,8 +29,8 @@
       "manifest": "litigation/pack.yaml",
       "status": "mvp",
       "health": "see MCP-STATUS.md",
-      "skill_count": 26,
-      "note": "АПК/ГПК/КАС/УПК — 17 skills (matter lifecycle 8 + brief drafting + досудебка trio + claim-chart + legal-hold + subpoena + privilege)"
+      "skill_count": 28,
+      "note": "АПК/ГПК/КАС/УПК — 17 skills (matter lifecycle 8 + brief drafting + досудебка trio + claim-chart + legal-hold + subpoena + privilege) + case-brief, evidence-evaluation (перенос из AutoClaw, категория C, 2026-11)"
     },
     {
       "id": "process-documents",
@@ -183,6 +184,24 @@
       "health": "paste-source (без обязательного MCP)",
       "skill_count": 1,
       "note": "Личное банкротство граждан (гл. X ФЗ-127): триаж внесудебное МФЦ vs судебное, красные флаги сделок, жилищный иммунитет, последствия ст. 213.30. Killer: bankrotstvo-fizlica (перспектива должника)"
+    },
+    {
+      "id": "methodology",
+      "path": "methodology",
+      "manifest": "methodology/pack.yaml",
+      "status": "mvp",
+      "health": "see MCP-STATUS.md",
+      "skill_count": 12,
+      "note": "Методология анализа РФ — 12 skills (norm-validity-check, research-start, element-extraction, element-analysis, issue-identification, analysis-memo, argument-chain, argument-strength, interpretation-argument, doc-summary, multi-doc-summary, research-drafting). Переписано из AutoClaw legal skills (Apache-2.0), категория A–C"
+    },
+    {
+      "id": "risk-assessment",
+      "path": "risk-assessment",
+      "manifest": "risk-assessment/pack.yaml",
+      "status": "mvp",
+      "health": "see MCP-STATUS.md",
+      "skill_count": 4,
+      "note": "Оценка рисков — 4 skills (quick-triage, legal-risk, general-risk, feature-risk). Переписано из AutoClaw legal skills, категория B–C. Штрафы/нормы — не из памяти"
     }
   ],
   "roadmap_packs": [

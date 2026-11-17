@@ -305,7 +305,7 @@ Adapted from [`commercial-legal/stakeholder-summary`](https://github.com/anthrop
 by Anthropic (Apache 2.0).
 
 **Изменения от оригинала:**
-- Practice profile path: `~/.claude/plugins/config/claude-for-legal/commercial-legal/CLAUDE.md`
+- Practice profile path: `~/.ru-legal/profiles/contract-law/PROFILE.md`
   → `~/.ru-legal/profiles/contract-law/PROFILE.md`
 - "Privilege circle" разъяснён для РФ context: адвокатская тайна по ФЗ-63 распространяется
   **только** на адвокатов ФПА, не на in-house counsel. Это критичная адаптация — оригинал

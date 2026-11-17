@@ -1,10 +1,10 @@
 # ru-legal-skills
 
-> **Open-source legal knowledge + data layer для российского права.** 186 skills + 7 MCP-интеграций с госреестрами (+ aggregator MCP). Apache 2.0. Подключи через MCP к любому AI-клиенту: Claude Code / Cursor / Continue / LangGraph / собственный harness.
+> **Open-source legal knowledge + data layer для российского права.** 206 skills + 7 MCP-интеграций с госреестрами (+ aggregator MCP). Apache 2.0. Подключи через MCP к любому AI-клиенту: Claude Code / Cursor / Continue / LangGraph / собственный harness.
 
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/)
-[![Skills](https://img.shields.io/badge/skills-186-success.svg)](packs/)
+[![Skills](https://img.shields.io/badge/skills-206-success.svg)](packs/)
 [![MCPs](https://img.shields.io/badge/MCPs-8-success.svg)](mcps/)
 
 > ⚠ AI-инструмент, **не замена юриста**. См. [DISCLAIMER.md](DISCLAIMER.md).
@@ -15,7 +15,7 @@
 
 `ru-legal` — **infrastructure layer**, не приложение. Две вещи:
 
-1. **186 skills** в 19 packs — кодифицированные workflow по российскому праву (Markdown с YAML frontmatter — формат от Anthropic)
+1. **206 skills** в 21 pack — кодифицированные workflow по российскому праву (Markdown с YAML frontmatter — формат от Anthropic)
 2. **7 data-MCP серверов** — интеграции с госреестрами (pravo.gov.ru, ЕГРЮЛ, kad.arbitr, ЕФРСБ, Роспатент, ЕИС закупки, Росреестр) + **1 aggregator MCP** (`ru-legal-skills-mcp`) — unified entry-point на всё. Итого **8 MCP** в репозитории.
 
 ## Архитектура — два слоя
@@ -25,7 +25,7 @@
 │  ru-legal (этот repo)                                    │
 │  Open-source legal knowledge + data layer                │
 │                                                          │
-│  ├── packs/         — 186 skills (Markdown)              │
+│  ├── packs/         — 206 skills (Markdown)              │
 │  ├── mcps/          — 7 специализированных MCP           │
 │  └── mcps/ru-legal-aggregator/                           │
 │       └── ru-legal-skills-mcp — unified entry-point             │
@@ -61,7 +61,7 @@ pip install ru-legal-skills-mcp
 ```
 
 Теперь LLM-клиент видит:
-- **186 skills** как MCP prompts (slash-commands)
+- **206 skills** как MCP prompts (slash-commands)
 - **Skill management tools** (`find_skill`, `get_skill`, `list_skills`)
 - **(Phase 2)** 33 tools из 7 sub-MCPs
 
@@ -95,13 +95,14 @@ result = await agent.ainvoke({"messages": [
 
 ## Что внутри
 
-### 19 packs / 186 skills
+### 21 pack / 206 skills
 
 | Pack | Skills | Killer skill |
 |------|-------:|--------------|
-| [contract-law](packs/contract-law/) | 12 | nda-review, vendor-agreement-review, saas-msa-review |
+| [methodology](packs/methodology/) | 12 | norm-validity-check, element-analysis, analysis-memo |
+| [contract-law](packs/contract-law/) | 13 | nda-review, vendor-agreement-review, contract-desensitize |
 | [data-protection](packs/data-protection/) | 8 | **dsar-response** (РКН штрафы до 18M ₽) |
-| [litigation](packs/litigation/) | 26 | matter-intake, brief-section-drafter |
+| [litigation](packs/litigation/) | 28 | matter-intake, case-brief, evidence-evaluation |
 | [labor-law](packs/labor-law/) | 20 | **termination-review** (13 grounds + защ. категории) |
 | [corporate-law](packs/corporate-law/) | 20 | share-deal-review (нотариус ст.21 ФЗ-14), DD |
 | [tax-law](packs/tax-law/) | 9 | **tax-audit-response** (ВНП доначисления) |
@@ -137,7 +138,7 @@ result = await agent.ainvoke({"messages": [
 
 Один пакет, объединяющий всё:
 
-- Все 186 skills доступны через `list_skills` / `find_skill` / `get_skill`
+- Все 206 skills доступны через `list_skills` / `find_skill` / `get_skill`
 - **Strategy C router** — LLM-based подбор skill под user query (если configured), keyword fallback
 - Skills auto-зарегистрированы как MCP prompts (slash-commands)
 - *(Phase 2)*: re-export всех 33 tools из 7 sub-MCPs
@@ -166,8 +167,8 @@ Router LLM (для Strategy C skill selection) auto-detects из env vars (`OPEN
 - *Pattern «skill prescribes tool calls»* — их подход
 
 Что мы добавили:
-- 19 packs vs 12 — RU-unique (tax-law, public-procurement, compliance-aml, administrative-law, real-estate)
-- 186 skills vs 110 — РФ-уникальные процедуры
+- 21 pack vs 12 — RU-unique (tax-law, public-procurement, compliance-aml, administrative-law, real-estate, methodology, risk-assessment)
+- 206 skills vs 110 — РФ-уникальные процедуры + методология и риски
 - Deep content adaptation под РФ (ст. ГК / ТК / НК / ФЗ + российская практика)
 - 7 MCP интеграций с РФ госреестрами (Anthropic ничего такого не делал)
 - LLM-агностичность (Anthropic — Claude-only)

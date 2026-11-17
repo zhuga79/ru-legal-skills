@@ -18,6 +18,15 @@ ru-legal-skills
 claude-for-legal-ru, помечены в frontmatter полями `ported_from` / `ported_at`
 и/или комментарием о происхождении.
 
+3. "AutoClaw legal skills" (skills-preinstall / skill store, Apache 2.0)
+   https://www.autoclaw.com
+
+   Волна 2026-11-17: packs `methodology` (12 skills) и `risk-assessment` (4 skills),
+   а также `case-brief`, `evidence-evaluation`, `contract-desensitize` — перенос
+   с переписыванием под право и процесс РФ (категория A–C). Оригиналы —
+   универсальные/US-каркасы; IRAC, holding/dicta, DXE-санитайзер, Zwork-специфика
+   не переносились. Помечены `ported_from: autoclaw-legal/...`.
+
 Изменения внесены сообществом и НЕ отражают позицию Anthropic и не являются
 официальной локализацией Anthropic.
 

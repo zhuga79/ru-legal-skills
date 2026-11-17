@@ -38,7 +38,7 @@ Headless. Запускается:
 Источники реестра контрактов (priority order):
 
 1. **CLM-система через MCP** (Ironclad, Контур.Сайн, СберCorrespondence — на будущее, в MVP не реализовано).
-2. **Локальный YAML/CSV/JSON файл** `~/.claude/plugins/config/contract-law/contracts-register.yaml`:
+2. **Локальный YAML/CSV/JSON файл** `~/.ru-legal/profiles/contract-law/contracts-register.yaml`:
    ```yaml
    contracts:
      - id: "CT-2026-00123"
@@ -65,7 +65,7 @@ Headless. Запускается:
 
 ### Шаг 1. Загрузить practice profile
 
-Прочитай `~/.claude/plugins/config/contract-law/CLAUDE.md`. Извлеки:
+Прочитай `~/.ru-legal/profiles/contract-law/PROFILE.md`. Извлеки:
 - Получатели алертов (Slack channel, email distribution).
 - Tone of voice для уведомлений контрагентам.
 - Эскалационная матрица (на что какой уровень внимания).

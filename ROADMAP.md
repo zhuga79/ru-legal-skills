@@ -17,15 +17,17 @@
 
 ---
 
-## Текущее состояние (2026-10-20)
+## Текущее состояние (2026-11-17)
 
-✅ **186 skills** в 19 паках:
-- contract-law (12), litigation (26), labor-law (20), corporate-law (20)
+✅ **206 skills** в 21 pack:
+- methodology (12), risk-assessment (4) — НОВОЕ 2026-11-17 (перенос из AutoClaw legal skills с переписыванием под РФ)
+- contract-law (13, + contract-desensitize), litigation (28, + case-brief, evidence-evaluation)
+- labor-law (20), corporate-law (20)
 - ip-law (17), tax-law (9), public-procurement (9), compliance-aml (9)
 - real-estate (9), data-protection (8), administrative-law (8)
 - ai-governance (10), regulatory-monitor (7), nonprofit-law (6)
 - consumer-product (5), education-law (3), enforcement-law (3)
-- matter-management (3), process-documents (2)
+- matter-management (3), process-documents (2), personal-bankruptcy (1)
 
 ✅ **8 MCP-серверов** к госреестрам:
 - pravo-mcp, egrul-mcp, kad-mcp, efrsb-mcp
@@ -45,8 +47,11 @@
 **Что отсутствует** (явные дыры):
 - Суды общей юрисдикции (СОЮ) — ~90% юр.практики (трудовые, семейные, наследственные споры)
 - Семейное / наследственное / жилищное право
-- Банкротство физлиц
-- Compliance suite (санкции, лицензии, реестр МСП)
+- Банкротство физлиц — частично закрыто (1 skill bankrotstvo-fizlica вместо 8–10 из Phase 1)
+- Compliance suite (санкции, лицензии, реестр МСП) — частично: compliance-aml есть, sanctions MCP ⚫
+
+> Методологический каркас (норма/факты/состав/заключение/риски) закрыт pack-ами
+> `methodology` и `risk-assessment` (2026-11-17). Не путать с отраслевыми дырами выше.
 
 ---
 

@@ -222,6 +222,22 @@ skills:
     from_anthropic: false
     ported_from: sudebnyj-process/skills/obzhalovanie
 
+  - id: case-brief
+    path: skills/case-brief/SKILL.md
+    user_invocable: true
+    portability: C
+    from_anthropic: false
+    ported_from: autoclaw-legal/case-brief
+    note: "Разбор одного акта: фабула/вопрос/вывод/мотивы/позиция. Не holding/dicta"
+
+  - id: evidence-evaluation
+    path: skills/evidence-evaluation/SKILL.md
+    user_invocable: true
+    portability: C
+    from_anthropic: false
+    ported_from: autoclaw-legal/evidence-evaluation
+    note: "Относимость/допустимость/достоверность (АПК 64–71, ГПК 55–67)"
+
 agents:
   # docket-watcher (Phase 2) — мониторинг КАД на дедлайны
 
