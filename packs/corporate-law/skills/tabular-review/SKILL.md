@@ -1,17 +1,16 @@
 ---
 name: tabular-review
 description: >
-  Multi-document review с tabular output — для DD scenarios. Принимает batch
-  documents (договоры, корпоративные документы, тендерная документация и т.п.),
-  extracts predefined fields, returns structured table. Differs от
-  /diligence-issue-extraction — focused per-document field extraction, не
-  cross-document analysis.
+  Пакетный review документов с таблицей: договоры, корпоративные документы,
+  тендерная документация. Извлекает поля по шаблону (change-of-control, аренда,
+  трудовые, лицензионные). Отличается от diligence-issue-extraction: извлечение
+  по документу, не кросс-анализ. Используй: «50 договоров — сроки и уступка».
 argument-hint: "[path к directory с documents] [template type]"
 user_invocable: true
 ported_from: corporate-legal/tabular-review
 ported_at: 2026-05-19
 adaptation_category: B
-last_legislative_update: "2026-05"  # auto-added 2026-05-26
+last_legislative_update: "2026-11"
 ---
 
 # /tabular-review

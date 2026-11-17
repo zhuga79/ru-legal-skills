@@ -1,17 +1,18 @@
 ---
 name: matter-briefing
 description: >
-  One-pager status brief по конкретному matter'у — posture, risk, recent changes,
-  next deadline, exposure, open questions. Flag'ает stale если updates не было > 30
-  дней. Используй когда пользователь говорит "brief по делу X", "what's status of
-  matter Y", "обнови меня по делу Z", или perед meeting'ом с CEO / Board / outside
-  counsel.
+  One-pager по делу: процессуальное положение, риски, изменения, ближайший срок,
+  экспозиция, открытые вопросы. Помечает stale, если обновлений не было > 30 дней.
+  Используй перед совещанием, встречей с клиентом/руководством, «что по делу X».
 argument-hint: "<slug | название>"
 user_invocable: true
 ported_from: litigation-legal/matter-briefing
 ported_at: 2026-05-18
-adaptation_category: A
-last_legislative_update: "2026-05"  # auto-added 2026-05-26
+adaptation_category: B
+last_legislative_update: "2026-11"
+required_tools: []
+optional_tools:
+  - egrul.lookup_company
 ---
 
 # /matter-briefing
@@ -62,8 +63,11 @@ Read:
 - **Тип дела:** [contract / tax / corporate / etc.]
 - **Наша роль:** [истец / ответчик / третье лицо]
 - **Forum:** [АС / СОЮ / МКАС / др.]
+- **Вид производства:** [исковое / приказное / упрощённое / банкротство]
+- **ИНН сторон:** [истец / ответчик, если известны]
 - **Counterparty:** [имя]
-- **Стратегия:** [defend / pursue / settle / wait]
+- **Стратегия:** [защита / наступление / урегулирование / ожидание]
+- **Процессуальные сроки:** [апелляция до …, кассация до …, расчёт не подтверждён человеком]
 
 ## Risk
 

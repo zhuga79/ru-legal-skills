@@ -1,38 +1,42 @@
 ---
 name: review
 description: >
-  Главный router для review коммерческого договора по российскому праву. Определяет
-  тип агрита из заголовков и приложений, делегирует к нужному sub-skill (nda-review,
-  vendor-agreement-review, saas-msa-review, supply-agreement-review), интегрирует
-  output в единый memo. Используй когда пользователь говорит "проверь договор",
-  "review этого MSA", "посмотри NDA", "проанализируй услуги", или прикладывает
-  inbound договор для review.
+  Роутер проверки пакета договора: определяет тип по заголовкам и приложениям,
+  делегирует профильным skills (nda-review, vendor-agreement-review,
+  saas-msa-review) или contract-review, собирает один отчёт. Используй: «проверь
+  договор», «review этого MSA», «посмотри NDA», или приложен входящий договор.
 argument-hint: '[файл | путь | text]'
 user-invocable: true
+user_invocable: true
 ported_from: commercial-legal/review
 ported_at: 2026-05-17
 adaptation_category: B
-last_legislative_update: "2026-05"  # auto-added 2026-05-26
-user_invocable: true
+last_legislative_update: "2026-11"
 ---
 
-# /review
+# Роутер проверки договора — review
 
-Review инбаунд договора против playbook в `~/.ru-legal/profiles/contract-law/PROFILE.md`.
-Определяет структуру договора из заголовков, выбирает нужный skill, и (если
-confirm_routing включён) подтверждает routing у пользователя перед началом анализа.
+Определяет структуру договора из заголовков, выбирает нужный skill и (если
+confirm_routing включён) подтверждает маршрут у пользователя.
 
 ## Назначение
 
-В отличие от монолитного review всех договоров одним длинным workflow — этот router
-делегирует **specialized sub-skills**:
-- **NDA / соглашения о неразглашении** → `nda-review` (GREEN/YELLOW/RED triage)
-- **Договоры услуг / поставки / подряда** → `vendor-agreement-review` (полный buy-side
-  review)
-- **SaaS / облачные сервисы / подписки** → `saas-msa-review` (overlay на vendor-agreement
-  с фокусом на auto-renewal, ценовая эскалация, SLA, subprocessor's)
-- **Договоры с госкорпорациями / по ФЗ-44/223** → `tender-contract-review` (если pack
-  `public-procurement` установлен)
+Вместо монолитного review всех договоров одним workflow — делегирование:
+- **NDA / соглашения о неразглашении** → `nda-review`
+- **Договоры услуг / поставки / подряда** → `vendor-agreement-review` (позиция заказчика)
+
+Проверяет входящий договор против playbook в `~/.ru-legal/profiles/contract-law/PROFILE.md`.
+Определяет структуру из заголовков, выбирает skill, и (если confirm_routing
+включён) подтверждает маршрут у пользователя перед анализом.
+
+## Назначение
+
+Вместо монолитного review всех договоров одним workflow — делегирование:
+- **NDA / соглашения о неразглашении** → `nda-review`
+- **Договоры услуг / поставки / подряда** → `vendor-agreement-review` (позиция заказчика)
+- **SaaS / подписки** → `saas-msa-review` (пролонгация, цена, SLA, субпроцессоры)
+- **Договоры с госкорпорациями / по ФЗ-44/223** → `public-procurement/tender-documentation-review`
+  (если pack установлен; отдельного `tender-contract-review` в проекте нет)
 
 Каждый sub-skill **глубже работает с своим жанром**, потому что договор поставки IT
 hardware и договор облачной подписки на 3 года имеют принципиально разные риск-профили.
@@ -42,10 +46,8 @@ hardware и договор облачной подписки на 3 года и�
 ### Шаг 1. Загрузить practice profile
 
 Прочитай `~/.ru-legal/profiles/contract-law/PROFILE.md`. Если содержит placeholder'ы
-(`[заполнить]` и подобные) — остановись:
-
-> "Запусти сначала `/contract-law:cold-start-interview` — мне нужен ваш playbook,
-> чтобы review был осмысленным."
+(`[заполнить]` и подобные) — не останавливайся: работай как generic review
+(`contract-review` без playbook), предупреждая, что политика компании не подключена.
 
 Также прочитай → `## Review preferences` → `confirm_routing`. Если поле отсутствует —
 treat как `true` (более safe default).
@@ -201,10 +203,10 @@ Deviation-by-deviation, конкретные redlines, названный approv
    vendor-agreement (поставка) + vendor-agreement (услуги) + saas-msa (если есть
    recurring обслуживание).
 
-3. **Договоры с госкорпорациями (по ФЗ-44/223)** — имеют **обязательные** template
-   формы. Reviewer's authority ограничена — нельзя менять fundamental terms.
-   Если в routing определён госконтракт — пометь и route к специальному
-   `public-procurement/tender-contract-review` (если pack установлен).
+3. **Договоры с госкорпорациями (по ФЗ-44/223)** — имеют **обязательные** шаблонные
+   формы. Менять существенные условия контракта свободно нельзя. Если в routing
+   определён госконтракт — пометь и route к `public-procurement/tender-documentation-review`
+   (если pack установлен) или `contract-review` с флагом «императив 44/223-ФЗ».
 
 4. **Договоры в иностранной валюте** — auto-flag: валютный контроль (173-ФЗ).
    Эскалация автоматическая по escalation-flagger.

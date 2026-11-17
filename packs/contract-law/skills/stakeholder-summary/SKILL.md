@@ -1,23 +1,22 @@
 ---
 name: stakeholder-summary
 description: >
-  Конвертирует длинный юридический review договора в краткое резюме для бизнес-stakeholder'а,
-  который реально его прочитает — не legal memo, а двухминутный ответ "можно подписывать
-  и что мне нужно знать". Используй когда пользователь говорит "сделай резюме для бизнеса",
-  "напиши это для [stakeholder]", "объясни procurement", "non-legal summary", или когда
-  review готов и нужно его отправить кому-то вне юр.отдела.
+  Превращает длинный юридический review договора в краткое резюме для бизнеса —
+  не меморандум, а двухминутный ответ «можно подписывать и что нужно знать».
+  Отдельно: адвокатская тайна (ФЗ-63) и что нельзя наружу. Используй: «резюме
+  для бизнеса», «объясни закупкам», «не для юристов».
 argument-hint: "<path-to-review-memo>"
 user-invocable: true
+user_invocable: true
 ported_from: commercial-legal/stakeholder-summary
 ported_at: 2026-05-17
-adaptation_category: A
-last_legislative_update: "2026-05"  # auto-added 2026-05-26
-user_invocable: true
+adaptation_category: B
+last_legislative_update: "2026-11"
 ---
 
-# /stakeholder-summary
+# Резюме для бизнеса — stakeholder-summary
 
-Переводит завершённый review договора в формат, который **business owner действительно прочитает**.
+Переводит завершённый review договора в формат, который **бизнес действительно прочитает**.
 
 ## Назначение
 

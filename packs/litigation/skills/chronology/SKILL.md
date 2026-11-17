@@ -1,17 +1,18 @@
 ---
 name: chronology
 description: >
-  Извлечь события из документов matter'а → de-dupe → significance tag (🔴/🟡/⚪) →
-  output в working / SOF (statement of facts) / witness-specific форматах. Используй
-  когда пользователь говорит "построй хронологию по [matter]", "что произошло в
-  деле X с T1 по T2", "chronology для witness Y", или готовишься к hearing /
-  brief'у.
+  Извлекает события из документов дела, дедуплицирует, помечает значимость
+  (🔴/🟡/⚪), выдаёт в рабочих форматах / SOF (фабула для иска) / по свидетелю.
+  Привязывает события к листам дела и доказательствам. Используй перед заседанием,
+  иском, отзывом, «построй хронологию по делу X».
 argument-hint: "<slug> [--format working|sof|witness] [--witness <name>]"
 user_invocable: true
 ported_from: litigation-legal/chronology
 ported_at: 2026-05-18
-adaptation_category: A
-last_legislative_update: "2026-05"  # auto-added 2026-05-26
+adaptation_category: B
+last_legislative_update: "2026-11"
+required_tools: []
+optional_tools: []
 ---
 
 # /chronology (хронология событий)
@@ -69,7 +70,13 @@ events:
 
 ### Шаг 3. De-duplicate
 
-Если одно событие в нескольких документах — merge с consolidated source.
+Если одно событие в нескольких документах — merge с консолидированным источником,
+НЕ склеивая противоречивые даты. Конфликт — в отдельную колонку, не выбор «правильной».
+
+### Шаг 3а. Лист дела / доказательство
+
+Для судебных документов указывай том/лист дела, если известны (например, т. 2, л.д. 45).
+Это связывает хронологию с `evidence-evaluation` и истребованием.
 
 ### Шаг 4. Significance tagging
 
@@ -155,13 +162,26 @@ Plain narrative, без таблицы:
 - [ ] Cross-reference: каждый event имеет source — никаких "по словам attorney"
       без supporting doc
 
+## Связанные skills
+
+- `methodology/element-extraction` — факты до хронологии.
+- `litigation/evidence-evaluation` — допустимость и дыры.
+- `litigation/claim-chart` — матрица по составу.
+
 ---
 
 ## Что НЕ делает
 
-- Не оценивает legal significance событий (только factual)
-- Не fабрикует события (если нет в docs — не добавляет)
-- Не интерпретирует ambiguous документы — флагнёт [неясно — verify]
+- Не оценивает юридическую значимость как вывод (только предварительная пометка).
+- Не фабрикует события (нет в документах — нет в хронологии).
+- Не интерпретирует двусмысленные документы — флаг `[неясно — verify]`.
+- Не склеивает противоречивые версии в одну фабулу.
+
+## Связанные skills
+
+- `methodology/element-extraction` — факты до хронологии.
+- `litigation/evidence-evaluation` — допустимость и дыры.
+- `litigation/claim-chart` — матрица по составу.
 
 ---
 
