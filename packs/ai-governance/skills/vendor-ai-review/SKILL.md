@@ -277,7 +277,7 @@ Review AI vendor / API / library contracts. Differs from generic SaaS-MSA review
 
 ## Attribution
 
-Adapted from [`ai-governance-legal/vendor-ai-review`](https://github.com/anthropics/claude-for-legal/blob/main/ai-governance-legal/skills/vendor-ai-review/SKILL.md) by Anthropic (Apache 2.0).
+Adapted from [`ai-governance-legal/vendor-ai-review`](https://github.com/anthropics/claude-for-legal/tree/main/ai-governance-legal/skills/vendor-ai-review/SKILL.md) by Anthropic (Apache 2.0).
 
 **Категория B:**
 - Universal AI vendor concerns preserved

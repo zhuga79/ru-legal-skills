@@ -217,7 +217,7 @@ Output:
 
 ## Attribution
 
-Adapted from [`privacy-legal/policy-monitor`](https://github.com/anthropics/claude-for-legal/blob/main/privacy-legal/skills/policy-monitor/SKILL.md)
+Adapted from [`privacy-legal/policy-monitor`](https://github.com/anthropics/claude-for-legal/tree/main/privacy-legal/skills/policy-monitor/SKILL.md)
 by Anthropic (Apache 2.0).
 
 **Изменения от оригинала:**

@@ -149,7 +149,7 @@ status update. Каждый тип сохраняется в свой sub-file.
 
 ## Attribution
 
-Adapted from [`employment-legal/investigation-add`](https://github.com/anthropics/claude-for-legal/blob/main/employment-legal/skills/investigation-add/SKILL.md)
+Adapted from [`employment-legal/investigation-add`](https://github.com/anthropics/claude-for-legal/tree/main/employment-legal/skills/investigation-add/SKILL.md)
 by Anthropic (Apache 2.0).
 
 **Категория A:** добавлен `объяснение` как отдельный type (РФ-specific — ст.193 ТК), РФ caveat по interview practice (профсоюз / адвокат, рабочее время).

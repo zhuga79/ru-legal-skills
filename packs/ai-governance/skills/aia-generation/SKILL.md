@@ -319,7 +319,7 @@ Sections 7-9 — recommendations + plan.
 
 ## Attribution
 
-Adapted from [`ai-governance-legal/aia-generation`](https://github.com/anthropics/claude-for-legal/blob/main/ai-governance-legal/skills/aia-generation/SKILL.md) by Anthropic (Apache 2.0).
+Adapted from [`ai-governance-legal/aia-generation`](https://github.com/anthropics/claude-for-legal/tree/main/ai-governance-legal/skills/aia-generation/SKILL.md) by Anthropic (Apache 2.0).
 
 **Категория B:**
 - EU AI Act FRAIA / NIST AI RMF template → adapted к РФ context

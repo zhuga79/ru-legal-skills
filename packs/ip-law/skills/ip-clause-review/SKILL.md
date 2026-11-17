@@ -320,7 +320,7 @@ Review IP-related положения в договорах перед подпи
 
 ## Attribution
 
-Adapted from [`ip-legal/ip-clause-review`](https://github.com/anthropics/claude-for-legal/blob/main/ip-legal/skills/ip-clause-review/SKILL.md) by Anthropic (Apache 2.0).
+Adapted from [`ip-legal/ip-clause-review`](https://github.com/anthropics/claude-for-legal/tree/main/ip-legal/skills/ip-clause-review/SKILL.md) by Anthropic (Apache 2.0).
 
 **Категория A:**
 - Standard IP clause checklist preserved, with РФ-specific framework

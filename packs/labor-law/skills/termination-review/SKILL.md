@@ -396,7 +396,7 @@ compensation 1-6 средних окладов. Это:
 
 ## Attribution
 
-Adapted from [`employment-legal/termination-review`](https://github.com/anthropics/claude-for-legal/blob/main/employment-legal/skills/termination-review/SKILL.md)
+Adapted from [`employment-legal/termination-review`](https://github.com/anthropics/claude-for-legal/tree/main/employment-legal/skills/termination-review/SKILL.md)
 by Anthropic (Apache 2.0).
 
 **Категория C (substantial rewrite):**

@@ -243,7 +243,7 @@ signing + closing + post-closing.
 
 ## Attribution
 
-Adapted from [`corporate-legal/closing-checklist`](https://github.com/anthropics/claude-for-legal/blob/main/corporate-legal/skills/closing-checklist/SKILL.md)
+Adapted from [`corporate-legal/closing-checklist`](https://github.com/anthropics/claude-for-legal/tree/main/corporate-legal/skills/closing-checklist/SKILL.md)
 by Anthropic (Apache 2.0).
 
 **Категория B:**

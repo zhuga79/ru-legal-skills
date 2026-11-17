@@ -78,7 +78,7 @@ last_legislative_update: "2026-05"  # auto-added 2026-05-26
 
 ## Attribution
 
-Adapted from [`ai-governance-legal/cold-start-interview`](https://github.com/anthropics/claude-for-legal/blob/main/ai-governance-legal/skills/cold-start-interview/SKILL.md) by Anthropic (Apache 2.0).
+Adapted from [`ai-governance-legal/cold-start-interview`](https://github.com/anthropics/claude-for-legal/tree/main/ai-governance-legal/skills/cold-start-interview/SKILL.md) by Anthropic (Apache 2.0).
 
 **Категория B:** EU AI Act / US AI Bill of Rights / NIST framework → РФ landscape (152-ФЗ + 115-ФЗ + sectoral + национальная стратегия AI + ФЗ-258 sandboxes); post-2022 sanctions context.
 

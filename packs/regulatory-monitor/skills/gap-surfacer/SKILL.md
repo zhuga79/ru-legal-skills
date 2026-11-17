@@ -102,7 +102,7 @@ skill — юрист должен manually пробегать все ЛНПА и
 
 ## Attribution
 
-Adapted from [`regulatory-legal/gap-surfacer`](https://github.com/anthropics/claude-for-legal/blob/main/regulatory-legal/skills/gap-surfacer/SKILL.md) by Anthropic (Apache 2.0).
+Adapted from [`regulatory-legal/gap-surfacer`](https://github.com/anthropics/claude-for-legal/tree/main/regulatory-legal/skills/gap-surfacer/SKILL.md) by Anthropic (Apache 2.0).
 
 **Original copyright:** © 2026 Anthropic PBC, Apache 2.0.
 

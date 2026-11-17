@@ -187,7 +187,7 @@ Plain narrative, без таблицы:
 
 ## Attribution
 
-Adapted from [`litigation-legal/chronology`](https://github.com/anthropics/claude-for-legal/blob/main/litigation-legal/skills/chronology/SKILL.md)
+Adapted from [`litigation-legal/chronology`](https://github.com/anthropics/claude-for-legal/tree/main/litigation-legal/skills/chronology/SKILL.md)
 by Anthropic (Apache 2.0).
 
 **Изменения:**

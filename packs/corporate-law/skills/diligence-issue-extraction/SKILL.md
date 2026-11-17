@@ -251,7 +251,7 @@ B/C/D/J critical; full DD — все)
 
 ## Attribution
 
-Adapted from [`corporate-legal/diligence-issue-extraction`](https://github.com/anthropics/claude-for-legal/blob/main/corporate-legal/skills/diligence-issue-extraction/SKILL.md)
+Adapted from [`corporate-legal/diligence-issue-extraction`](https://github.com/anthropics/claude-for-legal/tree/main/corporate-legal/skills/diligence-issue-extraction/SKILL.md)
 by Anthropic (Apache 2.0).
 
 **Категория B:**

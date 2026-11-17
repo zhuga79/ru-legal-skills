@@ -41,7 +41,7 @@ last_legislative_update: "2026-05"  # auto-added 2026-05-26
 
 ## Attribution
 
-Adapted from [`employment-legal/customize`](https://github.com/anthropics/claude-for-legal/blob/main/employment-legal/skills/customize/SKILL.md)
+Adapted from [`employment-legal/customize`](https://github.com/anthropics/claude-for-legal/tree/main/employment-legal/skills/customize/SKILL.md)
 by Anthropic (Apache 2.0). РФ-adapted mapping секций.
 
 **Original copyright:** © 2026 Anthropic PBC, Apache 2.0.

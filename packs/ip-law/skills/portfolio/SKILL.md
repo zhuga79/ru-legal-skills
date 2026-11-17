@@ -211,7 +211,7 @@ Tracking IP портфеля — что есть, когда что истека
 
 ## Attribution
 
-Adapted from [`ip-legal/portfolio`](https://github.com/anthropics/claude-for-legal/blob/main/ip-legal/skills/portfolio/SKILL.md) by Anthropic (Apache 2.0).
+Adapted from [`ip-legal/portfolio`](https://github.com/anthropics/claude-for-legal/tree/main/ip-legal/skills/portfolio/SKILL.md) by Anthropic (Apache 2.0).
 
 **Категория A:**
 - Portfolio template universal

@@ -247,7 +247,7 @@ column показывает `send_by_effective`; detail column surface'ит `can
 
 ## Attribution
 
-Adapted from [`commercial-legal/renewal-tracker`](https://github.com/anthropics/claude-for-legal/blob/main/commercial-legal/skills/renewal-tracker/SKILL.md)
+Adapted from [`commercial-legal/renewal-tracker`](https://github.com/anthropics/claude-for-legal/tree/main/commercial-legal/skills/renewal-tracker/SKILL.md)
 by Anthropic (Apache 2.0).
 
 **Изменения от оригинала:**

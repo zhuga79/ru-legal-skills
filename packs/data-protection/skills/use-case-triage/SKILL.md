@@ -391,7 +391,7 @@ Critical distinction:
 
 ## Attribution
 
-Adapted from [`privacy-legal/use-case-triage`](https://github.com/anthropics/claude-for-legal/blob/main/privacy-legal/skills/use-case-triage/SKILL.md)
+Adapted from [`privacy-legal/use-case-triage`](https://github.com/anthropics/claude-for-legal/tree/main/privacy-legal/skills/use-case-triage/SKILL.md)
 by Anthropic (Apache 2.0).
 
 **Изменения от оригинала (substantial РФ adaptation):**

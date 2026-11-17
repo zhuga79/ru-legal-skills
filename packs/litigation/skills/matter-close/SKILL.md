@@ -134,7 +134,7 @@ closing_approved_by: <имя>
 
 ## Attribution
 
-Adapted from [`litigation-legal/matter-close`](https://github.com/anthropics/claude-for-legal/blob/main/litigation-legal/skills/matter-close/SKILL.md)
+Adapted from [`litigation-legal/matter-close`](https://github.com/anthropics/claude-for-legal/tree/main/litigation-legal/skills/matter-close/SKILL.md)
 by Anthropic (Apache 2.0).
 
 **Изменения:**

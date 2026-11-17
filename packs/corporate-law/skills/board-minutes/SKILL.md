@@ -257,7 +257,7 @@ Draft протокол для:
 
 ## Attribution
 
-Adapted from [`corporate-legal/board-minutes`](https://github.com/anthropics/claude-for-legal/blob/main/corporate-legal/skills/board-minutes/SKILL.md)
+Adapted from [`corporate-legal/board-minutes`](https://github.com/anthropics/claude-for-legal/tree/main/corporate-legal/skills/board-minutes/SKILL.md)
 by Anthropic (Apache 2.0).
 
 **Категория B:**

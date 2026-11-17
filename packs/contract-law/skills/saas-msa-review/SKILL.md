@@ -381,7 +381,7 @@ backup strategy.
 
 ## Attribution
 
-Adapted from [`commercial-legal/saas-msa-review`](https://github.com/anthropics/claude-for-legal/blob/main/commercial-legal/skills/saas-msa-review/SKILL.md)
+Adapted from [`commercial-legal/saas-msa-review`](https://github.com/anthropics/claude-for-legal/tree/main/commercial-legal/skills/saas-msa-review/SKILL.md)
 by Anthropic (Apache 2.0).
 
 **Изменения от оригинала (substantial РФ adaptation):**

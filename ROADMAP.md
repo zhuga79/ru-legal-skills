@@ -274,7 +274,7 @@ matter-briefing, chronology, review, escalation-flagger, stakeholder-summary, ta
 - Shared MCPs где есть overlap (ФНС, ЕГРЮЛ)
 - Cross-promotion между проектами
 
-См. [ru-buh repo](https://github.com/AlsKozlov/ru-buh) (создание в Phase 4).
+См. [ru-buh repo](https://github.com/AlsKozlov/ru-buh) — sister-проект upstream (AlsKozlov), не переносится в zhuga79/ru-legal-skills без отдельного решения.
 
 ---
 
@@ -344,7 +344,7 @@ matter-briefing, chronology, review, escalation-flagger, stakeholder-summary, ta
 
 - [⭐ Star repo](https://github.com/zhuga79/ru-legal-skills)
 - [Watch releases](https://github.com/zhuga79/ru-legal-skills/releases) — только когда новый release
-- [Telegram канал](https://t.me/alskozlov) — статьи о развитии проекта
+- [Telegram канал](https://t.me/alskozlov) — upstream-канал (не наш); для этого форка — Issues/Discussions
 - [Discussions](https://github.com/zhuga79/ru-legal-skills/discussions) — Q&A, feature requests
 
 ---

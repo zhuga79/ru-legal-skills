@@ -203,7 +203,7 @@ Default thresholds (РФ-typical для mid-cap):
 
 ## Attribution
 
-Adapted from [`corporate-legal/material-contract-schedule`](https://github.com/anthropics/claude-for-legal/blob/main/corporate-legal/skills/material-contract-schedule/SKILL.md)
+Adapted from [`corporate-legal/material-contract-schedule`](https://github.com/anthropics/claude-for-legal/tree/main/corporate-legal/skills/material-contract-schedule/SKILL.md)
 by Anthropic (Apache 2.0).
 
 **Категория A:**

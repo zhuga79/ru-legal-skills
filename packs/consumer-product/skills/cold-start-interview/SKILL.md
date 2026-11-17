@@ -51,7 +51,7 @@ last_legislative_update: "2026-05"  # auto-added 2026-05-26
 
 ## Attribution
 
-Adapted from [`product-legal/cold-start-interview`](https://github.com/anthropics/claude-for-legal/blob/main/product-legal/skills/cold-start-interview/SKILL.md) by Anthropic (Apache 2.0).
+Adapted from [`product-legal/cold-start-interview`](https://github.com/anthropics/claude-for-legal/tree/main/product-legal/skills/cold-start-interview/SKILL.md) by Anthropic (Apache 2.0).
 
 **Категория B:** US FTC framework → РФ ЗЗПП + 152-ФЗ + 38-ФЗ + sectoral.
 

@@ -223,7 +223,7 @@ Audience выбор обязательный — определяет ВСЁ н�
 
 ## Attribution
 
-Adapted from [`employment-legal/investigation-summary`](https://github.com/anthropics/claude-for-legal/blob/main/employment-legal/skills/investigation-summary/SKILL.md)
+Adapted from [`employment-legal/investigation-summary`](https://github.com/anthropics/claude-for-legal/tree/main/employment-legal/skills/investigation-summary/SKILL.md)
 by Anthropic (Apache 2.0).
 
 **Категория A:** audience list заменён РФ-realities (профсоюз, ГИТ, outside-адв ФПА вместо US generic "outside counsel"), privilege framing strictly по РФ (in-house = НЕ privileged), templates для каждой audience.

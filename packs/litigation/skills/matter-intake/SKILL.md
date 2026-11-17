@@ -247,7 +247,7 @@ Critical для litigation:
 
 ## Attribution
 
-Adapted from [`litigation-legal/matter-intake`](https://github.com/anthropics/claude-for-legal/blob/main/litigation-legal/skills/matter-intake/SKILL.md)
+Adapted from [`litigation-legal/matter-intake`](https://github.com/anthropics/claude-for-legal/tree/main/litigation-legal/skills/matter-intake/SKILL.md)
 by Anthropic (Apache 2.0).
 
 **Изменения от оригинала:**

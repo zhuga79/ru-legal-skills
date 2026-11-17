@@ -218,7 +218,7 @@ Models деpended on в product (recommendation engines, etc.) — must be в in
 
 ## Attribution
 
-Adapted from [`ai-governance-legal/ai-inventory`](https://github.com/anthropics/claude-for-legal/blob/main/ai-governance-legal/skills/ai-inventory/SKILL.md) by Anthropic (Apache 2.0).
+Adapted from [`ai-governance-legal/ai-inventory`](https://github.com/anthropics/claude-for-legal/tree/main/ai-governance-legal/skills/ai-inventory/SKILL.md) by Anthropic (Apache 2.0).
 
 **Категория A:**
 - Inventory template universal

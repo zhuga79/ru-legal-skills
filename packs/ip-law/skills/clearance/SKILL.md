@@ -200,7 +200,7 @@ Clearance проверяет **могут ли запатентовать** — 
 
 ## Attribution
 
-Adapted from [`ip-legal/clearance`](https://github.com/anthropics/claude-for-legal/blob/main/ip-legal/skills/clearance/SKILL.md) by Anthropic (Apache 2.0).
+Adapted from [`ip-legal/clearance`](https://github.com/anthropics/claude-for-legal/tree/main/ip-legal/skills/clearance/SKILL.md) by Anthropic (Apache 2.0).
 
 **Категория B:** US USPTO trademark/patent search → РФ Роспатент / ФИПС; ст.1483 ГК (отказ в регистрации) vs US Lanham Act 15 USC §1052; Мадридская система search via WIPO; EAEU единый ТЗ added; МКТУ (Ниццкая classification — universal but framing РФ); ст.1350 ГК для патентной clearance.
 

@@ -185,7 +185,7 @@ Even в этом случае — **адвокат должен present** при
 
 ## Attribution
 
-Adapted from [`litigation-legal/privilege-log-review`](https://github.com/anthropics/claude-for-legal/blob/main/litigation-legal/skills/privilege-log-review/SKILL.md)
+Adapted from [`litigation-legal/privilege-log-review`](https://github.com/anthropics/claude-for-legal/tree/main/litigation-legal/skills/privilege-log-review/SKILL.md)
 by Anthropic (Apache 2.0).
 
 **Категория C (substantial rewrite):**

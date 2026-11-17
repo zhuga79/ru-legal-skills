@@ -273,7 +273,7 @@ Default по АПК ст.4 ч.5 — **30 дней с момента получе
 
 ## Attribution
 
-Adapted from [`litigation-legal/demand-draft`](https://github.com/anthropics/claude-for-legal/blob/main/litigation-legal/skills/demand-draft/SKILL.md)
+Adapted from [`litigation-legal/demand-draft`](https://github.com/anthropics/claude-for-legal/tree/main/litigation-legal/skills/demand-draft/SKILL.md)
 by Anthropic (Apache 2.0).
 
 **Substantial РФ adaptation:**

@@ -184,7 +184,7 @@ Set by user в PROFILE.md:
 
 ## Attribution
 
-Adapted from [`corporate-legal/cold-start-interview`](https://github.com/anthropics/claude-for-legal/blob/main/corporate-legal/skills/cold-start-interview/SKILL.md)
+Adapted from [`corporate-legal/cold-start-interview`](https://github.com/anthropics/claude-for-legal/tree/main/corporate-legal/skills/cold-start-interview/SKILL.md)
 by Anthropic (Apache 2.0).
 
 **Категория B:**

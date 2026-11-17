@@ -302,7 +302,7 @@ Remove пиратский контент в РФ через legal procedures. Cr
 
 ## Attribution
 
-Adapted from [`ip-legal/takedown`](https://github.com/anthropics/claude-for-legal/blob/main/ip-legal/skills/takedown/SKILL.md) by Anthropic (Apache 2.0).
+Adapted from [`ip-legal/takedown`](https://github.com/anthropics/claude-for-legal/tree/main/ip-legal/skills/takedown/SKILL.md) by Anthropic (Apache 2.0).
 
 **Категория C (substantial rewrite):**
 - US DMCA §512 notice-and-takedown → ФЗ-149 ст.15.7 (different procedural framework)

@@ -189,7 +189,7 @@ action items с deadlines.
 
 ## Attribution
 
-Adapted from [`product-legal/launch-review`](https://github.com/anthropics/claude-for-legal/blob/main/product-legal/skills/launch-review/SKILL.md) by Anthropic (Apache 2.0).
+Adapted from [`product-legal/launch-review`](https://github.com/anthropics/claude-for-legal/tree/main/product-legal/skills/launch-review/SKILL.md) by Anthropic (Apache 2.0).
 
 **Категория B:**
 - US FTC / state AG framework → РФ ЗЗПП + 152-ФЗ + 38-ФЗ + Роспотребнадзор / sectoral

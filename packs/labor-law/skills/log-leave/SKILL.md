@@ -87,7 +87,7 @@ Run `/leave-tracker` для полного review.
 
 ## Attribution
 
-Adapted from [`employment-legal/log-leave`](https://github.com/anthropics/claude-for-legal/blob/main/employment-legal/skills/log-leave/SKILL.md)
+Adapted from [`employment-legal/log-leave`](https://github.com/anthropics/claude-for-legal/tree/main/employment-legal/skills/log-leave/SKILL.md)
 by Anthropic (Apache 2.0).
 
 **Категория A (light adaptation):** field schema адаптирован под РФ типы отпусков (декрет, по уходу до 1.5/3, БСС), ФСС/СФР статус (а не US FMLA), цитирование ТК.

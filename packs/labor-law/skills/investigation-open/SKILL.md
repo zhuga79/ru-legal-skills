@@ -140,7 +140,7 @@ Next: /investigation-add для записи фактов или
 
 ## Attribution
 
-Adapted from [`employment-legal/investigation-open`](https://github.com/anthropics/claude-for-legal/blob/main/employment-legal/skills/investigation-open/SKILL.md)
+Adapted from [`employment-legal/investigation-open`](https://github.com/anthropics/claude-for-legal/tree/main/employment-legal/skills/investigation-open/SKILL.md)
 by Anthropic (Apache 2.0).
 
 **Категория A (light adaptation):** добавлены РФ-specific pre-flight checks (ст.193 ТК дедлайны, объяснение работника, privilege framework для РФ).

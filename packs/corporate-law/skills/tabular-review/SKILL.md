@@ -230,7 +230,7 @@ User задаёт fields:
 
 ## Attribution
 
-Adapted from [`corporate-legal/tabular-review`](https://github.com/anthropics/claude-for-legal/blob/main/corporate-legal/skills/tabular-review/SKILL.md)
+Adapted from [`corporate-legal/tabular-review`](https://github.com/anthropics/claude-for-legal/tree/main/corporate-legal/skills/tabular-review/SKILL.md)
 by Anthropic (Apache 2.0).
 
 **Категория B:**

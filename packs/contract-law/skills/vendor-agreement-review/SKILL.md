@@ -483,7 +483,7 @@ Auto-flag sanctions, валютный контроль, governing law restrictio
 
 ## Attribution
 
-Adapted from [`commercial-legal/vendor-agreement-review`](https://github.com/anthropics/claude-for-legal/blob/main/commercial-legal/skills/vendor-agreement-review/SKILL.md)
+Adapted from [`commercial-legal/vendor-agreement-review`](https://github.com/anthropics/claude-for-legal/tree/main/commercial-legal/skills/vendor-agreement-review/SKILL.md)
 by Anthropic (Apache 2.0).
 
 **Изменения от оригинала (substantial РФ adaptation):**

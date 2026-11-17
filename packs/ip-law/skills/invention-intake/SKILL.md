@@ -267,7 +267,7 @@ preserve rights.
 
 ## Attribution
 
-Adapted from [`ip-legal/invention-intake`](https://github.com/anthropics/claude-for-legal/blob/main/ip-legal/skills/invention-intake/SKILL.md) by Anthropic (Apache 2.0).
+Adapted from [`ip-legal/invention-intake`](https://github.com/anthropics/claude-for-legal/tree/main/ip-legal/skills/invention-intake/SKILL.md) by Anthropic (Apache 2.0).
 
 **Категория A:**
 - Disclosure form template preserved

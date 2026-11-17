@@ -258,7 +258,7 @@ Flag if any hold > 6 months without refresh.
 
 ## Attribution
 
-Adapted from [`litigation-legal/legal-hold`](https://github.com/anthropics/claude-for-legal/blob/main/litigation-legal/skills/legal-hold/SKILL.md)
+Adapted from [`litigation-legal/legal-hold`](https://github.com/anthropics/claude-for-legal/tree/main/litigation-legal/skills/legal-hold/SKILL.md)
 by Anthropic (Apache 2.0).
 
 **Категория C → B adaptation:**

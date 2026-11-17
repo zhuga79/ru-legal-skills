@@ -1,6 +1,6 @@
 # ru-legal-skills-mcp
 
-> Unified MCP server для `ru-legal`. Подключи **один пакет** — получи 186 skills + 33 tools РФ legal AI.
+> Unified MCP server для `ru-legal`. Подключи **один пакет** — получи 206 skills + 33 tools РФ legal AI.
 
 [![PyPI](https://img.shields.io/pypi/v/ru-legal-skills-mcp.svg)](https://pypi.org/project/ru-legal-skills-mcp/)
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](../../LICENSE)
@@ -33,7 +33,7 @@ uvx ru-legal-skills-mcp
 
 ```bash
 ru-legal-skills list-packs        # 19 паков и число skills
-ru-legal-skills list-skills       # все 186
+ru-legal-skills list-skills       # все 206
 ru-legal-skills show-skill labor-law/termination-review
 ```
 
@@ -45,7 +45,7 @@ ru-legal-skills show-skill labor-law/termination-review
 Теперь твой LLM-клиент видит:
 
 — **4 skill management tools** (`list_skills`, `find_skill`, `get_skill`, `get_skill_index`)
-— **186 skills как MCP prompts** (slash-commands: `/labor_law_termination_review` и т.д.)
+— **206 skills как MCP prompts** (slash-commands: `/labor_law_termination_review` и т.д.)
 — *(coming in Phase 2)* **33 tool proxies** для гос.реестров РФ
 
 ## Что внутри
@@ -54,7 +54,7 @@ ru-legal-skills show-skill labor-law/termination-review
 
 | Tool | Purpose |
 |------|---------|
-| `list_skills(pack=None)` | Все 186 skills с metadata (id, name, description, argument-hint) |
+| `list_skills(pack=None)` | Все 206 skills с metadata (id, name, description, argument-hint) |
 | `find_skill(query, top_k=3)` | **LLM router** — подбирает skill под user query на естественном языке |
 | `get_skill(skill_id)` | Полный SKILL.md с workflow / decision tree / citations |
 | `get_skill_index()` | Compact text index — quick scan всех skills |
@@ -112,7 +112,7 @@ export RU_LEGAL_ROUTER_LLM=yandexgpt
 │                                           │
 │  ├── server.py — entrypoint               │
 │  ├── registry/skills.py — load packs/     │
-│  │      • 186 skills indexed at startup   │
+│  │      • 206 skills indexed at startup   │
 │  └── router/                              │
 │      ├── router.py — 2-tier router        │
 │      └── llm.py — provider-agnostic LLM   │
@@ -121,7 +121,7 @@ export RU_LEGAL_ROUTER_LLM=yandexgpt
                  ▼
 ┌───────────────────────────────────────────┐
 │  packs/                                   │
-│  └── 19 packs × N skills × SKILL.md       │
+│  └── 22 packs × N skills × SKILL.md       │
 └───────────────────────────────────────────┘
 ```
 

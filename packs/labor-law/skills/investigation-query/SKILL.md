@@ -124,7 +124,7 @@ Files в matter folder:
 
 ## Attribution
 
-Adapted from [`employment-legal/investigation-query`](https://github.com/anthropics/claude-for-legal/blob/main/employment-legal/skills/investigation-query/SKILL.md)
+Adapted from [`employment-legal/investigation-query`](https://github.com/anthropics/claude-for-legal/tree/main/employment-legal/skills/investigation-query/SKILL.md)
 by Anthropic (Apache 2.0).
 
 **Категория A:** добавлены РФ-specific query patterns (дисциплинарка clock, privilege check для РФ, профсоюз).

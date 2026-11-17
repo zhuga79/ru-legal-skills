@@ -316,7 +316,7 @@ Audience-specific summary corporate matter (M&A, IPO, реорганизация
 
 ## Attribution
 
-Adapted from [`corporate-legal/deal-team-summary`](https://github.com/anthropics/claude-for-legal/blob/main/corporate-legal/skills/deal-team-summary/SKILL.md)
+Adapted from [`corporate-legal/deal-team-summary`](https://github.com/anthropics/claude-for-legal/tree/main/corporate-legal/skills/deal-team-summary/SKILL.md)
 by Anthropic (Apache 2.0).
 
 **Категория A:**

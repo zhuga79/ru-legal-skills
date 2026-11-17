@@ -245,7 +245,7 @@ Output: gap analysis + remediation plan.
 
 ## Attribution
 
-Adapted from [`corporate-legal/entity-compliance`](https://github.com/anthropics/claude-for-legal/blob/main/corporate-legal/skills/entity-compliance/SKILL.md)
+Adapted from [`corporate-legal/entity-compliance`](https://github.com/anthropics/claude-for-legal/tree/main/corporate-legal/skills/entity-compliance/SKILL.md)
 by Anthropic (Apache 2.0).
 
 **Категория C (substantial rewrite):**

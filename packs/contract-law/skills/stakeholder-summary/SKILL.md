@@ -300,7 +300,7 @@ Stakeholders запоминают две вещи про legal: **заблоки
 
 ## Attribution
 
-Adapted from [`commercial-legal/stakeholder-summary`](https://github.com/anthropics/claude-for-legal/blob/main/commercial-legal/skills/stakeholder-summary/SKILL.md)
+Adapted from [`commercial-legal/stakeholder-summary`](https://github.com/anthropics/claude-for-legal/tree/main/commercial-legal/skills/stakeholder-summary/SKILL.md)
 by Anthropic (Apache 2.0).
 
 **Изменения от оригинала:**

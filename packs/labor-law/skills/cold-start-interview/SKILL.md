@@ -188,7 +188,7 @@ interview.
 
 ## Attribution
 
-Adapted from [`employment-legal/cold-start-interview`](https://github.com/anthropics/claude-for-legal/blob/main/employment-legal/skills/cold-start-interview/SKILL.md)
+Adapted from [`employment-legal/cold-start-interview`](https://github.com/anthropics/claude-for-legal/tree/main/employment-legal/skills/cold-start-interview/SKILL.md)
 by Anthropic (Apache 2.0).
 
 **Категория B:**

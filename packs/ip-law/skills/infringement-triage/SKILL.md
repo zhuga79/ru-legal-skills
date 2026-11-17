@@ -272,7 +272,7 @@ Alleged infringer может иметь защиту:
 
 ## Attribution
 
-Adapted from [`ip-legal/infringement-triage`](https://github.com/anthropics/claude-for-legal/blob/main/ip-legal/skills/infringement-triage/SKILL.md) by Anthropic (Apache 2.0).
+Adapted from [`ip-legal/infringement-triage`](https://github.com/anthropics/claude-for-legal/tree/main/ip-legal/skills/infringement-triage/SKILL.md) by Anthropic (Apache 2.0).
 
 **Категория B:**
 - US tests заменены: для ТЗ — sliding scale RNS factors → РФ сходство до степени смешения (ст.1483 ч.6); для патентов — doctrine of equivalents → РФ literal claim chart (ст.1358); для авторских — substantial similarity test → РФ переработка / производное (ст.1270)

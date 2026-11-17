@@ -134,7 +134,7 @@ status requests — это **billable time**. Не отправляй request ч
 
 ## Attribution
 
-Adapted from [`litigation-legal/oc-status`](https://github.com/anthropics/claude-for-legal/blob/main/litigation-legal/skills/oc-status/SKILL.md)
+Adapted from [`litigation-legal/oc-status`](https://github.com/anthropics/claude-for-legal/tree/main/litigation-legal/skills/oc-status/SKILL.md)
 by Anthropic (Apache 2.0).
 
 **Изменения:**

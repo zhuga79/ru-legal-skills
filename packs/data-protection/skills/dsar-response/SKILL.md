@@ -477,7 +477,7 @@ overlay** — ТК РФ ст.86-90 (защита персональных дан
 
 ## Attribution
 
-Adapted from [`privacy-legal/dsar-response`](https://github.com/anthropics/claude-for-legal/blob/main/privacy-legal/skills/dsar-response/SKILL.md)
+Adapted from [`privacy-legal/dsar-response`](https://github.com/anthropics/claude-for-legal/tree/main/privacy-legal/skills/dsar-response/SKILL.md)
 by Anthropic (Apache 2.0).
 
 **Изменения от оригинала (substantial РФ adaptation — практически переписан с нуля

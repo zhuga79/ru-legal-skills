@@ -63,7 +63,7 @@ pip install ru-legal-skills-mcp
 Теперь LLM-клиент видит:
 - **206 skills** как MCP prompts (slash-commands)
 - **Skill management tools** (`find_skill`, `get_skill`, `list_skills`)
-- **(Phase 2)** 33 tools из 7 sub-MCPs
+- **(Phase 2)** проксирование tools из 7 sub-MCPs (обещано 33, фактическое число см. MCP-STATUS)
 
 ### Путь 2: Granular install — отдельные MCP
 
@@ -141,7 +141,7 @@ result = await agent.ainvoke({"messages": [
 - Все 206 skills доступны через `list_skills` / `find_skill` / `get_skill`
 - **Strategy C router** — LLM-based подбор skill под user query (если configured), keyword fallback
 - Skills auto-зарегистрированы как MCP prompts (slash-commands)
-- *(Phase 2)*: re-export всех 33 tools из 7 sub-MCPs
+- *(Phase 2)*: re-export tools из 7 sub-MCPs (обещано 33, факт см. MCP-STATUS.md)
 
 См. [`mcps/ru-legal-aggregator/README.md`](mcps/ru-legal-aggregator/README.md).
 

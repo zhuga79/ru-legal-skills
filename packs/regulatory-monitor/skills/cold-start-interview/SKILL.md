@@ -45,7 +45,7 @@ List всех наших ЛНПА которые могут require updates пр
 
 ## Attribution
 
-Adapted from [`regulatory-legal/cold-start-interview`](https://github.com/anthropics/claude-for-legal/blob/main/regulatory-legal/skills/cold-start-interview/SKILL.md) by Anthropic (Apache 2.0).
+Adapted from [`regulatory-legal/cold-start-interview`](https://github.com/anthropics/claude-for-legal/tree/main/regulatory-legal/skills/cold-start-interview/SKILL.md) by Anthropic (Apache 2.0).
 
 **Категория B:** sources заменены на РФ feeds (pravo.gov.ru, Банк России, ФНС, Минцифры, ФАС, и т.д.).
 

@@ -497,7 +497,7 @@ Re-run interview: /contract-law:cold-start-interview --redo
 
 ## Attribution
 
-Heavily inspired by [`commercial-legal/cold-start-interview`](https://github.com/anthropics/claude-for-legal/blob/main/commercial-legal/skills/cold-start-interview/SKILL.md)
+Heavily inspired by [`commercial-legal/cold-start-interview`](https://github.com/anthropics/claude-for-legal/tree/main/commercial-legal/skills/cold-start-interview/SKILL.md)
 by Anthropic (Apache 2.0).
 
 **Не straight port** — у нас своя структура profile + critical RU adaptations:

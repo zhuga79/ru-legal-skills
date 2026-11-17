@@ -459,7 +459,7 @@ provisions и cite в review.
 
 ## Attribution
 
-Adapted from [`privacy-legal/dpa-review`](https://github.com/anthropics/claude-for-legal/blob/main/privacy-legal/skills/dpa-review/SKILL.md)
+Adapted from [`privacy-legal/dpa-review`](https://github.com/anthropics/claude-for-legal/tree/main/privacy-legal/skills/dpa-review/SKILL.md)
 by Anthropic (Apache 2.0).
 
 **Изменения от оригинала (substantial РФ adaptation — практически переписан):**

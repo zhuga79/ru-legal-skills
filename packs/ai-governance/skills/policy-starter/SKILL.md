@@ -383,7 +383,7 @@ Use template above as basis. Modify per organization's:
 
 ## Attribution
 
-Adapted from [`ai-governance-legal/policy-starter`](https://github.com/anthropics/claude-for-legal/blob/main/ai-governance-legal/skills/policy-starter/SKILL.md) by Anthropic (Apache 2.0).
+Adapted from [`ai-governance-legal/policy-starter`](https://github.com/anthropics/claude-for-legal/tree/main/ai-governance-legal/skills/policy-starter/SKILL.md) by Anthropic (Apache 2.0).
 
 **Категория B:**
 - Universal AI policy structure preserved

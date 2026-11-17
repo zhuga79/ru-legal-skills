@@ -138,7 +138,7 @@ last_legislative_update: "2026-05"  # auto-added 2026-05-26
 
 ## Attribution
 
-Inspired by [`privacy-legal/cold-start-interview`](https://github.com/anthropics/claude-for-legal/blob/main/privacy-legal/skills/cold-start-interview/SKILL.md)
+Inspired by [`privacy-legal/cold-start-interview`](https://github.com/anthropics/claude-for-legal/tree/main/privacy-legal/skills/cold-start-interview/SKILL.md)
 by Anthropic (Apache 2.0).
 
 **Не straight port** — структура interview переделана под РФ:

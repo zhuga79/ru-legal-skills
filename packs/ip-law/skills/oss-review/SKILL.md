@@ -272,7 +272,7 @@ Post-2022:
 
 ## Attribution
 
-Adapted from [`ip-legal/oss-review`](https://github.com/anthropics/claude-for-legal/blob/main/ip-legal/skills/oss-review/SKILL.md) by Anthropic (Apache 2.0).
+Adapted from [`ip-legal/oss-review`](https://github.com/anthropics/claude-for-legal/tree/main/ip-legal/skills/oss-review/SKILL.md) by Anthropic (Apache 2.0).
 
 **Категория A:**
 - License categories universal (OSS landscape global)

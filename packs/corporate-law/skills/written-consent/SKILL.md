@@ -294,7 +294,7 @@ Quorum [имеется / отсутствует].
 
 ## Attribution
 
-Adapted from [`corporate-legal/written-consent`](https://github.com/anthropics/claude-for-legal/blob/main/corporate-legal/skills/written-consent/SKILL.md)
+Adapted from [`corporate-legal/written-consent`](https://github.com/anthropics/claude-for-legal/tree/main/corporate-legal/skills/written-consent/SKILL.md)
 by Anthropic (Apache 2.0).
 
 **Категория C (substantial rewrite):**

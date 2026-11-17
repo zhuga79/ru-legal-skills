@@ -121,7 +121,7 @@ outside counsel / лично себе?"
 
 ## Attribution
 
-Adapted from [`litigation-legal/matter-briefing`](https://github.com/anthropics/claude-for-legal/blob/main/litigation-legal/skills/matter-briefing/SKILL.md)
+Adapted from [`litigation-legal/matter-briefing`](https://github.com/anthropics/claude-for-legal/tree/main/litigation-legal/skills/matter-briefing/SKILL.md)
 by Anthropic (Apache 2.0).
 
 **Изменения:** РФ юр.термины (forum, posture types), audience calibration сохранена,

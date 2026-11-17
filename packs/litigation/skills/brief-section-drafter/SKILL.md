@@ -178,7 +178,7 @@ matters/[slug]/drafts/[section]-[YYYY-MM-DD].md
 
 ## Attribution
 
-Adapted from [`litigation-legal/brief-section-drafter`](https://github.com/anthropics/claude-for-legal/blob/main/litigation-legal/skills/brief-section-drafter/SKILL.md)
+Adapted from [`litigation-legal/brief-section-drafter`](https://github.com/anthropics/claude-for-legal/tree/main/litigation-legal/skills/brief-section-drafter/SKILL.md)
 by Anthropic (Apache 2.0).
 
 **Изменения от оригинала (substantial РФ adaptation):**

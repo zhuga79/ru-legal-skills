@@ -246,7 +246,7 @@ Post-2022 особые considerations:
 
 ## Attribution
 
-Adapted from [`ai-governance-legal/use-case-triage`](https://github.com/anthropics/claude-for-legal/blob/main/ai-governance-legal/skills/use-case-triage/SKILL.md) by Anthropic (Apache 2.0).
+Adapted from [`ai-governance-legal/use-case-triage`](https://github.com/anthropics/claude-for-legal/tree/main/ai-governance-legal/skills/use-case-triage/SKILL.md) by Anthropic (Apache 2.0).
 
 **Категория B:**
 - EU AI Act risk categorization → adapted к РФ regulatory mosaic (152-ФЗ + sectoral)

@@ -379,7 +379,7 @@ filename.
 
 ## Attribution
 
-Adapted from [`commercial-legal/amendment-history`](https://github.com/anthropics/claude-for-legal/blob/main/commercial-legal/skills/amendment-history/SKILL.md)
+Adapted from [`commercial-legal/amendment-history`](https://github.com/anthropics/claude-for-legal/tree/main/commercial-legal/skills/amendment-history/SKILL.md)
 by Anthropic (Apache 2.0).
 
 **Изменения от оригинала:**

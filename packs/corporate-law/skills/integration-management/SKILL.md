@@ -244,7 +244,7 @@ T+90-180 (mature).
 
 ## Attribution
 
-Adapted from [`corporate-legal/integration-management`](https://github.com/anthropics/claude-for-legal/blob/main/corporate-legal/skills/integration-management/SKILL.md)
+Adapted from [`corporate-legal/integration-management`](https://github.com/anthropics/claude-for-legal/tree/main/corporate-legal/skills/integration-management/SKILL.md)
 by Anthropic (Apache 2.0).
 
 **Категория B:**

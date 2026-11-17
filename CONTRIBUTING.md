@@ -189,7 +189,7 @@ if __name__ == "__main__":
 
 ## Recognition
 
-Все contributors указываются в [CONTRIBUTORS.md](CONTRIBUTORS.md). PRs с твоим именем + краткое описание contribution.
+Все contributors указываются в `CONTRIBUTORS.md` (создаётся при первом PR — файла пока нет).
 
 ## Вопросы
 

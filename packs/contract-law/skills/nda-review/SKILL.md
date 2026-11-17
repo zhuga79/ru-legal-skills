@@ -538,7 +538,7 @@ closing_action: "Forward output и NDA контракт-менеджеру."
 
 ## Attribution
 
-Adapted from [`commercial-legal/nda-review`](https://github.com/anthropics/claude-for-legal/blob/main/commercial-legal/skills/nda-review/SKILL.md)
+Adapted from [`commercial-legal/nda-review`](https://github.com/anthropics/claude-for-legal/tree/main/commercial-legal/skills/nda-review/SKILL.md)
 by Anthropic (Apache 2.0).
 
 **Изменения от оригинала (substantial РФ adaptation):**

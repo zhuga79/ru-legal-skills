@@ -117,7 +117,7 @@ Update полей:
 
 ## Attribution
 
-Adapted from [`litigation-legal/matter-update`](https://github.com/anthropics/claude-for-legal/blob/main/litigation-legal/skills/matter-update/SKILL.md)
+Adapted from [`litigation-legal/matter-update`](https://github.com/anthropics/claude-for-legal/tree/main/litigation-legal/skills/matter-update/SKILL.md)
 by Anthropic (Apache 2.0).
 
 **Изменения:**

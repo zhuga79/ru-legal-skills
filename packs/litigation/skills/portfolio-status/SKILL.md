@@ -152,7 +152,7 @@ Combine secticons в single Markdown document.
 
 ## Attribution
 
-Adapted from [`litigation-legal/portfolio-status`](https://github.com/anthropics/claude-for-legal/blob/main/litigation-legal/skills/portfolio-status/SKILL.md)
+Adapted from [`litigation-legal/portfolio-status`](https://github.com/anthropics/claude-for-legal/tree/main/litigation-legal/skills/portfolio-status/SKILL.md)
 by Anthropic (Apache 2.0).
 
 **Изменения:** Russian terminology для типов дел, РФ-specific aggregations (налоговые,

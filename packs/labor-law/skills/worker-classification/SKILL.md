@@ -254,7 +254,7 @@ implementation. Material exposure при крупных портфелях са�
 
 ## Attribution
 
-Adapted from [`employment-legal/worker-classification`](https://github.com/anthropics/claude-for-legal/blob/main/employment-legal/skills/worker-classification/SKILL.md)
+Adapted from [`employment-legal/worker-classification`](https://github.com/anthropics/claude-for-legal/tree/main/employment-legal/skills/worker-classification/SKILL.md)
 by Anthropic (Apache 2.0).
 
 **Категория C (substantial rewrite):**

@@ -222,7 +222,7 @@ Deviation-by-deviation, конкретные redlines, названный approv
 
 ## Attribution
 
-Adapted from [`commercial-legal/review`](https://github.com/anthropics/claude-for-legal/blob/main/commercial-legal/skills/review/SKILL.md)
+Adapted from [`commercial-legal/review`](https://github.com/anthropics/claude-for-legal/tree/main/commercial-legal/skills/review/SKILL.md)
 by Anthropic (Apache 2.0).
 
 **Изменения от оригинала:**

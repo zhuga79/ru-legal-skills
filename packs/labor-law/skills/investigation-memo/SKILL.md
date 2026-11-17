@@ -241,7 +241,7 @@ Memo должен **explicitly** address эти timing requirements.
 
 ## Attribution
 
-Adapted from [`employment-legal/investigation-memo`](https://github.com/anthropics/claude-for-legal/blob/main/employment-legal/skills/investigation-memo/SKILL.md)
+Adapted from [`employment-legal/investigation-memo`](https://github.com/anthropics/claude-for-legal/tree/main/employment-legal/skills/investigation-memo/SKILL.md)
 by Anthropic (Apache 2.0).
 
 **Категория B (medium adaptation):**

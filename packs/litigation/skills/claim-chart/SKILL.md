@@ -220,7 +220,7 @@ matters/[slug]/claim-chart-[date].md
 
 ## Attribution
 
-Adapted from [`litigation-legal/claim-chart`](https://github.com/anthropics/claude-for-legal/blob/main/litigation-legal/skills/claim-chart/SKILL.md)
+Adapted from [`litigation-legal/claim-chart`](https://github.com/anthropics/claude-for-legal/tree/main/litigation-legal/skills/claim-chart/SKILL.md)
 by Anthropic (Apache 2.0).
 
 **Изменения:**

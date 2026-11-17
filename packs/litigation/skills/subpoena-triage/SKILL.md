@@ -207,7 +207,7 @@ last_legislative_update: "2026-05"  # auto-added 2026-05-26
 
 ## Attribution
 
-Adapted from [`litigation-legal/subpoena-triage`](https://github.com/anthropics/claude-for-legal/blob/main/litigation-legal/skills/subpoena-triage/SKILL.md)
+Adapted from [`litigation-legal/subpoena-triage`](https://github.com/anthropics/claude-for-legal/tree/main/litigation-legal/skills/subpoena-triage/SKILL.md)
 by Anthropic (Apache 2.0).
 
 **Категория C → B:**

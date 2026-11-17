@@ -252,7 +252,7 @@ PROFILE.md → `## ОВПД house style`:
 
 ## Attribution
 
-Adapted from [`privacy-legal/pia-generation`](https://github.com/anthropics/claude-for-legal/blob/main/privacy-legal/skills/pia-generation/SKILL.md)
+Adapted from [`privacy-legal/pia-generation`](https://github.com/anthropics/claude-for-legal/tree/main/privacy-legal/skills/pia-generation/SKILL.md)
 by Anthropic (Apache 2.0).
 
 **Изменения от оригинала (substantial РФ adaptation):**

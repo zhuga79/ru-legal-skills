@@ -39,7 +39,7 @@ last_legislative_update: "2026-05"  # auto-added 2026-05-26
 
 ## Attribution
 
-Adapted from [`corporate-legal/customize`](https://github.com/anthropics/claude-for-legal/blob/main/corporate-legal/skills/customize/SKILL.md)
+Adapted from [`corporate-legal/customize`](https://github.com/anthropics/claude-for-legal/tree/main/corporate-legal/skills/customize/SKILL.md)
 by Anthropic (Apache 2.0).
 
 **Original copyright:** © 2026 Anthropic PBC, Apache 2.0.

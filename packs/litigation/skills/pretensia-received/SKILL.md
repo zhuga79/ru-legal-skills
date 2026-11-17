@@ -216,7 +216,7 @@ Verify что подписал претензию **уполномоченный
 
 ## Attribution
 
-Adapted from [`litigation-legal/demand-received`](https://github.com/anthropics/claude-for-legal/blob/main/litigation-legal/skills/demand-received/SKILL.md)
+Adapted from [`litigation-legal/demand-received`](https://github.com/anthropics/claude-for-legal/tree/main/litigation-legal/skills/demand-received/SKILL.md)
 by Anthropic (Apache 2.0).
 
 **Изменения:**

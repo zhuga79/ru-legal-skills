@@ -237,7 +237,7 @@ requirements:
 
 ## Attribution
 
-Adapted from [`privacy-legal/reg-gap-analysis`](https://github.com/anthropics/claude-for-legal/blob/main/privacy-legal/skills/reg-gap-analysis/SKILL.md)
+Adapted from [`privacy-legal/reg-gap-analysis`](https://github.com/anthropics/claude-for-legal/tree/main/privacy-legal/skills/reg-gap-analysis/SKILL.md)
 by Anthropic (Apache 2.0).
 
 **Изменения от оригинала:**

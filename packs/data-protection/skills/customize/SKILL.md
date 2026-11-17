@@ -45,7 +45,7 @@ Mapping секций PROFILE.md → что менять:
 
 ## Attribution
 
-Adapted from [`privacy-legal/customize`](https://github.com/anthropics/claude-for-legal/blob/main/privacy-legal/skills/customize/SKILL.md)
+Adapted from [`privacy-legal/customize`](https://github.com/anthropics/claude-for-legal/tree/main/privacy-legal/skills/customize/SKILL.md)
 by Anthropic (Apache 2.0). РФ-adapted via mapping секций под data-protection
 PROFILE.md.
 

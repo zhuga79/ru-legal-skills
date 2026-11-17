@@ -198,7 +198,7 @@ plug in new ЛНПА changes, handle процедуру утверждения /
 
 ## Attribution
 
-Adapted from [`employment-legal/handbook-updates`](https://github.com/anthropics/claude-for-legal/blob/main/employment-legal/skills/handbook-updates/SKILL.md)
+Adapted from [`employment-legal/handbook-updates`](https://github.com/anthropics/claude-for-legal/tree/main/employment-legal/skills/handbook-updates/SKILL.md)
 by Anthropic (Apache 2.0).
 
 **Категория B:**

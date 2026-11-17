@@ -262,7 +262,7 @@ drafting based on PROFILE + applicable ТК / Sectoral requirements.
 
 ## Attribution
 
-Adapted from [`employment-legal/policy-drafting`](https://github.com/anthropics/claude-for-legal/blob/main/employment-legal/skills/policy-drafting/SKILL.md)
+Adapted from [`employment-legal/policy-drafting`](https://github.com/anthropics/claude-for-legal/tree/main/employment-legal/skills/policy-drafting/SKILL.md)
 by Anthropic (Apache 2.0).
 
 **Категория B:**

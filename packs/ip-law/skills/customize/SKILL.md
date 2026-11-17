@@ -28,7 +28,7 @@ last_legislative_update: "2026-05"  # auto-added 2026-05-26
 
 ## Attribution
 
-Adapted from [`ip-legal/customize`](https://github.com/anthropics/claude-for-legal/blob/main/ip-legal/skills/customize/SKILL.md) by Anthropic (Apache 2.0).
+Adapted from [`ip-legal/customize`](https://github.com/anthropics/claude-for-legal/tree/main/ip-legal/skills/customize/SKILL.md) by Anthropic (Apache 2.0).
 
 **Original copyright:** © 2026 Anthropic PBC, Apache 2.0.
 

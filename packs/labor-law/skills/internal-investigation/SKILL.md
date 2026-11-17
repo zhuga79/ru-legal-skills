@@ -216,7 +216,7 @@ Documents часто содержат ПДн третьих лиц. Для inves
 
 ## Attribution
 
-Adapted from [`employment-legal/internal-investigation`](https://github.com/anthropics/claude-for-legal/blob/main/employment-legal/skills/internal-investigation/SKILL.md)
+Adapted from [`employment-legal/internal-investigation`](https://github.com/anthropics/claude-for-legal/tree/main/employment-legal/skills/internal-investigation/SKILL.md)
 by Anthropic (Apache 2.0).
 
 **Категория B (medium adaptation):**

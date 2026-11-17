@@ -251,7 +251,7 @@ reviewing attorney, должен ли этот класс issue эскалиро
 
 ## Attribution
 
-Adapted from [`commercial-legal/escalation-flagger`](https://github.com/anthropics/claude-for-legal/blob/main/commercial-legal/skills/escalation-flagger/SKILL.md)
+Adapted from [`commercial-legal/escalation-flagger`](https://github.com/anthropics/claude-for-legal/tree/main/commercial-legal/skills/escalation-flagger/SKILL.md)
 by Anthropic (Apache 2.0).
 
 **Изменения от оригинала:**

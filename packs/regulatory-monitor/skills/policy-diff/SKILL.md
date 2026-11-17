@@ -98,7 +98,7 @@ new = pravo.get_npa_version_at_date(hash, on_date=new_date)
 
 ## Attribution
 
-Adapted from [`regulatory-legal/policy-diff`](https://github.com/anthropics/claude-for-legal/blob/main/regulatory-legal/skills/policy-diff/SKILL.md) by Anthropic (Apache 2.0).
+Adapted from [`regulatory-legal/policy-diff`](https://github.com/anthropics/claude-for-legal/tree/main/regulatory-legal/skills/policy-diff/SKILL.md) by Anthropic (Apache 2.0).
 
 **Original copyright:** © 2026 Anthropic PBC, Apache 2.0.
 

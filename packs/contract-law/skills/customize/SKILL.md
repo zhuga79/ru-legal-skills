@@ -196,7 +196,7 @@ sell-side → buy-side) — **не пытайся** через customize. Ска
 
 ## Attribution
 
-Adapted from [`commercial-legal/customize`](https://github.com/anthropics/claude-for-legal/blob/main/commercial-legal/skills/customize/SKILL.md)
+Adapted from [`commercial-legal/customize`](https://github.com/anthropics/claude-for-legal/tree/main/commercial-legal/skills/customize/SKILL.md)
 by Anthropic (Apache 2.0).
 
 **Изменения от оригинала:**

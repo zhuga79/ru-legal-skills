@@ -266,7 +266,7 @@ Pull cited нормы. Если region-dependent → cross-reference PROFILE.md.
 
 ## Attribution
 
-Adapted from [`employment-legal/wage-hour-qa`](https://github.com/anthropics/claude-for-legal/blob/main/employment-legal/skills/wage-hour-qa/SKILL.md)
+Adapted from [`employment-legal/wage-hour-qa`](https://github.com/anthropics/claude-for-legal/tree/main/employment-legal/skills/wage-hour-qa/SKILL.md)
 by Anthropic (Apache 2.0).
 
 **Категория C (substantial rewrite):**
