@@ -10,6 +10,8 @@
 ## [Unreleased]
 
 ### Added (2026-11-17)
+- **Актуализация ROADMAP:** Phase 1–3 просрочены; волны A–D на 2026–H1’27.
+  Приоритет — здоровье MCP и СОЮ, а не новые pack-и. Архив старого плана сохранён.
 - **Перенос установленных legal skills (AutoClaw, Apache 2.0) с переписыванием под право РФ.**
   Не технический перенос: IRAC, holding/dicta, discovery, DXE, Zwork-специфика не переносились.
 - Новый pack `packs/methodology/` — 12 skills: norm-validity-check, research-start,

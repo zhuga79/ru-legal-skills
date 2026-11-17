@@ -1,7 +1,7 @@
 # ROADMAP
 
 > Live-документ. Обновляется по факту прогресса + community feedback.
-> Последнее обновление: 2026-05-26
+> Последнее обновление: 2026-11-17 (актуализация после переноса methodology/risk-assessment)
 
 ## Vision
 
@@ -29,6 +29,13 @@
 - consumer-product (5), education-law (3), enforcement-law (3)
 - matter-management (3), process-documents (2), personal-bankruptcy (1)
 
+✅ **Переработаны старые порты (волна мая 2026):** contract-review (generic-режим, ст. 333/431.2/432),
+claim-chart (составы неустойки/МВ/труда/налогов), amendment-history (ГК 450.1/452),
+matter-briefing, chronology, review, escalation-flagger, stakeholder-summary, tabular-review.
+
+✅ **Инфраструктура качества:** `scripts/validate_skills.py` (frontmatter, дубликаты, registry),
+`audit_staleness.py` на py3.10+, CI-шаг validate.
+
 ✅ **8 MCP-серверов** к госреестрам:
 - pravo-mcp, egrul-mcp, kad-mcp, efrsb-mcp
 - rospatent-mcp, zakupki-mcp, rosreestr-mcp
@@ -54,6 +61,83 @@
 > `methodology` и `risk-assessment` (2026-11-17). Не путать с отраслевыми дырами выше.
 
 ---
+
+## Phase 1 — закрыть основные дыры (ПЕРЕЗАПУСК: декабрь 2026 — февраль 2027)
+
+> Оригинальные дедлайны Phase 1 (июнь-июль) и Phase 2 (август-сентябрь) просрочены.
+> Phase 3 (октябрь-ноябрь 2026) формально «наступила» без выполнения Phase 1–2.
+> Ниже — актуализированный план от 2026-11-17. Старый текст Phase 1–3 сохранён
+> ниже как архив, чтобы не потерять наработки по составу skills.
+
+**Приоритеты пересмотрены.** Методология закрыта. Главное узкое место — **MCP-здоровье**
+и **СОЮ**, а не новые pack-и поверх шаткого data-слоя.
+
+### Волна A — здоровье данных (декабрь 2026) — P0
+
+Без этого новые skills будут цитировать непроверенные нормы.
+
+| Задача | Что | Критерий готовности |
+|---|---|---|
+| `pravo-mcp` | TLS до сих пор сломан (с 2026-05-21), Basic auth в коде. Env-override, pinger TLS, переход на HTTPS когда оживёт | smoke test зелёный 2 недели подряд |
+| `kad-mcp` / `efrsb-mcp` | Browser UA добавлен 2026-05-26, ре-тест так и не описан как пройденный | live-тест + запись в MCP-STATUS |
+| `egrul-mcp` | Free tier 800 запросов **суммарно** — для прода непригоден. dadata fallback (P3 из статуса) | ключ + fallback в README |
+| `zakupki-mcp` | Endpoint подозрителен. Либо доказать, либо пометить ⚫ | вердикт в MCP-STATUS |
+| `rosreestr-mcp` | `get_encumbrances` вводит в заблуждение (всегда платная EGRN) | honest description или удалить tool |
+| MCP-аудит | «Next audit: 2026-11-02» просрочен. Сделать понедельничный CI реальностью, а не обещанием | свежий audit + cron |
+| constants | `references/constants/2026.yaml` есть — **проверить, что skills реально ссылаются**, а не хардкодят 18 млн | grep-аудит хардкодов |
+
+### Волна B — СОЮ и process-documents (январь 2027) — P0
+
+СОЮ — ~90% практики, без него семейное/наследственное/жилищное не работает.
+
+1. **`gas-pravosudie-mcp`** — sudrf/vsrf. Нет публичного API: честно оценить
+   scraping vs paid feed vs «ручной поиск юристом» (как rospatent URL-builder).
+   Не обещать работающий поиск, если его нет.
+2. **`process-documents` добить** — сейчас 2 skills (`isk-sostavlenie`,
+   `motion-evidence-collection`). Из архива Phase 1 взять: appeal-draft,
+   cassation-draft, response-draft, procedural-deadlines-calc, settlement-agreement.
+   Парность: `isk-sostavlenie` ↔ `isk-proverka` уже есть в litigation.
+3. **Gold dataset** — хотя бы 10 кейсов на methodology + litigation
+   (см. Quality Infrastructure ниже). Без этого «206 skills» не проверяемы.
+
+### Волна C — отраслевые pack-и (февраль–апрель 2027) — P1
+
+Порядок — по массовости практики, не по «красивости»:
+
+1. **`family-law`** (10–12) — состав из архива Phase 1 остаётся валидным.
+2. **`inheritance-law`** (8–10) — там же.
+3. **`personal-bankruptcy` расширить** — 1 killer-skill есть, добавить:
+   внесудебное через МФЦ (чек-лист), кредитор-триаж, оспаривание сделок (213.32).
+4. **`housing-law`** — после СОЮ MCP, иначе без картотеки СОЮ навыки «слепые».
+
+### Волна D — compliance и ниша (май–июнь 2027) — P2
+
+- sanctions: оставить ⚫ до появления machine-readable источника; в skills
+  `compliance-aml/sanctions-screening` — ручной процесс, не фейковый MCP.
+- `financial-disputes`, `social-benefits` — по запросу community (vote issues).
+- `documents-mcp` — генератор шаблонов: вероятно, лучше python-docx в skills
+  (как `sanitize_docx.py`), чем отдельный MCP.
+
+### Quality Infrastructure (не откладывать в Phase 3)
+
+- `scripts/validate_skills.py` — есть. Расширить: проверка `references` НПА,
+  запрещённых англицизмов в описаниях новых skills, наличие «Что НЕ делает».
+- Gold dataset: `tests/gold/<pack>/<skill>/case-*.yaml` — старт с methodology
+  (12 skills × 2 кейса) и litigation (case-brief, evidence-evaluation, claim-chart).
+- Legal Review Pipeline: искать 3–5 юристов-партнёров (family, inheritance,
+  bankruptcy, СОЮ) — см. конец файла.
+- THIRD_PARTY_NOTICES.md: в портах упоминается, файла в корне нет — создать
+  или убрать ссылки.
+
+### Чего НЕ делать в 2027 H1
+
+- Phase 4 `ru-buh` — отложить до traction (звёзды/пилюли), не по календарю.
+- Новые pack-и «на вырост» (medical, customs, agro) — только по issues.
+- Писать skills, зависящие от несуществующих MCP (sanctions, СОЮ поиск).
+
+---
+
+## Архив оригинального плана (не актуализирован, состав skills полезен)
 
 ## Phase 1 — закрыть основные дыры (июнь-июль 2026)
 
@@ -245,14 +329,14 @@
 
 ## Метрики прогресса (будем обновлять)
 
-| Метрика | Текущая (v0.1.0) | Phase 1 цель | Phase 2 цель | Phase 3 цель |
+| Метрика | Факт (2026-11-17) | Волна A–B (Q1’27) | Волна C (Q2’27) | Волна D (H1’27) |
 |---|---|---|---|---|
-| Packs | 19 | 20 | 22 | 24 |
-| Skills | 186 | 200 | 220 | 240 |
-| MCPs | 8 | 11 | 14 | 16-17 |
-| GitHub ⭐ | 0 | 200 | 500 | 1000 |
-| Contributors | 1 | 5 | 15 | 30 |
-| Domain owners (юристы-партнёры) | 0 | 3 | 5 | 8 |
+| Packs | 22 | 22–23 (process-documents добить) | 25–26 (family, inheritance, housing) | 27+ по запросу |
+| Skills | 206 | 215–225 | 245–260 | 270+ |
+| MCPs рабочих | 8 (2 зелёных) | 8–9 (pravo/kad/efrsb стабилизированы) | 9–10 (СОЮ если решим) | по запросу |
+| Gold-кейсы | 0 | 30+ (methodology + litigation) | 60+ | 100+ |
+| Domain owners | 0 | 2 | 4 | 6 |
+| GitHub ⭐ | см. repo | — | — | ru-buh только при traction |
 
 ---
 
